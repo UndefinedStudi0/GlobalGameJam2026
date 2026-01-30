@@ -2,9 +2,11 @@ extends NewtonPhysics
 
 var attachedTo = null;
 
-func attach():
-	var entity = get_tree().current_scene.find_child("Player")
-	entity.add_child(self)
+func attach(entityID):
+	var entity = get_tree().current_scene.find_child(entityID)
+	print("attaching to ", entityID)
+	entity.reparent(self)
+	entity.start_attach()
 
 func _physics_process(delta):
 	super._physics_process(delta)
@@ -28,6 +30,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func jump():
+	attach("Npc")
 	velocity.y = jump_velocity
 	
 func double_jump():

@@ -191,10 +191,6 @@ stretch_mode = 1
 
 [node name="Player" parent="." unique_id=693154731 instance=ExtResource("3_3s25j")]
 position = Vector2(-64, 49)
-speed = null
-jump_velocity = null
-double_jump_velocity = null
-animation_locked = null
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=933102430]
 remote_path = NodePath("../../Camera2D")
@@ -217,10 +213,5 @@ collision_visibility_mode = 1
 [node name="Npc" parent="." unique_id=440928820 instance=ExtResource("5_3s25j")]
 position = Vector2(0, 24)
 script = ExtResource("6_ite67")
-speed = null
-jump_velocity = null
-double_jump_velocity = null
-animation_locked = null
 
 [node name="Mask" parent="." unique_id=442016007 instance=ExtResource("7_qhoq0")]
-animation_locked = true
