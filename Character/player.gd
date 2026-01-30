@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 @export var speed : float = 200.0
 @export var jump_velocity : float = -250.0
@@ -12,6 +12,10 @@ var has_double_jumped : bool = false
 var animation_locked : bool = false
 var direction : Vector2 = Vector2.ZERO
 var was_in_air : bool = false
+
+func _ready() -> void:
+	# necessary for "var player = get_tree().get_first_node_in_group("player") as Player" in chat_box.gd
+	add_to_group("player")
 
 func _physics_process(delta):
 	# Add the gravity.

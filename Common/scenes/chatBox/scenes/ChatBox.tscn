@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://cvj0l26eus23i"]
+
+[ext_resource type="Script" uid="uid://chgj6syr88b7a" path="res://Common/scenes/chatBox/scripts/chat_box.gd" id="1_1t5og"]
+[ext_resource type="Texture2D" uid="uid://c8xd2u0soyui0" path="res://Common/scenes/chatBox/assets/talking/bubble-center.png" id="2_aupv3"]
+[ext_resource type="FontFile" uid="uid://cx5yjvnv2t7xt" path="res://Fonts/Lugrasimo/Lugrasimo-Regular.ttf" id="3_a4ejk"]
+[ext_resource type="Texture2D" uid="uid://bfahnfpnqx0ql" path="res://Common/scenes/chatBox/assets/talking/bubble-up-left.png" id="3_bc70t"]
+[ext_resource type="FontFile" uid="uid://xh6qhxs4gtmi" path="res://Fonts/Almendra/Almendra-Regular.ttf" id="3_nmbc6"]
+[ext_resource type="Texture2D" uid="uid://vgil8t7ilab6" path="res://Common/scenes/chatBox/assets/talking/bubble-up-right.png" id="4_a50j3"]
+[ext_resource type="Texture2D" uid="uid://vg8d1x17n1qi" path="res://Assets/key-a-plain.png" id="4_qgewv"]
+[ext_resource type="Texture2D" uid="uid://co05epdd54t1e" path="res://Common/scenes/chatBox/assets/talking/bubble-up.png" id="5_hkoo7"]
+[ext_resource type="Texture2D" uid="uid://ctd3fswpd6sbl" path="res://Assets/key-x-outline.png" id="5_peext"]
+[ext_resource type="Texture2D" uid="uid://dmatsjb7kqe16" path="res://Common/scenes/chatBox/assets/talking/bubble-corner.png" id="6_itb8q"]
+[ext_resource type="Texture2D" uid="uid://cnt2x84386tm5" path="res://Common/scenes/chatBox/assets/talking/bubble-down-left.png" id="7_pinyf"]
+[ext_resource type="Texture2D" uid="uid://dao5ayq1cujht" path="res://Common/scenes/chatBox/assets/talking/bubble-down-right.png" id="8_b4yh3"]
+[ext_resource type="Texture2D" uid="uid://n62bm5jmpchk" path="res://Common/scenes/chatBox/assets/talking/bubble-down.png" id="9_w2ahs"]
+[ext_resource type="Texture2D" uid="uid://ba8x7yf7jdrbo" path="res://Common/scenes/chatBox/assets/talking/bubble-left.png" id="10_dl2rp"]
+[ext_resource type="Texture2D" uid="uid://bbin77nm8rjx8" path="res://Common/scenes/chatBox/assets/talking/bubble-right.png" id="11_h4hnx"]
+[ext_resource type="Texture2D" uid="uid://5jp1iipvup5y" path="res://Common/scenes/chatBox/assets/talking/bubble-corner-thought.png" id="12_fy5u7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8n6hp"]
+texture = ExtResource("2_aupv3")
+
+[node name="ChatBox" type="Control" unique_id=1685235080]
+custom_minimum_size = Vector2(250, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 140.0
+offset_top = 106.0
+offset_right = 390.0
+offset_bottom = 170.0
+size_flags_vertical = 3
+script = ExtResource("1_1t5og")
+
+[node name="Panel" type="Panel" parent="." unique_id=1026292823]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8n6hp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1082022082]
+z_index = 12
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=354460141]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 6
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="Panel" unique_id=534018871]
+z_index = 2
+layout_mode = 0
+offset_left = 209.0
+offset_top = 76.0
+offset_right = 259.0
+offset_bottom = 107.0
+
+[node name="StartButton" type="MenuButton" parent="Panel/Button" unique_id=464987927]
+visible = false
+layout_mode = 0
+theme_override_fonts/font = ExtResource("3_nmbc6")
+theme_override_font_sizes/font_size = 40
+
+[node name="xbox_controller_label" type="HBoxContainer" parent="Panel/Button" unique_id=411788045]
+visible = false
+layout_mode = 0
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="Panel/Button/xbox_controller_label" unique_id=1769446984]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Button/xbox_controller_label" unique_id=582938440]
+layout_mode = 2
+texture = ExtResource("4_qgewv")
+stretch_mode = 2
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Panel/Button/xbox_controller_label" unique_id=1767937751]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ps_controller_label" type="HBoxContainer" parent="Panel/Button" unique_id=1525481575]
+visible = false
+layout_mode = 0
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="Panel/Button/ps_controller_label" unique_id=182946097]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Button/ps_controller_label" unique_id=1036519324]
+layout_mode = 2
+texture = ExtResource("5_peext")
+stretch_mode = 2
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Panel/Button/ps_controller_label" unique_id=992220648]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="touch_screen_label" type="Label" parent="Panel/Button" unique_id=209715392]
+visible = false
+layout_mode = 0
+theme_override_fonts/font = ExtResource("3_a4ejk")
+theme_override_font_sizes/font_size = 40
+text = "Tap To Start"
+horizontal_alignment = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Panel" unique_id=1208029213]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bubble-up-left" type="Sprite2D" parent="Panel/AspectRatioContainer" unique_id=1994715122]
+position = Vector2(-15, -15)
+texture = ExtResource("3_bc70t")
+
+[node name="Bubble-up-right" type="Sprite2D" parent="Panel/AspectRatioContainer" unique_id=609336061]
+position = Vector2(265, -15)
+texture = ExtResource("4_a50j3")
+
+[node name="Bubble-up" type="Sprite2D" parent="Panel/AspectRatioContainer" unique_id=273834364]
+position = Vector2(131, -15)
+texture = ExtResource("5_hkoo7")
+
+[node name="Bubble-corner" type="Sprite2D" parent="Panel/AspectRatioContainer" unique_id=1427540880]
+position = Vector2(20, 114)
+texture = ExtResource("6_itb8q")
+
+[node name="Bubble-down-left" type="Sprite2D" parent="Panel/AspectRatioContainer" unique_id=532982676]
+position = Vector2(-15, 79)
+texture = ExtResource("7_pinyf")
+
+[node name="Bubble-down-right" type="Sprite2D" parent="Panel/AspectRatioContainer" unique_id=2009161502]
+position = Vector2(265, 79)
+texture = ExtResource("8_b4yh3")
+
+[node name="Bubble-down" type="Sprite2D" parent="Panel/AspectRatioContainer" unique_id=986995752]
+position = Vector2(138, 79)
+texture = ExtResource("9_w2ahs")
+
+[node name="Bubble-left" type="Sprite2D" parent="Panel/AspectRatioContainer" unique_id=66836492]
+position = Vector2(-15, 15)
+texture = ExtResource("10_dl2rp")
+
+[node name="Bubble-right" type="Sprite2D" parent="Panel/AspectRatioContainer" unique_id=1985051456]
+position = Vector2(265, 41)
+texture = ExtResource("11_h4hnx")
+
+[node name="Bubble-corner-thought" type="Sprite2D" parent="Panel/AspectRatioContainer" unique_id=1719722300]
+position = Vector2(10, 104)
+texture = ExtResource("12_fy5u7")
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
