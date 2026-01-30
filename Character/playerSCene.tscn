@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://jpmduftfflup"]
+
+[ext_resource type="Script" uid="uid://1kafg00bq460" path="res://Character/physics.gd" id="1_xucw8"]
+[ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Character/player.tscn" id="2_stihm"]
+
+[node name="PlayerSCene" type="CharacterBody2D" unique_id=144797465]
+script = ExtResource("1_xucw8")
+
+[node name="Player" parent="." unique_id=1639098331 instance=ExtResource("2_stihm")]

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c6p1ql0bs7oa7"]
+
+[ext_resource type="Texture2D" uid="uid://6jjs7inbwvhf" path="res://Art/UndefinedStudi0_art/Assets/mask.png" id="1_3n1my"]
+[ext_resource type="Script" uid="uid://ber5p8wscm2eh" path="res://Character/mask.gd" id="1_61ai7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3n1my"]
+
+[node name="Mask" type="CharacterBody2D" unique_id=442016007]
+script = ExtResource("1_61ai7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1349337215]
+shape = SubResource("CircleShape2D_3n1my")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1626686572]
+texture = ExtResource("1_3n1my")
