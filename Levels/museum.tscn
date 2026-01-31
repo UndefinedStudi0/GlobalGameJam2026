@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://sohuspbrt6i7" path="res://Art/UndefinedStudi0_art/Assets/pedestal_diffuse.png" id="8_luyee"]
 [ext_resource type="Texture2D" uid="uid://h0jj7n4xfli1" path="res://Art/UndefinedStudi0_art/Assets/pedestal_normalmap.png" id="9_3pxxt"]
 [ext_resource type="Texture2D" uid="uid://dnikg4tme0nb2" path="res://Art/UndefinedStudi0_art/Lights/round_light.png" id="10_3pxxt"]
+[ext_resource type="Script" uid="uid://bfp278xu0c47k" path="res://Levels/blue_door.gd" id="13_u5xas"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_oxja0"]
 diffuse_texture = ExtResource("2_2g8tf")
@@ -203,6 +204,9 @@ sources/1 = SubResource("TileSetAtlasSource_yobc2")
 diffuse_texture = ExtResource("8_luyee")
 normal_texture = ExtResource("9_3pxxt")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2g8tf"]
+size = Vector2(20, 64)
+
 [node name="TestLevel" type="Node2D" unique_id=1203591299]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1773691619]
@@ -258,3 +262,13 @@ color = Color(0.37498158, 0.5515186, 0.9245815, 1)
 energy = 2.65
 texture = ExtResource("10_3pxxt")
 height = 5.0
+
+[node name="BlueDoor" type="Node2D" parent="." unique_id=1963349719]
+position = Vector2(94, 51)
+
+[node name="Area2D" type="Area2D" parent="BlueDoor" unique_id=1471133997]
+script = ExtResource("13_u5xas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlueDoor/Area2D" unique_id=1652709874]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_2g8tf")

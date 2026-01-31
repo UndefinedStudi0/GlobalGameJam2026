@@ -8,6 +8,11 @@ var isAttached = false
 var stop_distance = 10
 var throw_time = 0
 
+func _ready() -> void:
+	InteractionGroups.addInteractionGroup(self, "blue_door")
+	self.set_collision_layer_value(12, true)
+	self.set_collision_mask_value(12, true)
+
 func _physics_process(delta):
 	super._physics_process(delta)
 	
