@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://do7yak6xjwix"
+path="res://.godot/imported/glass 3.mp3-8fc7da869302796a1134e3774ccf3ab0.mp3str"
+
+[deps]
+
+source_file="res://Assets/glass audio/glass 3.mp3"
+dest_files=["res://.godot/imported/glass 3.mp3-8fc7da869302796a1134e3774ccf3ab0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
