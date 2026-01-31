@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dsf2kisa28e66"]
+
+[ext_resource type="Texture2D" uid="uid://dcqwngnrpxssf" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/[FREE] Penguin World/FREE/5. Character Animations/Anim_Penguin_walk_v1.0_frames/1.png" id="1_tye7w"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_858k0"]
+radius = 8.0
+height = 32.0
+
+[node name="NpcSprite" type="Node2D" unique_id=46371028]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=758425363]
+texture = ExtResource("1_tye7w")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1457841873]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1187032641]
+shape = SubResource("CapsuleShape2D_858k0")

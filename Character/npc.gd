@@ -9,14 +9,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("throw") && isAttached:
 		print("throwing")
 		throw()
+	#move_and_slide()
 	if !isAttached && move_and_slide():
 		var entity = get_last_slide_collision()
 		var m = entity.get_collider()
-		if m.get("name") == "Mask":
-			self.reparent(m)
-			maskref = m
-			isAttached=true	
-			
+		if m.get("name") == "Mask" && !m.is_attached():
+			m.attach(self)
 	
 
 func throw():
