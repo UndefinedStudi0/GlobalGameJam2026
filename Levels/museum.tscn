@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://c2dgx6nikowjn"]
 
 [ext_resource type="Texture2D" uid="uid://cqrqnlx2jpsop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_56o5v"]
-[ext_resource type="Texture2D" uid="uid://k3s75c4o7cj4" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanel1_diffuse.png" id="2_2g8tf"]
+[ext_resource type="Texture2D" uid="uid://4xeyj3i3g34q" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels.png" id="2_2g8tf"]
 [ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Character/player.tscn" id="3_3s25j"]
-[ext_resource type="Texture2D" uid="uid://d1nc3twh8gdpj" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanel1_normalmap.png" id="3_u5xas"]
+[ext_resource type="Texture2D" uid="uid://5v6c4ktpt2lg" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels_normalmap.png" id="3_u5xas"]
 [ext_resource type="Texture2D" uid="uid://10vjb585fybe" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/[FREE] Industrial Tileset/FREE/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1.png" id="4_3s25j"]
 [ext_resource type="PackedScene" uid="uid://b30qrm3j76hmh" path="res://Character/NPC.tscn" id="5_3s25j"]
 [ext_resource type="Texture2D" uid="uid://bote44rp44hb5" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/tileset_.png" id="5_ite67"]
@@ -22,6 +22,7 @@ resource_name = "WallTiles"
 texture = SubResource("CanvasTexture_oxja0")
 texture_region_size = Vector2i(160, 160)
 0:0/0 = 0
+1:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_i534r"]
 tile_size = Vector2i(160, 160)
@@ -213,7 +214,8 @@ texture = ExtResource("1_56o5v")
 stretch_mode = 1
 
 [node name="BackgroundTiles" type="TileMapLayer" parent="." unique_id=136828106]
-tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=")
+position = Vector2(-49, -65)
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAACAAAAAAAAAAAAAAADAAAAAAABAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_i534r")
 
 [node name="Player" parent="." unique_id=693154731 instance=ExtResource("3_3s25j")]
@@ -250,9 +252,9 @@ texture = SubResource("CanvasTexture_xo0mt")
 offset = Vector2(0, -24)
 
 [node name="APointGlow" type="PointLight2D" parent="." unique_id=30063435]
-position = Vector2(82.99999, 54)
+position = Vector2(31, 6)
 scale = Vector2(1.21875, 1.23125)
-color = Color(0.69574577, 0.54626435, 0, 1)
+color = Color(0.37498158, 0.5515186, 0.9245815, 1)
 energy = 2.65
 texture = ExtResource("10_3pxxt")
 height = 5.0
