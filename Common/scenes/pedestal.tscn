@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://pmt7denghdof"]
+
+[ext_resource type="Texture2D" uid="uid://sohuspbrt6i7" path="res://Art/UndefinedStudi0_art/Assets/pedestal_diffuse.png" id="1_v2nnd"]
+[ext_resource type="Texture2D" uid="uid://h0jj7n4xfli1" path="res://Art/UndefinedStudi0_art/Assets/pedestal_normalmap.png" id="2_c6ko5"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1ig0m"]
+diffuse_texture = ExtResource("1_v2nnd")
+normal_texture = ExtResource("2_c6ko5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2nnd"]
+size = Vector2(24, 7)
+
+[node name="Node2D" type="Node2D" unique_id=489333592]
+
+[node name="Pedestal" type="Sprite2D" parent="." unique_id=1865976359]
+texture = SubResource("CanvasTexture_1ig0m")
+offset = Vector2(0, -24)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pedestal" unique_id=288245636]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pedestal/StaticBody2D" unique_id=2080471707]
+position = Vector2(0, -43)
+shape = SubResource("RectangleShape2D_v2nnd")
