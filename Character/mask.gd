@@ -117,7 +117,8 @@ func attach(entity, collisionShape):
 	entity.reparent(self)
 	# Play music
 	Audio.fadein_danger()
-
+	move_child(self, -1)
+	move_child(entity, 0)
 	return true
 
 func selfThrow():
