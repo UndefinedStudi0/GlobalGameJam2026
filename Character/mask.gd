@@ -76,6 +76,7 @@ func selfThrow():
 func detach():
 	print("hit floor")
 	attachedTo = null
+	updateHp(-1)
 	Audio.fadein_safe()
 
 func jump():
