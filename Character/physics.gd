@@ -1,6 +1,7 @@
 class_name NewtonPhysics extends CharacterBody2D
 
 @export var speed : float = 200.0
+@export var air_speed : float = 100.0
 @export var jump_velocity : float = -250.0
 @export var double_jump_velocity : float = -250
 
