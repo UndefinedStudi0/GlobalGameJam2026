@@ -2,7 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cqrqnlx2jpsop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_56o5v"]
 [ext_resource type="Texture2D" uid="uid://4xeyj3i3g34q" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels.png" id="2_2g8tf"]
+[ext_resource type="Texture2D" uid="uid://caiacfwxrw2mk" path="res://Art/UndefinedStudi0_art/Backgrounds/StarrySky.png" id="2_u5xas"]
 [ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Character/player.tscn" id="3_3s25j"]
+[ext_resource type="Texture2D" uid="uid://06jl46l2ms45" path="res://Art/UndefinedStudi0_art/Backgrounds/trees.png" id="3_oxja0"]
 [ext_resource type="Texture2D" uid="uid://5v6c4ktpt2lg" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels_normalmap.png" id="3_u5xas"]
 [ext_resource type="Texture2D" uid="uid://10vjb585fybe" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/[FREE] Industrial Tileset/FREE/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1.png" id="4_3s25j"]
 [ext_resource type="PackedScene" uid="uid://b30qrm3j76hmh" path="res://Character/NPC.tscn" id="5_3s25j"]
@@ -212,6 +214,25 @@ offset_top = -104.0
 offset_right = 3477.0
 offset_bottom = 168.0
 texture = ExtResource("1_56o5v")
+stretch_mode = 1
+
+[node name="ParallaxBG" type="Node2D" parent="." unique_id=1743909236]
+
+[node name="StarrySky" type="Parallax2D" parent="ParallaxBG" unique_id=1489723142]
+scroll_scale = Vector2(0.05, 0.05)
+
+[node name="StarrySky" type="TextureRect" parent="ParallaxBG/StarrySky" unique_id=248035592]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_u5xas")
+
+[node name="Trees" type="Parallax2D" parent="ParallaxBG" unique_id=1320302394]
+scroll_scale = Vector2(0.5, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBG/Trees" unique_id=2048877660]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_oxja0")
 stretch_mode = 1
 
 [node name="BackgroundTiles" type="TileMapLayer" parent="." unique_id=136828106]
