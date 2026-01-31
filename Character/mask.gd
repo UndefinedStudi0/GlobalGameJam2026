@@ -1,7 +1,15 @@
 class_name Mask extends NewtonPhysics
 
-var throwVect = Vector2(250,-250)
+enum THROW_STATE {
+	THROW_STARTED,
+	THROW_IN_PROGRESS,
+	NOT_THROWN
+}
 
+const crouched_throw_vect = Vector2(250, -50)
+const normal_throw_vect = Vector2(250, -150)
+const super_throw_vect = Vector2(250, -250)
+	
 func _ready() -> void:
 	# required so it can be detected by the blue door
 	self.set_collision_layer_value(12, true)
@@ -10,11 +18,7 @@ var attachedTo = null
 var collisionShapeRef = null
 @export var lifePoints = 3
 var throwState : THROW_STATE = THROW_STATE.NOT_THROWN
-enum THROW_STATE {
-	THROW_STARTED,
-	THROW_IN_PROGRESS,
-	NOT_THROWN
-}
+
 
 func _physics_process(delta):
 	super._physics_process(delta)
@@ -80,7 +84,13 @@ func selfThrow():
 	# Allow collisions with NPCs
 	set_collision_layer_value(4, false)
 	set_collision_layer_value(2, true)
-	velocity = throwVect * Vector2(1 if sprite.flip_h else -1, 1)
+	var throw_coeff = (1 if sprite.flip_h else -1)
+	var throw_vect = normal_throw_vect
+	if crouched:
+		throw_vect = crouched_throw_vect
+	elif looking_up:
+		throw_vect = super_throw_vect
+	velocity = throw_vect * Vector2(throw_coeff, 1)
 
 func hit_floor():
 	print("hit floor")
