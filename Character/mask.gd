@@ -127,3 +127,20 @@ func jump():
 
 func double_jump():
 	velocity.y = double_jump_velocity
+	
+	
+func showChatBox(message: String, message_id: String, auto_close_delay_in_s: int = 0):
+	if !message:
+		print("message missing")
+		return
+		
+	if (!message_id):
+		print("message_id missing")
+		return;
+		
+	$ChatBox.chat_box_id = message_id
+	
+	if auto_close_delay_in_s == 0:
+		$ChatBox.write_message(message)
+	else:
+		$ChatBox.write_message_with_delay(message, auto_close_delay_in_s)

@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bdjges4nv4byu"]
 
-[ext_resource type="Script" path="res://Levels/level_1.gd" id="1_u55on"]
+[ext_resource type="Script" uid="uid://c5awtjae3i6xy" path="res://Levels/level_1.gd" id="1_u55on"]
 [ext_resource type="Texture2D" uid="uid://cqrqnlx2jpsop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_utqd4"]
 [ext_resource type="Texture2D" uid="uid://10vjb585fybe" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/[FREE] Industrial Tileset/FREE/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1.png" id="3_pdma0"]
 [ext_resource type="Texture2D" uid="uid://bote44rp44hb5" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/tileset_.png" id="4_1jijn"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://sohuspbrt6i7" path="res://Art/UndefinedStudi0_art/Assets/pedestal_diffuse.png" id="8_lr1ra"]
 [ext_resource type="Texture2D" uid="uid://h0jj7n4xfli1" path="res://Art/UndefinedStudi0_art/Assets/pedestal_normalmap.png" id="9_r7a1c"]
 [ext_resource type="Texture2D" uid="uid://dnikg4tme0nb2" path="res://Art/UndefinedStudi0_art/Lights/round_light.png" id="10_sqs0x"]
-[ext_resource type="PackedScene" path="res://Common/scenes/side_door.tscn" id="10_u55on"]
+[ext_resource type="PackedScene" uid="uid://fqpe3ypcd1k8" path="res://Common/scenes/side_door.tscn" id="10_u55on"]
 [ext_resource type="Texture2D" uid="uid://c8o5ige73c8cm" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/Metal Torch(OFF).png" id="10_utqd4"]
 [ext_resource type="Texture2D" uid="uid://4xeyj3i3g34q" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels.png" id="12_1jijn"]
 [ext_resource type="Texture2D" uid="uid://5v6c4ktpt2lg" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels_normalmap.png" id="13_20gr8"]
@@ -206,6 +206,9 @@ sources/1 = SubResource("TileSetAtlasSource_yobc2")
 diffuse_texture = ExtResource("8_lr1ra")
 normal_texture = ExtResource("9_r7a1c")
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_20gr8"]
+b = Vector2(1, 79)
+
 [node name="TestLevel" type="Node2D" unique_id=1203591299]
 script = ExtResource("1_u55on")
 
@@ -360,3 +363,12 @@ hp_bar = NodePath("../CanvasLayer/HPbar")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=438258244]
 
 [node name="HPbar" parent="CanvasLayer" unique_id=99945326 instance=ExtResource("14_20gr8")]
+
+[node name="DoorOpenedArea2D" type="Area2D" parent="." unique_id=970505665]
+position = Vector2(778, -83)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorOpenedArea2D" unique_id=1374462874]
+shape = SubResource("SegmentShape2D_20gr8")
+debug_color = Color(0.995331, 0, 0.214997, 0.41960785)
