@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bbkc7y2mp1lry" path="res://Character/npc.gd" id="1_aocaa"]
 [ext_resource type="Texture2D" uid="uid://clo5jiuihghjq" path="res://Art/UndefinedStudi0_art/Characters/NPC_stand.png" id="2_s0bto"]
 [ext_resource type="Texture2D" uid="uid://oedaj8xtjbjy" path="res://Art/heart.png" id="3_s0bto"]
+[ext_resource type="PackedScene" uid="uid://ba4mbp7cybnsx" path="res://Common/scenes/lamp.tscn" id="4_3yf8j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3yf8j"]
 radius = 8.0
@@ -101,3 +102,7 @@ texture = ExtResource("3_s0bto")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=749815976]
 root_node = NodePath("../Jiggled_sprite")
 libraries/ = SubResource("AnimationLibrary_541ff")
+
+[node name="Torch" parent="." unique_id=652923232 instance=ExtResource("4_3yf8j")]
+position = Vector2(3, -11)
+rotation = 1.5741903

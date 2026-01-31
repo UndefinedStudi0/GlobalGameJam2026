@@ -24,6 +24,7 @@ var glass5res = preload("res://Assets/glass audio/glass 5.mp3")
 func _ready() -> void:
 	# required so it can be detected by the blue door
 	self.set_collision_layer_value(12, true)
+	
 
 	var randomizer = AudioStreamRandomizer.new()
 	randomizer.add_stream(0, glass1res)
