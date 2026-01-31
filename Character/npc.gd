@@ -17,6 +17,7 @@ func _ready() -> void:
 	InteractionGroups.addInteractionGroup(self, color_id)
 	if color_id != "none":
 		InteractionGroups.addInteractionGroup(self, "none")
+		
 	self.set_collision_layer_value(12, true)
 
 func _physics_process(delta):
@@ -24,6 +25,8 @@ func _physics_process(delta):
 
 	if !is_in_attach_grace_period():
 		set_collision_mask_value(2, true)
+		# invisible wall
+		set_collision_mask_value(8, true)
 
 	if Input.is_action_just_pressed("throw") && isAttached:
 		print("throwing")
@@ -83,6 +86,8 @@ func throw():
 	isAttached = false
 	throw_time = Time.get_ticks_msec()
 	set_collision_mask_value(2, false)
+	# invisible wall
+	self.set_collision_mask_value(8, false)
 	reparent(get_tree().current_scene)
 	maskref.selfThrow()
 	maskref = null
