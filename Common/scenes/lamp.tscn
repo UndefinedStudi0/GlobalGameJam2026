@@ -11,5 +11,6 @@ color = Color(0.06945725, 0.12158822, 0.14564928, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=46682285]
 position = Vector2(4, 100)
+scale = Vector2(0.5, 1)
 texture = ExtResource("1_bekw5")
 height = 22.0

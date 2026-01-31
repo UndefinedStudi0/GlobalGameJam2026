@@ -14,10 +14,6 @@ enum THROW_STATE {
 func _ready() -> void:
 	# required so it can be detected by the blue door
 	self.set_collision_layer_value(12, true)
-	
-	#var hp = $HPbar
-	#hp.reparent(get_tree().root)
-	#hp.global_position = Vector2(50,50)
 
 var attachedTo = null
 var collisionShapeRef = null
@@ -130,19 +126,19 @@ func jump():
 
 func double_jump():
 	velocity.y = double_jump_velocity
-	
-	
+
+
 func showChatBox(message: String, message_id: String, auto_close_delay_in_s: int = 0):
 	if !message:
 		print("message missing")
 		return
-		
+
 	if (!message_id):
 		print("message_id missing")
 		return;
-		
+
 	$ChatBox.chat_box_id = message_id
-	
+
 	if auto_close_delay_in_s == 0:
 		$ChatBox.write_message(message)
 	else:

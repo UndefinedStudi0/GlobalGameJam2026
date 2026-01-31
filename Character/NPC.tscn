@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://b30qrm3j76hmh"]
 
 [ext_resource type="Script" uid="uid://bbkc7y2mp1lry" path="res://Character/npc.gd" id="1_aocaa"]
-[ext_resource type="Texture2D" uid="uid://ddmo8w6u6fu20" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/[FREE] Penguin World/FREE/5. Character Animations/Anim_Penguin_walk_v1.0_frames/4.png" id="2_s0bto"]
+[ext_resource type="Texture2D" uid="uid://clo5jiuihghjq" path="res://Art/UndefinedStudi0_art/Characters/NPC_stand.png" id="2_s0bto"]
 [ext_resource type="Texture2D" uid="uid://oedaj8xtjbjy" path="res://Art/heart.png" id="3_s0bto"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3yf8j"]
 radius = 8.0
-height = 32.0
+height = 64.0
 
 [sub_resource type="Animation" id="Animation_s0bto"]
 length = 0.001
