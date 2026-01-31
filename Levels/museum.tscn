@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://c2dgx6nikowjn"]
 
 [ext_resource type="Texture2D" uid="uid://cqrqnlx2jpsop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_56o5v"]
+[ext_resource type="Texture2D" uid="uid://k3s75c4o7cj4" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanel1_diffuse.png" id="2_2g8tf"]
 [ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Character/player.tscn" id="3_3s25j"]
+[ext_resource type="Texture2D" uid="uid://d1nc3twh8gdpj" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanel1_normalmap.png" id="3_u5xas"]
 [ext_resource type="Texture2D" uid="uid://10vjb585fybe" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/[FREE] Industrial Tileset/FREE/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1.png" id="4_3s25j"]
 [ext_resource type="PackedScene" uid="uid://b30qrm3j76hmh" path="res://Character/NPC.tscn" id="5_3s25j"]
 [ext_resource type="Texture2D" uid="uid://bote44rp44hb5" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/tileset_.png" id="5_ite67"]
@@ -10,6 +12,20 @@
 [ext_resource type="Texture2D" uid="uid://sohuspbrt6i7" path="res://Art/UndefinedStudi0_art/Assets/pedestal_diffuse.png" id="8_luyee"]
 [ext_resource type="Texture2D" uid="uid://h0jj7n4xfli1" path="res://Art/UndefinedStudi0_art/Assets/pedestal_normalmap.png" id="9_3pxxt"]
 [ext_resource type="Texture2D" uid="uid://dnikg4tme0nb2" path="res://Art/UndefinedStudi0_art/Lights/round_light.png" id="10_3pxxt"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_oxja0"]
+diffuse_texture = ExtResource("2_2g8tf")
+normal_texture = ExtResource("3_u5xas")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvsyx"]
+resource_name = "WallTiles"
+texture = SubResource("CanvasTexture_oxja0")
+texture_region_size = Vector2i(160, 160)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_i534r"]
+tile_size = Vector2i(160, 160)
+sources/0 = SubResource("TileSetAtlasSource_pvsyx")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qhoq0"]
 texture = ExtResource("4_3s25j")
@@ -196,6 +212,10 @@ offset_bottom = 168.0
 texture = ExtResource("1_56o5v")
 stretch_mode = 1
 
+[node name="BackgroundTiles" type="TileMapLayer" parent="." unique_id=136828106]
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_i534r")
+
 [node name="Player" parent="." unique_id=693154731 instance=ExtResource("3_3s25j")]
 position = Vector2(-64, 49)
 
@@ -230,7 +250,7 @@ texture = SubResource("CanvasTexture_xo0mt")
 offset = Vector2(0, -24)
 
 [node name="APointGlow" type="PointLight2D" parent="." unique_id=30063435]
-position = Vector2(21, 44)
+position = Vector2(82.99999, 54)
 scale = Vector2(1.21875, 1.23125)
 color = Color(0.69574577, 0.54626435, 0, 1)
 energy = 2.65
