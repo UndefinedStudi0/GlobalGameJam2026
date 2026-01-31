@@ -1,6 +1,7 @@
 class_name Mask extends NewtonPhysics
 
 var attachedTo = null;
+var throwVect = Vector2(250,-250)
 
 func _physics_process(delta):
 	super._physics_process(delta)
@@ -22,7 +23,10 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 	move_and_slide()
-		
+
+func selfThrow():
+	print("self throwing")
+	velocity = throwVect
 
 func jump():
 	velocity.y = jump_velocity
