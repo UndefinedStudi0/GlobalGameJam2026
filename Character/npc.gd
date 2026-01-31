@@ -1,15 +1,39 @@
 extends NewtonPhysics
 
-var waypoints = []
+@export var waypoints: Array[Marker2D] = []
+var current_waypoint = 0
 var maskref = null
 var collisionShapeRef = null
 var isAttached = false
+var stop_distance = 10
 
 func _physics_process(delta):
 	super._physics_process(delta)
+	
 	if Input.is_action_just_pressed("throw") && isAttached:
 		print("throwing")
 		throw()
+	if waypoints.is_empty():
+		velocity.x = move_toward(velocity.x, 0.0, delta)
+		super._physics_process(delta)
+		return
+		
+	var target = waypoints[current_waypoint].global_position
+	
+	var dist = global_position.distance_to(target)
+	print("distance to next waypoint: ", dist)
+	
+	# Check if reached patrol point
+	if dist < stop_distance:
+		reach_waypoint()
+		return
+	
+	# Calculate target velocity
+	var direction = (target - global_position).normalized()
+	var target_velocity = direction.x * speed
+	
+	velocity.x = target_velocity
+		
 	if !isAttached && move_and_slide():
 		var entity = get_last_slide_collision()
 		var m = entity.get_collider()
@@ -24,7 +48,9 @@ func _physics_process(delta):
 			maskref = m
 			isAttached=true	
 			
-	
+func reach_waypoint():
+	current_waypoint = (current_waypoint+1) % waypoints.size()
+	print("reached next waypoint")
 
 func throw():
 	isAttached = false
