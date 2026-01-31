@@ -17,10 +17,11 @@ func _ready() -> void:
 		_:
 			$Keypanel.visible = false
 			$KeyLight.visible = false
-			
-	$Area2D.set_collision_mask_value(12, true)
+	
+	$Area2D.set_collision_mask_value(12, true)		
 	InteractionGroups.addInteractionGroup(self, door_colorid)
 	# Ensure the signal is connected; it's not wired in the scene.
+	
 	if not $Area2D.body_entered.is_connected(_on_body_entered):
 		$Area2D.body_entered.connect(_on_body_entered)
 
@@ -31,7 +32,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if !door_opened or !door_opensonce:
-		if InteractionGroups.canInteractWith(self, body):
+		if InteractionGroups.canInteractWith(self, body) :
 			print("Can interact with:", body.name)
 			$AnimationPlayer.play("DoorOpens")
 			$RigidBody2D.set_collision_layer_value(1,false)

@@ -14,9 +14,10 @@ var jiggling = false
 
 func _ready() -> void:
 	add_to_group("npc")
+	InteractionGroups.addInteractionGroup(self, color_id)
 	if color_id != "none":
-		InteractionGroups.addInteractionGroup(self, color_id)
-		self.set_collision_layer_value(12, true)
+		InteractionGroups.addInteractionGroup(self, "none")
+	self.set_collision_layer_value(12, true)
 
 func _physics_process(delta):
 	super._physics_process(delta)
