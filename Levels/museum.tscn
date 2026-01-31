@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bote44rp44hb5" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/tileset_.png" id="5_ite67"]
 [ext_resource type="Script" uid="uid://bbkc7y2mp1lry" path="res://Character/npc.gd" id="6_ite67"]
 [ext_resource type="PackedScene" uid="uid://c6p1ql0bs7oa7" path="res://Character/mask.tscn" id="7_qhoq0"]
+[ext_resource type="Texture2D" uid="uid://sohuspbrt6i7" path="res://Art/UndefinedStudi0_art/Assets/pedestal_diffuse.png" id="8_luyee"]
+[ext_resource type="Texture2D" uid="uid://h0jj7n4xfli1" path="res://Art/UndefinedStudi0_art/Assets/pedestal_normalmap.png" id="9_3pxxt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qhoq0"]
 texture = ExtResource("4_3s25j")
@@ -179,6 +181,10 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_qhoq0")
 sources/1 = SubResource("TileSetAtlasSource_yobc2")
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_xo0mt"]
+diffuse_texture = ExtResource("8_luyee")
+normal_texture = ExtResource("9_3pxxt")
+
 [node name="TestLevel" type="Node2D" unique_id=1203591299]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1773691619]
@@ -216,3 +222,8 @@ collision_layer = 0
 script = ExtResource("6_ite67")
 
 [node name="Mask" parent="." unique_id=442016007 instance=ExtResource("7_qhoq0")]
+
+[node name="Pedestal" type="Sprite2D" parent="." unique_id=712198421]
+position = Vector2(0, 95)
+texture = SubResource("CanvasTexture_xo0mt")
+offset = Vector2(0, -24)
