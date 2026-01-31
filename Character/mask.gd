@@ -71,7 +71,6 @@ func jiggle():
 	if input.length() == 0:
 		return
 	$AnimationPlayer.play("jiggle")
-	$AnimationPlayer.queue("RESET")
 	var npcs = $JiggleArea.get_overlapping_bodies()
 	for npc in npcs:
 		npc.getJigglyWith(self)
@@ -80,7 +79,6 @@ func attach(entity, collisionShape):
 	if attachedTo:
 		#Cannot attach to multiple NPCs
 		return false
-	$AnimationPlayer.clear_queue()
 	$AnimationPlayer.play("RESET")
 	#Avoid collisions with NPCs while mask is attached
 	set_collision_layer_value(4, true)
