@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://byhu0krbd5ix8"]
+
+[ext_resource type="Script" uid="uid://cby4aupywn4q0" path="res://Levels/main_menu.gd" id="1_2k6u6"]
+[ext_resource type="Texture2D" uid="uid://caiacfwxrw2mk" path="res://Art/UndefinedStudi0_art/Backgrounds/StarrySky.png" id="1_yw2i3"]
+[ext_resource type="Texture2D" uid="uid://6jjs7inbwvhf" path="res://Art/UndefinedStudi0_art/Assets/mask.png" id="2_hr4vk"]
+
+[node name="MainMenu" type="Control" unique_id=1691382321]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2k6u6")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1867743983]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1314243822]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_yw2i3")
+
+[node name="Button" type="Button" parent="." unique_id=22942554]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 103.0
+offset_right = 239.0
+offset_bottom = 134.0
+icon = ExtResource("2_hr4vk")
+
+[connection signal="pressed" from="Button" to="." method="on_play_button_pressed"]
