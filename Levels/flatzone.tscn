@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://dy2wf75yi1ace"]
+[gd_scene format=4 uid="uid://c04joh7yk8f7u"]
 
 [ext_resource type="Texture2D" uid="uid://cqrqnlx2jpsop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_kk1to"]
 [ext_resource type="Texture2D" uid="uid://10vjb585fybe" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/[FREE] Industrial Tileset/FREE/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1.png" id="3_l4kyq"]
@@ -188,13 +188,6 @@ offset_right = 3477.0
 offset_bottom = 168.0
 texture = ExtResource("1_kk1to")
 stretch_mode = 1
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=412417788]
-position = Vector2(-64, 49)
-process_callback = 0
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=121137877]
 physics_interpolation_mode = 1

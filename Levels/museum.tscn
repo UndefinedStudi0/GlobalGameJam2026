@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cqrqnlx2jpsop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_56o5v"]
 [ext_resource type="Texture2D" uid="uid://4xeyj3i3g34q" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels.png" id="2_2g8tf"]
 [ext_resource type="Texture2D" uid="uid://caiacfwxrw2mk" path="res://Art/UndefinedStudi0_art/Backgrounds/StarrySky.png" id="2_u5xas"]
-[ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Character/player.tscn" id="3_3s25j"]
 [ext_resource type="Texture2D" uid="uid://06jl46l2ms45" path="res://Art/UndefinedStudi0_art/Backgrounds/trees.png" id="3_oxja0"]
 [ext_resource type="Texture2D" uid="uid://5v6c4ktpt2lg" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels_normalmap.png" id="3_u5xas"]
 [ext_resource type="Texture2D" uid="uid://10vjb585fybe" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/[FREE] Industrial Tileset/FREE/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1.png" id="4_3s25j"]
@@ -206,7 +205,7 @@ sources/1 = SubResource("TileSetAtlasSource_yobc2")
 diffuse_texture = ExtResource("8_luyee")
 normal_texture = ExtResource("9_3pxxt")
 
-[node name="TestLevel" type="Node2D" unique_id=1203591299]
+[node name="TestLevel2" type="Node2D" unique_id=1203591299]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1773691619]
 offset_left = -1996.0
@@ -239,19 +238,6 @@ stretch_mode = 1
 position = Vector2(-49, -65)
 tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAACAAAAAAACAAAAAAADAAAAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_i534r")
-
-[node name="Player" parent="." unique_id=693154731 instance=ExtResource("3_3s25j")]
-position = Vector2(-64, 49)
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=933102430]
-remote_path = NodePath("../../Camera2D")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=412417788]
-position = Vector2(-64, 49)
-process_callback = 0
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=121137877]
 physics_interpolation_mode = 1
