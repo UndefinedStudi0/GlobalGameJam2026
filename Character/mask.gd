@@ -6,9 +6,9 @@ enum THROW_STATE {
 	NOT_THROWN
 }
 
-const crouched_throw_vect = Vector2(250, -50)
-const normal_throw_vect = Vector2(250, -150)
-const super_throw_vect = Vector2(250, -250)
+@export const crouched_throw_vect = Vector2(250, -50)
+@export const normal_throw_vect = Vector2(250, -150)
+@export const super_throw_vect = Vector2(250, -250)
 	
 func _ready() -> void:
 	# required so it can be detected by the blue door
