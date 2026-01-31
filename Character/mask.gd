@@ -59,7 +59,13 @@ func move():
 		velocity.x = move_toward(velocity.x, 0, speed)
 
 func jiggle():
-	print("jiggle")	
+	velocity.x = move_toward(velocity.x, 0, speed)
+	var input = Input.get_vector("left", "right", "up", "down")
+	if input.length() == 0:
+		return
+	var npcs = $JiggleArea.get_overlapping_bodies()
+	if len(npcs) > 0:
+		npcs[0].getJigglyWith(self)
 
 func attach(entity, collisionShape):
 	if attachedTo:

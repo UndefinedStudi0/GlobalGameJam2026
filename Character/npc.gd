@@ -51,11 +51,12 @@ func _physics_process(delta):
 func check_for_mask():
 	if !isAttached && move_and_slide():
 		var entity = get_last_slide_collision()
-		var m = entity.get_collider()
-		if m.get("name") == "Mask" && !is_in_attach_grace_period():
-			isAttached = m.attach(self, collisionShape)
+		var mask = entity.get_collider()
+		if mask.get("name") == "Mask" && !is_in_attach_grace_period():
+			isAttached = mask.attach(self, collisionShape)
 			if isAttached:
-				maskref = m
+				maskref = mask
+
 	update_facing_direction()
 
 func reach_waypoint():
@@ -72,3 +73,8 @@ func throw():
 	reparent(get_tree().current_scene)
 	maskref.selfThrow()
 	maskref = null
+	
+func getJigglyWith(mask):
+	isAttached = mask.attach(self, collisionShape)
+	if isAttached:
+		maskref = mask
