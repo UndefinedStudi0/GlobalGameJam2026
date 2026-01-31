@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c6p1ql0bs7oa7" path="res://Character/mask.tscn" id="7_qhoq0"]
 [ext_resource type="Texture2D" uid="uid://sohuspbrt6i7" path="res://Art/UndefinedStudi0_art/Assets/pedestal_diffuse.png" id="8_luyee"]
 [ext_resource type="Texture2D" uid="uid://h0jj7n4xfli1" path="res://Art/UndefinedStudi0_art/Assets/pedestal_normalmap.png" id="9_3pxxt"]
+[ext_resource type="Texture2D" uid="uid://dnikg4tme0nb2" path="res://Art/UndefinedStudi0_art/Lights/round_light.png" id="10_3pxxt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qhoq0"]
 texture = ExtResource("4_3s25j")
@@ -227,3 +228,11 @@ script = ExtResource("6_ite67")
 position = Vector2(0, 95)
 texture = SubResource("CanvasTexture_xo0mt")
 offset = Vector2(0, -24)
+
+[node name="APointGlow" type="PointLight2D" parent="." unique_id=30063435]
+position = Vector2(21, 44)
+scale = Vector2(1.21875, 1.23125)
+color = Color(0.69574577, 0.54626435, 0, 1)
+energy = 2.65
+texture = ExtResource("10_3pxxt")
+height = 5.0
