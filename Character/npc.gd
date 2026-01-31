@@ -52,15 +52,9 @@ func check_for_mask():
 		var entity = get_last_slide_collision()
 		var m = entity.get_collider()
 		if m.get("name") == "Mask" && !is_in_attach_grace_period():	
-			var currentPos = global_position + Vector2(0,-25)
-			print("current global pos ", currentPos)
-			m.global_position = currentPos
-			collisionShapeRef = $CollisionShape2D.duplicate()
-			m.add_child(collisionShapeRef)
-			collisionShapeRef.global_position = $CollisionShape2D.global_position
-			self.reparent(m)
-			maskref = m
-			isAttached=true	
+			isAttached = m.attach(self, $CollisionShape2D)
+			if isAttached:
+				maskref = m
 
 func reach_waypoint():
 	current_waypoint = (current_waypoint+1) % waypoints.size()
@@ -72,8 +66,6 @@ func is_in_attach_grace_period():
 func throw():
 	isAttached = false
 	throw_time = Time.get_ticks_msec()
-	collisionShapeRef.queue_free()
-	collisionShapeRef = null
 	set_collision_mask_value(2, false)
 	reparent(get_tree().current_scene)
 	maskref.selfThrow()
