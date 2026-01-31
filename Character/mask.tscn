@@ -21,3 +21,8 @@ process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="HP" type="Label" parent="." unique_id=1152022464]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "3"

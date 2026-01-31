@@ -200,11 +200,10 @@ collision_visibility_mode = 1
 [node name="Node2D" type="Node2D" parent="." unique_id=85953067]
 position = Vector2(48, 96)
 
-[node name="Npc" parent="Node2D" unique_id=440928820 node_paths=PackedStringArray("waypoints") instance=ExtResource("5_fkoye")]
+[node name="Npc" parent="Node2D" unique_id=440928820 instance=ExtResource("5_fkoye")]
 position = Vector2(0, -16)
 collision_layer = 0
 script = ExtResource("6_3ltdy")
-waypoints = [NodePath("../patrol right"), NodePath("../patrol left")]
 speed = 20.0
 
 [node name="patrol right" type="Marker2D" parent="Node2D" unique_id=876860656]
@@ -214,6 +213,24 @@ position = Vector2(-112, -16)
 texture = ExtResource("6_ybcwn")
 
 [node name="patrol left" type="Marker2D" parent="Node2D" unique_id=910942342]
+position = Vector2(0, -16)
+
+[node name="Node2D2" type="Node2D" parent="." unique_id=2079550643]
+position = Vector2(304, 96)
+
+[node name="Npc" parent="Node2D2" unique_id=539361437 instance=ExtResource("5_fkoye")]
+position = Vector2(0, -16)
+collision_layer = 0
+script = ExtResource("6_3ltdy")
+speed = 20.0
+
+[node name="patrol right" type="Marker2D" parent="Node2D2" unique_id=911924080]
+position = Vector2(-112, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D2/patrol right" unique_id=308220265]
+texture = ExtResource("6_ybcwn")
+
+[node name="patrol left" type="Marker2D" parent="Node2D2" unique_id=1857606839]
 position = Vector2(0, -16)
 
 [node name="Mask" parent="." unique_id=442016007 instance=ExtResource("7_mxfkl")]

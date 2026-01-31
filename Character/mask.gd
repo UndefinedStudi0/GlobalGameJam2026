@@ -1,14 +1,15 @@
 class_name Mask extends NewtonPhysics
 
 var throwVect = Vector2(250,-250)
-	
+
 func _ready() -> void:
 	# required so it can be detected by the blue door
 	self.set_collision_layer_value(12, true)
-	
+
 var attachedTo = null
 var collisionShapeRef = null
 var was_thrown = false
+@export var lifePoints = 3
 
 func _physics_process(delta):
 	super._physics_process(delta)
@@ -25,9 +26,11 @@ func _physics_process(delta):
    # As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("left", "right", "up", "down")
 
-	#To ignore direction when the mask was just thrown 
+	#To ignore direction when the mask was just thrown
 	if was_in_air && was_thrown:
 		was_thrown = false
+	if attachedTo != null && !attachedTo.is_in_attach_grace_period() && is_on_floor():
+		detach()
 	if is_on_floor() && !was_thrown:
 		if direction.x != 0:
 			velocity.x = direction.x * speed
@@ -53,6 +56,9 @@ func attach(entity, collisionShape):
 	collisionShapeRef.global_position = collisionShape.global_position
 	#Add NPC as child
 	entity.reparent(self)
+	# Play music
+	Audio.fadein_danger()
+
 	return true
 
 func selfThrow():
@@ -67,8 +73,25 @@ func selfThrow():
 	set_collision_layer_value(2, true)
 	velocity = throwVect * Vector2(1 if sprite.flip_h else -1, 1)
 
+func detach():
+	print("hit floor")
+	attachedTo = null
+	updateHp(-1)
+	Audio.fadein_safe()
+
 func jump():
 	velocity.y = jump_velocity
-	
+
 func double_jump():
 	velocity.y = double_jump_velocity
+
+func updateHp(delta: int):
+	lifePoints += delta;
+	updateHpLabel()
+
+func setHp(value: int):
+	lifePoints = value;
+	updateHpLabel()
+
+func updateHpLabel():
+	$HP.text = "HP: %d" % lifePoints
