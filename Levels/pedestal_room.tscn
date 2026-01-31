@@ -179,6 +179,14 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ut57q")
 sources/1 = SubResource("TileSetAtlasSource_nw1t5")
 
+[sub_resource type="Animation" id="Animation_65mgj"]
+resource_name = "anim_dezoom"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cplda"]
+_data = {
+&"anim_dezoom": SubResource("Animation_65mgj")
+}
+
 [node name="Pedestal_room" type="Node2D" unique_id=1156579436]
 script = ExtResource("1_65mgj")
 
@@ -211,3 +219,6 @@ position = Vector2(-114, 126)
 
 [node name="Pedestal" parent="." unique_id=489333592 instance=ExtResource("6_hul12")]
 position = Vector2(-114, 185)
+
+[node name="AnimationPlayer" type="AnimationTree" parent="." unique_id=858157123]
+libraries/ = SubResource("AnimationLibrary_cplda")

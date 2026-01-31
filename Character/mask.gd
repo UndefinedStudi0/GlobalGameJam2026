@@ -11,7 +11,7 @@ enum THROW_STATE {
 @export var super_throw_vect = Vector2(80, -350)
 @export var hp_bar: HPBar = null
 
-var catch_callback = null
+var jiggle_callback = null
 
 func _ready() -> void:
 	# required so it can be detected by the blue door
@@ -72,8 +72,8 @@ func jiggle():
 	for npc in npcs:
 		npc.getJigglyWith(self)
 		
-	if catch_callback != null :
-		catch_callback.call()
+	if jiggle_callback != null :
+		jiggle_callback.call()
 
 func attach(entity, collisionShape):
 	if attachedTo:
