@@ -22,13 +22,6 @@ var throwState : THROW_STATE = THROW_STATE.NOT_THROWN
 
 func _physics_process(delta):
 	super._physics_process(delta)
-   # Handle Jump.
-	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
-			# Normal jump from floor
-			jump()
-		elif not has_double_jumped:
-			double_jump()
 
 	#To ignore direction when the mask was just thrown 
 	if was_in_air && throwState == THROW_STATE.THROW_STARTED:
@@ -49,6 +42,14 @@ func _physics_process(delta):
 	update_facing_direction()
 
 func move():
+	# Handle Jump.
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			# Normal jump from floor
+			jump()
+		elif not has_double_jumped:
+			double_jump()
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("left", "right", "up", "down")
