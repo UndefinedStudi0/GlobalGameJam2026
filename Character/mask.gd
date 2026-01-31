@@ -1,6 +1,6 @@
 class_name Mask extends NewtonPhysics
 
-var attachedTo = null;
+var attachedTo = null
 var throwVect = Vector2(250,-250)
 
 func _physics_process(delta):
@@ -18,10 +18,11 @@ func _physics_process(delta):
    # As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("left", "right", "up", "down")
 
-	if direction.x != 0:
-		velocity.x = direction.x * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
+	if is_on_floor():
+		if direction.x != 0:
+			velocity.x = direction.x * speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed)
 	move_and_slide()
 
 func selfThrow():
