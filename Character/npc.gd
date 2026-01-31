@@ -64,16 +64,14 @@ func check_for_mask():
 			isAttached = mask.attach(self, collisionShape)
 			if isAttached:
 				if jiggling:
-					waypoints.remove_at(0)
-					jiggling = false
+					clear_jiggle()
 				maskref = mask
 
 	update_facing_direction()
 
 func reach_waypoint():
 	if jiggling:
-		waypoints.remove_at(0)
-		jiggling = false
+		clear_jiggle()
 	else:
 		current_waypoint = (current_waypoint+1) % waypoints.size()
 	print("reached next waypoint")
@@ -93,9 +91,15 @@ func getJigglyWith(mask):
 	if jiggling:
 		return
 	jiggling = true
+	$AnimationPlayer.play("jiggled")
 	maskref = mask
 	var maskWayPoint = Marker2D.new()
 	maskWayPoint.global_position = self.to_local(mask.global_position)
 	add_child(maskWayPoint)
 	waypoints.insert(0, maskWayPoint)
 	current_waypoint = 0
+	
+func clear_jiggle():
+	waypoints.remove_at(0)
+	$AnimationPlayer.play("RESET")
+	jiggling = false

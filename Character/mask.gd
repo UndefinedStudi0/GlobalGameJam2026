@@ -9,10 +9,16 @@ enum THROW_STATE {
 @export var crouched_throw_vect = Vector2(100, -80)
 @export var normal_throw_vect = Vector2(280, -150)
 @export var super_throw_vect = Vector2(80, -350)
-	
+@export var hp_bar: HPBar = null
+
 func _ready() -> void:
 	# required so it can be detected by the blue door
 	self.set_collision_layer_value(12, true)
+	#var hp = $HPbar
+	#hp.reparent(get_tree().root)
+	#hp.global_position = Vector2(50,50)
+
+
 
 var attachedTo = null
 var collisionShapeRef = null
@@ -23,7 +29,7 @@ var throwState : THROW_STATE = THROW_STATE.NOT_THROWN
 func _physics_process(delta):
 	super._physics_process(delta)
 
-	#To ignore direction when the mask was just thrown 
+	#To ignore direction when the mask was just thrown
 	if was_in_air && throwState == THROW_STATE.THROW_STARTED:
 		throwState = THROW_STATE.THROW_IN_PROGRESS
 	if is_on_floor() && throwState == THROW_STATE.THROW_IN_PROGRESS:
@@ -34,7 +40,7 @@ func _physics_process(delta):
 			move()
 		else:
 			jiggle()
-		
+
 	elif !is_on_floor() && throwState == THROW_STATE.NOT_THROWN:
 		if direction.x != 0:
 			velocity.x = move_toward(velocity.x, direction.x * air_speed, speed)
@@ -49,11 +55,11 @@ func move():
 			jump()
 		elif not has_double_jumped:
 			double_jump()
-	
+
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("left", "right", "up", "down")
-	
+
 	if direction.x != 0:
 		velocity.x = direction.x * speed
 	else:
@@ -64,6 +70,7 @@ func jiggle():
 	var input = Input.get_vector("left", "right", "up", "down")
 	if input.length() == 0:
 		return
+	$AnimationPlayer.play("jiggle")
 	var npcs = $JiggleArea.get_overlapping_bodies()
 	for npc in npcs:
 		npc.getJigglyWith(self)
@@ -111,7 +118,7 @@ func selfThrow():
 func hit_floor():
 	print("hit floor")
 	if !attachedTo:
-		updateHp(-1)
+		hp_bar.decrement()
 	Audio.fadein_safe()
 
 func jump():
@@ -119,14 +126,3 @@ func jump():
 
 func double_jump():
 	velocity.y = double_jump_velocity
-
-func updateHp(delta: int):
-	lifePoints += delta;
-	updateHpLabel()
-
-func setHp(value: int):
-	lifePoints = value;
-	updateHpLabel()
-
-func updateHpLabel():
-	$HP.text = "HP: %d" % lifePoints
