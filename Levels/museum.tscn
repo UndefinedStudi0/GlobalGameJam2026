@@ -257,7 +257,7 @@ collision_visibility_mode = 1
 position = Vector2(-128, 145)
 color_id = "red_door"
 
-[node name="Mask" parent="." unique_id=442016007 node_paths=PackedStringArray("hp_bar") instance=ExtResource("7_qhoq0")]
+[node name="Mask" parent="." unique_id=442016007 instance=ExtResource("7_qhoq0")]
 position = Vector2(49, 90)
 
 [node name="Pedestal" type="Sprite2D" parent="." unique_id=712198421]
