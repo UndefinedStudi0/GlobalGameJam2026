@@ -16,7 +16,7 @@ func _physics_process(delta):
 		throw()
 	if waypoints.is_empty():
 		velocity.x = move_toward(velocity.x, 0.0, delta)
-		super._physics_process(delta)
+		check_for_mask()
 		return
 		
 	var target = waypoints[current_waypoint].global_position
@@ -34,7 +34,10 @@ func _physics_process(delta):
 	var target_velocity = direction.x * speed
 	
 	velocity.x = target_velocity
-		
+	check_for_mask()
+			
+			
+func check_for_mask():
 	if !isAttached && move_and_slide():
 		var entity = get_last_slide_collision()
 		var m = entity.get_collider()
@@ -48,7 +51,7 @@ func _physics_process(delta):
 			self.reparent(m)
 			maskref = m
 			isAttached=true	
-			
+
 func reach_waypoint():
 	current_waypoint = (current_waypoint+1) % waypoints.size()
 	print("reached next waypoint")
