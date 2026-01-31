@@ -268,7 +268,7 @@ texture = ExtResource("10_3pxxt")
 height = 5.0
 
 [node name="BlueDoor" type="Node2D" parent="." unique_id=1963349719]
-position = Vector2(94, 51)
+position = Vector2(164, 141)
 
 [node name="Area2D" type="Area2D" parent="BlueDoor" unique_id=1471133997]
 script = ExtResource("13_u5xas")
