@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://6jjs7inbwvhf" path="res://Art/UndefinedStudi0_art/Assets/mask.png" id="1_3n1my"]
 [ext_resource type="Script" uid="uid://ber5p8wscm2eh" path="res://Character/mask.gd" id="1_61ai7"]
+[ext_resource type="PackedScene" uid="uid://cvj0l26eus23i" path="res://Common/scenes/chatBox/scenes/ChatBox.tscn" id="3_3j3u0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3n1my"]
 
@@ -78,3 +79,10 @@ shape = SubResource("CircleShape2D_61ai7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=904841473]
 libraries/ = SubResource("AnimationLibrary_lwaie")
+
+[node name="ChatBox" parent="." unique_id=1685235080 instance=ExtResource("3_3j3u0")]
+offset_left = 4.0
+offset_top = -80.0
+offset_right = 254.0
+offset_bottom = -16.0
+scale = Vector2(0.5, 0.5)
