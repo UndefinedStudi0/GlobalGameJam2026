@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b30qrm3j76hmh" path="res://Character/NPC.tscn" id="5_fkoye"]
 [ext_resource type="Texture2D" uid="uid://c8o5ige73c8cm" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/Metal Torch(OFF).png" id="6_ybcwn"]
 [ext_resource type="PackedScene" uid="uid://c6p1ql0bs7oa7" path="res://Character/mask.tscn" id="7_mxfkl"]
+[ext_resource type="PackedScene" uid="uid://by3b5by4m42qa" path="res://Common/scenes/HPbar.tscn" id="7_ybcwn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qhoq0"]
 texture = ExtResource("3_l4kyq")
@@ -230,5 +231,14 @@ texture = ExtResource("6_ybcwn")
 [node name="patrol left" type="Marker2D" parent="Node2D2" unique_id=1857606839]
 position = Vector2(0, -16)
 
-[node name="Mask" parent="." unique_id=442016007 instance=ExtResource("7_mxfkl")]
+[node name="Mask" parent="." unique_id=442016007 node_paths=PackedStringArray("hp_bar") instance=ExtResource("7_mxfkl")]
 position = Vector2(-176, 8)
+hp_bar = NodePath("../CanvasLayer/HPbar")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1783315398]
+
+[node name="HPbar" parent="CanvasLayer" unique_id=99945326 instance=ExtResource("7_ybcwn")]
+offset_left = -120.0
+offset_top = 32.0
+offset_right = -40.0
+offset_bottom = 64.0
