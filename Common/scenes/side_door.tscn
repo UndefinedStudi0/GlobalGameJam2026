@@ -96,6 +96,9 @@ size = Vector2(20, 64)
 [sub_resource type="CanvasTexture" id="CanvasTexture_rdqqv"]
 diffuse_texture = ExtResource("4_yopul")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yopul"]
+size = Vector2(8, 80)
+
 [node name="SideDoor" type="Node2D" unique_id=1541820274]
 script = ExtResource("1_ipguo")
 
@@ -128,3 +131,10 @@ offset_left = -14.0
 offset_top = 47.0
 offset_right = -6.0
 offset_bottom = 50.0
+
+[node name="RigidBody2D" type="StaticBody2D" parent="." unique_id=780408856]
+position = Vector2(0, 35)
+
+[node name="CollisionShape" type="CollisionShape2D" parent="RigidBody2D" unique_id=1650414098]
+position = Vector2(4, 5)
+shape = SubResource("RectangleShape2D_yopul")

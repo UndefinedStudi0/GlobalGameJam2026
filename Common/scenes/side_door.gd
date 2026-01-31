@@ -34,6 +34,7 @@ func _on_body_entered(body: Node) -> void:
 		if InteractionGroups.canInteractWith(self, body):
 			print("Can interact with:", body.name)
 			$AnimationPlayer.play("DoorOpens")
+			$RigidBody2D.set_collision_layer_value(1,false)
 			door_opened = true
 		
 		# run interaction logic

@@ -241,6 +241,10 @@ tile_set = SubResource("TileSet_i534r")
 position = Vector2(-93, 77)
 door_colorid = "yellow_door"
 
+[node name="SideDoor" parent="." unique_id=1865003005 instance=ExtResource("14_oxja0")]
+position = Vector2(147, 105)
+door_colorid = "red_door"
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=121137877]
 physics_interpolation_mode = 1
 position = Vector2(48, 89)
@@ -267,7 +271,3 @@ color = Color(0.37498158, 0.5515186, 0.9245815, 1)
 energy = 2.65
 texture = ExtResource("10_3pxxt")
 height = 5.0
-
-[node name="SideDoor" parent="." unique_id=1865003005 instance=ExtResource("14_oxja0")]
-position = Vector2(147, 105)
-door_colorid = "yellow_door"
