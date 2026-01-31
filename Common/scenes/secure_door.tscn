@@ -77,6 +77,9 @@ _data = {
 &"RESET": SubResource("Animation_fi4sd")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhrkg"]
+size = Vector2(20, 64)
+
 [node name="SecureDoor" type="Node2D" unique_id=1541820274]
 script = ExtResource("1_ayoip")
 
@@ -103,3 +106,10 @@ centered = false
 position = Vector2(63, 67)
 texture = ExtResource("6_ayoip")
 centered = false
+
+[node name="Area2D" type="Area2D" parent="." unique_id=838627504]
+position = Vector2(36, 63)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=439544238]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_vhrkg")

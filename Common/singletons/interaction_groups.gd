@@ -5,7 +5,6 @@ const INTERACT_GROUP_PREFIX: StringName = &"can_interact_with_"
 # add an interaction group to the a node
 func addInteractionGroup(node: Node, group: String) -> void:
 	var formattedGroup = INTERACT_GROUP_PREFIX + group
-	
 	if not node.is_in_group(formattedGroup):
 		node.add_to_group(formattedGroup)
 	

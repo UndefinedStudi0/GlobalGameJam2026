@@ -8,13 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://10vjb585fybe" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/[FREE] Industrial Tileset/FREE/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1.png" id="4_3s25j"]
 [ext_resource type="PackedScene" uid="uid://b30qrm3j76hmh" path="res://Character/NPC.tscn" id="5_3s25j"]
 [ext_resource type="Texture2D" uid="uid://bote44rp44hb5" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/tileset_.png" id="5_ite67"]
-[ext_resource type="Script" uid="uid://bbkc7y2mp1lry" path="res://Character/npc.gd" id="6_ite67"]
 [ext_resource type="PackedScene" uid="uid://c6p1ql0bs7oa7" path="res://Character/mask.tscn" id="7_qhoq0"]
 [ext_resource type="Texture2D" uid="uid://sohuspbrt6i7" path="res://Art/UndefinedStudi0_art/Assets/pedestal_diffuse.png" id="8_luyee"]
 [ext_resource type="Texture2D" uid="uid://h0jj7n4xfli1" path="res://Art/UndefinedStudi0_art/Assets/pedestal_normalmap.png" id="9_3pxxt"]
 [ext_resource type="Texture2D" uid="uid://dnikg4tme0nb2" path="res://Art/UndefinedStudi0_art/Lights/round_light.png" id="10_3pxxt"]
 [ext_resource type="PackedScene" uid="uid://c2hbnofwx8h0j" path="res://Common/scenes/secure_door.tscn" id="13_u5xas"]
-[ext_resource type="Script" uid="uid://bfp278xu0c47k" path="res://Levels/blue_door.gd" id="13_u5xas"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_oxja0"]
 diffuse_texture = ExtResource("2_2g8tf")
@@ -207,9 +205,6 @@ sources/1 = SubResource("TileSetAtlasSource_yobc2")
 diffuse_texture = ExtResource("8_luyee")
 normal_texture = ExtResource("9_3pxxt")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2g8tf"]
-size = Vector2(20, 64)
-
 [node name="TestLevel2" type="Node2D" unique_id=1203591299]
 script = ExtResource("1_oxja0")
 
@@ -242,8 +237,8 @@ tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAACAAA
 tile_set = SubResource("TileSet_i534r")
 
 [node name="SecureDoor" parent="." unique_id=1541820274 instance=ExtResource("13_u5xas")]
-position = Vector2(-108, 77)
-door_colorid = 2
+position = Vector2(-93, 77)
+door_colorid = "yellow_door"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=121137877]
 physics_interpolation_mode = 1
@@ -256,7 +251,6 @@ collision_visibility_mode = 1
 [node name="Npc" parent="." unique_id=440928820 instance=ExtResource("5_3s25j")]
 position = Vector2(97, 122)
 collision_layer = 0
-script = ExtResource("6_ite67")
 
 [node name="Mask" parent="." unique_id=442016007 instance=ExtResource("7_qhoq0")]
 position = Vector2(49, 90)
@@ -273,13 +267,3 @@ color = Color(0.37498158, 0.5515186, 0.9245815, 1)
 energy = 2.65
 texture = ExtResource("10_3pxxt")
 height = 5.0
-
-[node name="BlueDoor" type="Node2D" parent="." unique_id=1963349719]
-position = Vector2(164, 141)
-
-[node name="Area2D" type="Area2D" parent="BlueDoor" unique_id=1471133997]
-script = ExtResource("13_u5xas")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BlueDoor/Area2D" unique_id=1652709874]
-position = Vector2(0, 12)
-shape = SubResource("RectangleShape2D_2g8tf")

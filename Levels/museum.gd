@@ -6,7 +6,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 	# only this npc can interact with the blue door because of this line
-	InteractionGroups.addInteractionGroup($Npc, "blue_door")
+	InteractionGroups.addInteractionGroup($Npc, "yellow_door")
 	# required so it can be detected by the blue door
 	$Npc.set_collision_layer_value(12, true)
 
