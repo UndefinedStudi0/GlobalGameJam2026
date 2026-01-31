@@ -203,7 +203,6 @@ position = Vector2(48, 96)
 [node name="Npc" parent="Node2D" unique_id=440928820 node_paths=PackedStringArray("waypoints") instance=ExtResource("5_fkoye")]
 position = Vector2(0, -16)
 waypoints = [NodePath("../patrol right"), NodePath("../patrol left")]
-speed = 20.0
 
 [node name="patrol right" type="Marker2D" parent="Node2D" unique_id=876860656]
 position = Vector2(-112, -16)
@@ -220,7 +219,6 @@ position = Vector2(304, 96)
 [node name="Npc" parent="Node2D2" unique_id=539361437 node_paths=PackedStringArray("waypoints") instance=ExtResource("5_fkoye")]
 position = Vector2(0, -16)
 waypoints = [NodePath("../patrol right"), NodePath("../patrol left")]
-speed = 20.0
 
 [node name="patrol right" type="Marker2D" parent="Node2D2" unique_id=911924080]
 position = Vector2(-112, -16)
