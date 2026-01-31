@@ -25,6 +25,7 @@ Inventory="*uid://bbsqtgq17ttaj"
 LevelProgress="*uid://d3ksy5wrquobt"
 SignalBus="*uid://dtuy332c4oy7v"
 Audio="*uid://cvseht2ov1uaw"
+InteractionGroups="*uid://b63a7fjdplvo6"
 
 [display]
 

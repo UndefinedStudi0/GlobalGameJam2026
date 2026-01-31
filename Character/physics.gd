@@ -1,8 +1,11 @@
 class_name NewtonPhysics extends CharacterBody2D
 
 @export var speed : float = 200.0
+@export var air_speed : float = 100.0
 @export var jump_velocity : float = -250.0
 @export var double_jump_velocity : float = -250
+
+@onready var sprite = $Sprite2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -10,6 +13,9 @@ var has_double_jumped : bool = false
 @export var animation_locked : bool = false
 var direction : Vector2 = Vector2.ZERO
 var was_in_air : bool = false
+var crouched : bool = false
+var looking_up : bool = false
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -18,11 +24,20 @@ func _physics_process(delta):
 		was_in_air = true
 	else:
 		has_double_jumped = false
-		
 		was_in_air = false
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	direction = Input.get_vector("left", "right", "up", "down")
-	
-	
+		
+	if Input.is_action_just_pressed("down"):
+		crouched = true
+		looking_up = false
+	if Input.is_action_just_pressed("up"):
+		looking_up = true
+		crouched = false
+	if Input.is_action_just_released("down"):
+		crouched = false
+	if Input.is_action_just_released("up"):
+		looking_up = false
+func update_facing_direction():
+	if direction.x > 0:
+		sprite.flip_h = true
+	elif direction.x < 0:
+		sprite.flip_h = false

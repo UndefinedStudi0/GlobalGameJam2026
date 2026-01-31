@@ -1,9 +1,24 @@
 class_name Mask extends NewtonPhysics
 
-var throwVect = Vector2(250,-250)
+enum THROW_STATE {
+	THROW_STARTED,
+	THROW_IN_PROGRESS,
+	NOT_THROWN
+}
+
+@export const crouched_throw_vect = Vector2(250, -50)
+@export const normal_throw_vect = Vector2(250, -150)
+@export const super_throw_vect = Vector2(250, -250)
+	
+func _ready() -> void:
+	# required so it can be detected by the blue door
+	self.set_collision_layer_value(12, true)
+
 var attachedTo = null
 var collisionShapeRef = null
-var was_thrown = false
+@export var lifePoints = 3
+var throwState : THROW_STATE = THROW_STATE.NOT_THROWN
+
 
 func _physics_process(delta):
 	super._physics_process(delta)
@@ -21,14 +36,21 @@ func _physics_process(delta):
 	direction = Input.get_vector("left", "right", "up", "down")
 
 	#To ignore direction when the mask was just thrown 
-	if was_in_air && was_thrown:
-		was_thrown = false
-	if is_on_floor() && !was_thrown:
+	if was_in_air && throwState == THROW_STATE.THROW_STARTED:
+		throwState = THROW_STATE.THROW_IN_PROGRESS
+	if is_on_floor() && throwState == THROW_STATE.THROW_IN_PROGRESS:
+		throwState = THROW_STATE.NOT_THROWN
+		hit_floor()
+	if is_on_floor() && throwState == THROW_STATE.NOT_THROWN:
 		if direction.x != 0:
 			velocity.x = direction.x * speed
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
+	elif !is_on_floor() && throwState == THROW_STATE.NOT_THROWN:
+		if direction.x != 0:
+			velocity.x = move_toward(velocity.x, direction.x * air_speed, speed)
 	move_and_slide()
+	update_facing_direction()
 
 func attach(entity, collisionShape):
 	if attachedTo:
@@ -47,22 +69,48 @@ func attach(entity, collisionShape):
 	collisionShapeRef.global_position = collisionShape.global_position
 	#Add NPC as child
 	entity.reparent(self)
+	# Play music
+	Audio.fadein_danger()
+
 	return true
 
 func selfThrow():
 	print("self throwing")
 	attachedTo = null
-	was_thrown = true
+	throwState = THROW_STATE.THROW_STARTED
 	# Remove NPC collision shape
 	collisionShapeRef.queue_free()
 	collisionShapeRef = null
 	# Allow collisions with NPCs
 	set_collision_layer_value(4, false)
 	set_collision_layer_value(2, true)
-	velocity = throwVect
+	var throw_coeff = (1 if sprite.flip_h else -1)
+	var throw_vect = normal_throw_vect
+	if crouched:
+		throw_vect = crouched_throw_vect
+	elif looking_up:
+		throw_vect = super_throw_vect
+	velocity = throw_vect * Vector2(throw_coeff, 1)
+
+func hit_floor():
+	print("hit floor")
+	if !attachedTo:
+		updateHp(-1)
+	Audio.fadein_safe()
 
 func jump():
 	velocity.y = jump_velocity
-	
+
 func double_jump():
 	velocity.y = double_jump_velocity
+
+func updateHp(delta: int):
+	lifePoints += delta;
+	updateHpLabel()
+
+func setHp(value: int):
+	lifePoints = value;
+	updateHpLabel()
+
+func updateHpLabel():
+	$HP.text = "HP: %d" % lifePoints
