@@ -1,6 +1,7 @@
 extends NewtonPhysics
 
 @export var waypoints: Array[Marker2D] = []
+@export var color_id: String = "none"
 
 @onready var collisionShape = $CollisionShape2D
 
@@ -13,6 +14,9 @@ var jiggling = false
 
 func _ready() -> void:
 	add_to_group("npc")
+	if color_id != "none":
+		InteractionGroups.addInteractionGroup(self, color_id)
+		self.set_collision_layer_value(12, true)
 
 func _physics_process(delta):
 	super._physics_process(delta)
