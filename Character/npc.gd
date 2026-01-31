@@ -8,6 +8,9 @@ var isAttached = false
 var stop_distance = 10
 var throw_time = 0
 
+func _ready() -> void:
+	add_to_group("npc")
+
 func _physics_process(delta):
 	super._physics_process(delta)
 	
