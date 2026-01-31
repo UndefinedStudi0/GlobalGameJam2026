@@ -13,6 +13,9 @@ func _physics_process(delta):
 		var entity = get_last_slide_collision()
 		var m = entity.get_collider()
 		if m.get("name") == "Mask":
+			var currentPos = global_position + Vector2(0,-25)
+			print("current global pos ", currentPos)
+			m.global_position = currentPos
 			self.reparent(m)
 			maskref = m
 			isAttached=true	
