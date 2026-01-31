@@ -9,15 +9,16 @@ func _ready() -> void:
 	
 	var callable = Callable(self,"dezoom")
 	$Mask.jiggle_callback = callable
-	$Npc	.process_mode = PROCESS_MODE_DISABLED
+	$Npc.process_mode = PROCESS_MODE_DISABLED
 	$Mask/Camera2D.position_smoothing_enabled = false
+
 	
 func enable_NPC():
-	$Npc	.process_mode = Node.PROCESS_MODE_ALWAYS
-	$Mask.jiggle_callback = null
+	$Npc.process_mode = Node.PROCESS_MODE_ALWAYS
 	$Mask/Camera2D.position_smoothing_enabled = true
 	
 func dezoom():
+	$Mask.jiggle_callback = null
 	await get_tree().create_timer(2).timeout
 	var tween = get_tree().create_tween()
 

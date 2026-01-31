@@ -11,15 +11,33 @@ enum THROW_STATE {
 @export var super_throw_vect = Vector2(80, -350)
 @export var hp_bar: HPBar = null
 
+var sfx_player = AudioStreamPlayer2D.new()
+
 var jiggle_callback = null
+
+var glass1res = preload("res://Assets/glass audio/glass 1.mp3")
+var glass2res = preload("res://Assets/glass audio/glass 2.mp3")
+var glass3res = preload("res://Assets/glass audio/glass 3.mp3")
+var glass4res = preload("res://Assets/glass audio/glass 4.mp3")
+var glass5res = preload("res://Assets/glass audio/glass 5.mp3")
 
 func _ready() -> void:
 	# required so it can be detected by the blue door
 	self.set_collision_layer_value(12, true)
 
+	var randomizer = AudioStreamRandomizer.new()
+	randomizer.add_stream(0, glass1res)
+	randomizer.add_stream(1, glass2res)
+	randomizer.add_stream(2, glass3res)
+	randomizer.add_stream(3, glass4res)
+	randomizer.add_stream(4, glass5res)
+	randomizer.playback_mode = AudioStreamRandomizer.PLAYBACK_RANDOM_NO_REPEATS
+	sfx_player.stream = randomizer  # ← Assign randomizer directly, no instantiate_playback()
+	sfx_player.volume_db = 0
+	add_child(sfx_player)
+	
 var attachedTo = null
 var collisionShapeRef = null
-@export var lifePoints = 3
 var throwState : THROW_STATE = THROW_STATE.NOT_THROWN
 
 
@@ -71,7 +89,9 @@ func jiggle():
 	var npcs = $JiggleArea.get_overlapping_bodies()
 	for npc in npcs:
 		npc.getJigglyWith(self)
-		
+
+	sfx_player.play()
+	
 	if jiggle_callback != null :
 		jiggle_callback.call()
 
