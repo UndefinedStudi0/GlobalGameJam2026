@@ -65,8 +65,8 @@ func jiggle():
 	if input.length() == 0:
 		return
 	var npcs = $JiggleArea.get_overlapping_bodies()
-	if len(npcs) > 0:
-		npcs[0].getJigglyWith(self)
+	for npc in npcs:
+		npc.getJigglyWith(self)
 
 func attach(entity, collisionShape):
 	if attachedTo:
