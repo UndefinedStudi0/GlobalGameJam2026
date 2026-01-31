@@ -305,8 +305,9 @@ position = Vector2(270, 304)
 position = Vector2(10, 15)
 speed = 20.0
 
-[node name="Mask" parent="." unique_id=442016007 instance=ExtResource("7_u2cfn")]
+[node name="Mask" parent="." unique_id=442016007 node_paths=PackedStringArray("hp_bar") instance=ExtResource("7_u2cfn")]
 position = Vector2(1, 72)
+hp_bar = NodePath("../CanvasLayer/HPbar")
 
 [node name="Node2D8" type="Node2D" parent="." unique_id=2105502061]
 position = Vector2(452, 45)
@@ -335,10 +336,6 @@ position = Vector2(228, -203)
 
 [node name="Marker2D2" type="Marker2D" parent="Node2D9" unique_id=1231900125]
 position = Vector2(313, -204)
-
-[node name="Mask2" parent="." unique_id=95508530 node_paths=PackedStringArray("hp_bar") instance=ExtResource("7_u2cfn")]
-position = Vector2(490, -78)
-hp_bar = NodePath("../CanvasLayer/HPbar")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=438258244]
 
