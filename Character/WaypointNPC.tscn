@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bcpv2l6ea6e3r"]
+
+[ext_resource type="Script" path="res://Character/waypoint_npc.gd" id="1_8i1bh"]
+[ext_resource type="PackedScene" uid="uid://b30qrm3j76hmh" path="res://Character/NPC.tscn" id="1_kicq3"]
+[ext_resource type="Script" uid="uid://bbkc7y2mp1lry" path="res://Character/npc.gd" id="2_8i1bh"]
+[ext_resource type="Texture2D" uid="uid://c8o5ige73c8cm" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/Metal Torch(OFF).png" id="3_78p0o"]
+
+[node name="WaypointNpc" type="Node2D" unique_id=1578748470]
+script = ExtResource("1_8i1bh")
+
+[node name="Npc" parent="." unique_id=440928820 instance=ExtResource("1_kicq3")]
+position = Vector2(0, -16)
+collision_layer = 0
+script = ExtResource("2_8i1bh")
+speed = 20.0
+jump_velocity = null
+double_jump_velocity = null
+animation_locked = null
+
+[node name="patrol right" type="Marker2D" parent="." unique_id=1832337687]
+position = Vector2(-80, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="patrol right" unique_id=860320855]
+texture = ExtResource("3_78p0o")
+
+[node name="patrol left" type="Marker2D" parent="." unique_id=1349979502]
+position = Vector2(112, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="patrol left" unique_id=897740009]
+position = Vector2(-112, 0)
+texture = ExtResource("3_78p0o")

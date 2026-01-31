@@ -5,8 +5,8 @@ var danger_music = AudioStreamPlayer2D.new()
 var cutscene_music = AudioStreamPlayer2D.new()
 const fade_duration = 2.0  # Duration of the fade in seconds
 # here for reference but needs to be updated with new paths
-var levels = {"stable": ["res://Assets/MASK puzzle v1.mp3",
-						"res://Assets/MASK sombre v1.mp3",
+var levels = {"museum": ["res://Assets/MASK sombre v1.mp3",
+						"res://Assets/MASK puzzle v1.mp3",
 						"res://Assets/MASK sombre v1.mp3"],
 			  "monastery": ["res://levels/1_monastery/assets/audios/level_2_main.mp3", 
 							"res://levels/1_monastery/assets/audios/level_2_danger.mp3",
