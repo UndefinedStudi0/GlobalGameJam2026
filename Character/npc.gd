@@ -1,9 +1,11 @@
 extends NewtonPhysics
 
 @export var waypoints: Array[Marker2D] = []
+
+@onready var collisionShape = $CollisionShape2D
+
 var current_waypoint = 0
 var maskref = null
-var collisionShapeRef = null
 var isAttached = false
 var stop_distance = 10
 var throw_time = 0
@@ -19,7 +21,10 @@ func _physics_process(delta):
 		print("throwing")
 		throw()
 	if waypoints.is_empty():
-		velocity.x = move_toward(velocity.x, 0.0, delta)
+		if isAttached:
+			direction = maskref.direction
+		else:
+			velocity.x = move_toward(velocity.x, 0.0, delta)
 		check_for_mask()
 		return
 		
@@ -46,9 +51,10 @@ func check_for_mask():
 		var entity = get_last_slide_collision()
 		var m = entity.get_collider()
 		if m.get("name") == "Mask" && !is_in_attach_grace_period():	
-			isAttached = m.attach(self, $CollisionShape2D)
+			isAttached = m.attach(self, collisionShape)
 			if isAttached:
 				maskref = m
+	update_facing_direction()
 
 func reach_waypoint():
 	current_waypoint = (current_waypoint+1) % waypoints.size()

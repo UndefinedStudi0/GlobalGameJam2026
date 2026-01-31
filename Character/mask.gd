@@ -29,6 +29,7 @@ func _physics_process(delta):
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
 	move_and_slide()
+	update_facing_direction()
 
 func attach(entity, collisionShape):
 	if attachedTo:
@@ -59,7 +60,7 @@ func selfThrow():
 	# Allow collisions with NPCs
 	set_collision_layer_value(4, false)
 	set_collision_layer_value(2, true)
-	velocity = throwVect
+	velocity = throwVect * Vector2(1 if sprite.flip_h else -1, 1)
 
 func jump():
 	velocity.y = jump_velocity
