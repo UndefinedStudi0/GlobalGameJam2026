@@ -5,6 +5,8 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3n1my"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_61ai7"]
+
 [node name="Mask" type="CharacterBody2D" unique_id=442016007]
 collision_layer = 2
 script = ExtResource("1_61ai7")
@@ -17,6 +19,8 @@ texture = ExtResource("1_3n1my")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=196655975]
 position = Vector2(112, 41)
+offset = Vector2(0, -50)
+zoom = Vector2(0.8, 0.8)
 process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
@@ -26,3 +30,11 @@ drag_vertical_enabled = true
 offset_right = 40.0
 offset_bottom = 23.0
 text = "3"
+
+[node name="JiggleArea" type="Area2D" parent="." unique_id=1884428003]
+collision_layer = 0
+collision_mask = 4
+
+[node name="JiggleShape" type="CollisionShape2D" parent="JiggleArea" unique_id=1974598586]
+scale = Vector2(25, 25)
+shape = SubResource("CircleShape2D_61ai7")

@@ -251,7 +251,6 @@ collision_visibility_mode = 1
 
 [node name="Npc" parent="." unique_id=440928820 instance=ExtResource("5_3s25j")]
 position = Vector2(97, 122)
-collision_layer = 0
 
 [node name="Mask" parent="." unique_id=442016007 instance=ExtResource("7_qhoq0")]
 position = Vector2(49, 90)
