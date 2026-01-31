@@ -199,6 +199,9 @@ tile_set = SubResource("TileSet_hul12")
 use_kinematic_bodies = true
 collision_visibility_mode = 1
 
+[node name="SideDoor2" parent="." unique_id=1541820274 instance=ExtResource("8_cplda")]
+position = Vector2(132, 105)
+
 [node name="Npc" parent="." unique_id=440928820 instance=ExtResource("4_kpe2j")]
 position = Vector2(88, 153)
 color_id = "red_door"
@@ -209,6 +212,3 @@ position = Vector2(-114, 126)
 
 [node name="Pedestal" parent="." unique_id=489333592 instance=ExtResource("6_hul12")]
 position = Vector2(-114, 185)
-
-[node name="SideDoor2" parent="." unique_id=1541820274 instance=ExtResource("8_cplda")]
-position = Vector2(132, 105)
