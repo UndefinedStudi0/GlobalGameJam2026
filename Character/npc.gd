@@ -23,14 +23,14 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("throw") && isAttached:
 		print("throwing")
 		throw()
-	if waypoints.is_empty():
+	if waypoints.is_empty() || isAttached:
 		if isAttached:
 			direction = maskref.direction
 		else:
 			velocity.x = move_toward(velocity.x, 0.0, delta)
 		check_for_mask()
 		return
-
+	
 	var target = waypoints[current_waypoint].global_position
 
 	var dist = global_position.distance_to(target)
@@ -40,8 +40,8 @@ func _physics_process(delta):
 		reach_waypoint()
 		return
 
-	# Calculate target velocity
-	var direction = (target - global_position).normalized()
+	# Calculate target velocityada
+	direction = (target - global_position).normalized()
 	var target_velocity = direction.x * speed
 
 	velocity.x = target_velocity
@@ -89,3 +89,4 @@ func getJigglyWith(mask):
 	maskWayPoint.global_position = self.to_local(mask.global_position)
 	add_child(maskWayPoint)
 	waypoints.insert(0, maskWayPoint)
+	current_waypoint = 0
