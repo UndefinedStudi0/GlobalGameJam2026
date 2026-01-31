@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c8o5ige73c8cm" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/Metal Torch(OFF).png" id="10_utqd4"]
 [ext_resource type="Texture2D" uid="uid://4xeyj3i3g34q" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels.png" id="12_1jijn"]
 [ext_resource type="Texture2D" uid="uid://5v6c4ktpt2lg" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels_normalmap.png" id="13_20gr8"]
-[ext_resource type="PackedScene" path="res://Common/scenes/HPbar.tscn" id="14_20gr8"]
+[ext_resource type="PackedScene" uid="uid://by3b5by4m42qa" path="res://Common/scenes/HPbar.tscn" id="14_20gr8"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_oxja0"]
 diffuse_texture = ExtResource("12_1jijn")
@@ -345,7 +345,7 @@ position = Vector2(313, -204)
 [node name="HPbar" parent="CanvasLayer" unique_id=99945326 instance=ExtResource("14_20gr8")]
 
 [node name="DoorOpenedArea2D" type="Area2D" parent="." unique_id=970505665]
-position = Vector2(778, -83)
+position = Vector2(202, 51)
 collision_layer = 0
 collision_mask = 0
 
