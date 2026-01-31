@@ -35,6 +35,9 @@ func _physics_process(delta):
 
 	var dist = global_position.distance_to(target)
 
+	if jiggling && maskref.attachedTo != null:
+		reach_waypoint()
+
 	# Check if reached patrol point
 	if dist < stop_distance:
 		reach_waypoint()
@@ -85,6 +88,7 @@ func getJigglyWith(mask):
 	if jiggling:
 		return
 	jiggling = true
+	maskref = mask
 	var maskWayPoint = Marker2D.new()
 	maskWayPoint.global_position = self.to_local(mask.global_position)
 	add_child(maskWayPoint)
