@@ -11,6 +11,10 @@ var throw_time = 0
 func _physics_process(delta):
 	super._physics_process(delta)
 	
+	if !is_in_attach_grace_period():
+		set_collision_mask_value(2, true)
+		
+	
 	if Input.is_action_just_pressed("throw") && isAttached:
 		print("throwing")
 		throw()
@@ -64,6 +68,7 @@ func throw():
 	throw_time = Time.get_ticks_msec()
 	collisionShapeRef.queue_free()
 	collisionShapeRef = null
-	self.reparent(get_tree().current_scene)
+	set_collision_mask_value(2, false)
+	reparent(get_tree().current_scene)
 	maskref.selfThrow()
 	maskref = null
