@@ -1,7 +1,8 @@
 class_name Mask extends NewtonPhysics
 
-var attachedTo = null
 var throwVect = Vector2(250,-250)
+var attachedTo = null
+var collisionShapeRef = null
 
 func _physics_process(delta):
 	super._physics_process(delta)
@@ -25,9 +26,35 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, speed)
 	move_and_slide()
 
+func attach(entity, collisionShape):
+	if attachedTo:
+		#Cannot attach to multiple NPCs
+		return false
+	#Avoid collisions with NPCs while mask is attached
+	set_collision_layer_value(4, true)
+	set_collision_layer_value(2, false)
+	#Move mask above NPC
+	global_position = entity.global_position + Vector2(0,-25)
+	#Keep reference to attached entity
+	attachedTo = entity
+	#Copy attached entity collision shape to keep global hitbox
+	collisionShapeRef = collisionShape.duplicate()
+	add_child(collisionShapeRef)
+	collisionShapeRef.global_position = collisionShape.global_position
+	#Add NPC as child
+	entity.reparent(self)
+	return true
+
 func selfThrow():
 	print("self throwing")
+	attachedTo = null
 	velocity = throwVect
+	# Remove NPC collision shape
+	collisionShapeRef.queue_free()
+	collisionShapeRef = null
+	# Allow collisions with NPCs
+	set_collision_layer_value(4, false)
+	set_collision_layer_value(2, true)
 
 func jump():
 	velocity.y = jump_velocity
