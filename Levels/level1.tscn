@@ -11,11 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://sohuspbrt6i7" path="res://Art/UndefinedStudi0_art/Assets/pedestal_diffuse.png" id="8_lr1ra"]
 [ext_resource type="Texture2D" uid="uid://h0jj7n4xfli1" path="res://Art/UndefinedStudi0_art/Assets/pedestal_normalmap.png" id="9_r7a1c"]
 [ext_resource type="Texture2D" uid="uid://dnikg4tme0nb2" path="res://Art/UndefinedStudi0_art/Lights/round_light.png" id="10_sqs0x"]
-[ext_resource type="PackedScene" uid="uid://fqpe3ypcd1k8" path="res://Common/scenes/side_door.tscn" id="10_u55on"]
+[ext_resource type="PackedScene" path="res://Common/scenes/side_door.tscn" id="10_u55on"]
 [ext_resource type="Texture2D" uid="uid://c8o5ige73c8cm" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/Metal Torch(OFF).png" id="10_utqd4"]
 [ext_resource type="Texture2D" uid="uid://4xeyj3i3g34q" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels.png" id="12_1jijn"]
 [ext_resource type="Texture2D" uid="uid://5v6c4ktpt2lg" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels_normalmap.png" id="13_20gr8"]
-[ext_resource type="PackedScene" uid="uid://by3b5by4m42qa" path="res://Common/scenes/HPbar.tscn" id="14_20gr8"]
+[ext_resource type="PackedScene" path="res://Common/scenes/HPbar.tscn" id="14_20gr8"]
 [ext_resource type="PackedScene" uid="uid://blotcceytb6lh" path="res://Common/scenes/invisibleWall/InvisibleWall.tscn" id="17_lr1ra"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_oxja0"]
@@ -271,112 +271,116 @@ energy = 2.65
 texture = ExtResource("10_sqs0x")
 height = 33.0
 
-[node name="SideDoor2" parent="." unique_id=704819394 instance=ExtResource("10_u55on")]
-position = Vector2(148, 48)
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=438258244]
 
-[node name="SideDoor3" parent="." unique_id=738823046 instance=ExtResource("10_u55on")]
-position = Vector2(468, 48)
-
-[node name="Pedestal" type="Sprite2D" parent="." unique_id=712198421]
-position = Vector2(0, 128)
-texture = SubResource("CanvasTexture_xo0mt")
-offset = Vector2(0, -24)
-
-[node name="Node2D" type="Node2D" parent="." unique_id=993866945]
-position = Vector2(-91, 95)
-
-[node name="Npc" parent="Node2D" unique_id=440928820 instance=ExtResource("5_20gr8")]
-position = Vector2(9, 12)
-color_id = ""
-speed = 20.0
-
-[node name="Node2D2" type="Node2D" parent="." unique_id=1612202733]
-position = Vector2(419, 121)
-
-[node name="Npc" parent="Node2D2" unique_id=1209755728 instance=ExtResource("5_20gr8")]
-position = Vector2(-1, -23)
-speed = 20.0
-
-[node name="Node2D3" type="Node2D" parent="." unique_id=1215555570]
-position = Vector2(961, -11)
-
-[node name="NpcY1" parent="Node2D3" unique_id=568459852 instance=ExtResource("5_20gr8")]
-position = Vector2(23, -7)
-speed = 20.0
-
-[node name="patrol right" type="Marker2D" parent="Node2D3" unique_id=1754557599]
-position = Vector2(-22, -2)
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D3/patrol right" unique_id=1711390473]
-position = Vector2(80, -1)
-texture = ExtResource("10_utqd4")
-
-[node name="patrol left" type="Marker2D" parent="Node2D3" unique_id=1526908694]
-position = Vector2(122, 2)
-
-[node name="Node2D5" type="Node2D" parent="." unique_id=1993280873]
-position = Vector2(602, -26)
-
-[node name="Npc" parent="Node2D5" unique_id=97866405 instance=ExtResource("5_20gr8")]
-position = Vector2(9, 5)
-speed = 20.0
-
-[node name="Node2D6" type="Node2D" parent="." unique_id=139195400]
-position = Vector2(733, 102)
-
-[node name="Npc" parent="Node2D6" unique_id=2026151985 instance=ExtResource("5_20gr8")]
-position = Vector2(19, 5)
-speed = 20.0
-
-[node name="Node2D7" type="Node2D" parent="." unique_id=1292878027]
-position = Vector2(270, 304)
-
-[node name="Npc" parent="Node2D7" unique_id=521522674 instance=ExtResource("5_20gr8")]
-position = Vector2(10, 15)
-speed = 20.0
+[node name="HPbar" parent="CanvasLayer" unique_id=99945326 instance=ExtResource("14_20gr8")]
 
 [node name="Mask" parent="." unique_id=442016007 node_paths=PackedStringArray("hp_bar") instance=ExtResource("7_u2cfn")]
 position = Vector2(-81, 74)
 hp_bar = NodePath("../CanvasLayer/HPbar")
 
-[node name="Node2D8" type="Node2D" parent="." unique_id=2105502061]
+[node name="Part1" type="Node2D" parent="." unique_id=1493043528]
+
+[node name="Node2D" type="Node2D" parent="Part1" unique_id=993866945]
+position = Vector2(-91, 95)
+
+[node name="Npc" parent="Part1/Node2D" unique_id=440928820 instance=ExtResource("5_20gr8")]
+position = Vector2(9, 12)
+color_id = ""
+speed = 20.0
+
+[node name="SideDoor2" parent="Part1" unique_id=704819394 instance=ExtResource("10_u55on")]
+position = Vector2(148, 48)
+
+[node name="Pedestal" type="Sprite2D" parent="Part1" unique_id=712198421]
+position = Vector2(0, 128)
+texture = SubResource("CanvasTexture_xo0mt")
+offset = Vector2(0, -24)
+
+[node name="Node2D2" type="Node2D" parent="Part1" unique_id=1612202733]
+position = Vector2(419, 121)
+
+[node name="Npc" parent="Part1/Node2D2" unique_id=1209755728 instance=ExtResource("5_20gr8")]
+position = Vector2(-1, -23)
+speed = 20.0
+
+[node name="Node2D3" type="Node2D" parent="Part1" unique_id=1215555570]
+position = Vector2(931, -13)
+
+[node name="NpcY1" parent="Part1/Node2D3" unique_id=568459852 instance=ExtResource("5_20gr8")]
+position = Vector2(23, -7)
+speed = 20.0
+
+[node name="patrol right" type="Marker2D" parent="Part1/Node2D3" unique_id=1754557599]
+position = Vector2(-22, -2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Part1/Node2D3/patrol right" unique_id=1711390473]
+position = Vector2(80, -1)
+texture = ExtResource("10_utqd4")
+
+[node name="patrol left" type="Marker2D" parent="Part1/Node2D3" unique_id=1526908694]
+position = Vector2(122, 2)
+
+[node name="Node2D5" type="Node2D" parent="Part1" unique_id=1993280873]
+position = Vector2(602, -26)
+
+[node name="Npc" parent="Part1/Node2D5" unique_id=97866405 instance=ExtResource("5_20gr8")]
+position = Vector2(9, 5)
+speed = 20.0
+
+[node name="Node2D6" type="Node2D" parent="Part1" unique_id=139195400]
+position = Vector2(733, 102)
+
+[node name="Npc" parent="Part1/Node2D6" unique_id=2026151985 instance=ExtResource("5_20gr8")]
+position = Vector2(19, 5)
+speed = 20.0
+
+[node name="Node2D7" type="Node2D" parent="Part1" unique_id=1292878027]
+position = Vector2(270, 304)
+
+[node name="Npc" parent="Part1/Node2D7" unique_id=521522674 instance=ExtResource("5_20gr8")]
+position = Vector2(10, 15)
+speed = 20.0
+
+[node name="Node2D8" type="Node2D" parent="Part1" unique_id=2105502061]
 position = Vector2(343, 687)
 
-[node name="Npc" parent="Node2D8" unique_id=1433198513 node_paths=PackedStringArray("waypoints") instance=ExtResource("5_20gr8")]
+[node name="Npc" parent="Part1/Node2D8" unique_id=1433198513 node_paths=PackedStringArray("waypoints") instance=ExtResource("5_20gr8")]
 position = Vector2(28, -5)
 waypoints = [NodePath("../Marker2D"), NodePath("../Marker2D2")]
 speed = 20.0
 
-[node name="Marker2D" type="Marker2D" parent="Node2D8" unique_id=515431328]
+[node name="Marker2D" type="Marker2D" parent="Part1/Node2D8" unique_id=515431328]
 position = Vector2(-32, -3)
 
-[node name="Marker2D2" type="Marker2D" parent="Node2D8" unique_id=1963021194]
+[node name="Marker2D2" type="Marker2D" parent="Part1/Node2D8" unique_id=1963021194]
 position = Vector2(55, 3)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=438258244]
-
-[node name="HPbar" parent="CanvasLayer" unique_id=99945326 instance=ExtResource("14_20gr8")]
-
-[node name="DoorOpenedArea2D" type="Area2D" parent="." unique_id=970505665]
+[node name="DoorOpenedArea2D" type="Area2D" parent="Part1" unique_id=970505665]
 position = Vector2(202, 51)
 collision_layer = 0
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorOpenedArea2D" unique_id=1374462874]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Part1/DoorOpenedArea2D" unique_id=1374462874]
 shape = SubResource("SegmentShape2D_20gr8")
 debug_color = Color(0.995331, 0, 0.214997, 0.41960785)
 
-[node name="InvisibleWall" parent="." unique_id=221140158 instance=ExtResource("17_lr1ra")]
+[node name="InvisibleWall" parent="Part1" unique_id=221140158 instance=ExtResource("17_lr1ra")]
 position = Vector2(240, 132)
 
-[node name="InvisibleWall2" parent="." unique_id=179204432 instance=ExtResource("17_lr1ra")]
+[node name="InvisibleWall2" parent="Part1" unique_id=179204432 instance=ExtResource("17_lr1ra")]
 position = Vector2(376, 133)
 
-[node name="InvisibleWall3" parent="." unique_id=526562885 instance=ExtResource("17_lr1ra")]
+[node name="InvisibleWall3" parent="Part1" unique_id=526562885 instance=ExtResource("17_lr1ra")]
 position = Vector2(584, 8)
 
-[node name="InvisibleWall4" parent="." unique_id=1340328266 instance=ExtResource("17_lr1ra")]
+[node name="InvisibleWall4" parent="Part1" unique_id=1340328266 instance=ExtResource("17_lr1ra")]
 position = Vector2(656, 7)
 
-[node name="InvisibleWall5" parent="." unique_id=398191031 instance=ExtResource("17_lr1ra")]
+[node name="InvisibleWall5" parent="Part1" unique_id=398191031 instance=ExtResource("17_lr1ra")]
 position = Vector2(920, 16)
+
+[node name="SideDoor3" parent="Part1" unique_id=738823046 instance=ExtResource("10_u55on")]
+position = Vector2(468, 48)
+
+[node name="Part2" type="Node2D" parent="." unique_id=1270477397]
