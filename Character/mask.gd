@@ -2,7 +2,11 @@ class_name Mask extends NewtonPhysics
 
 var attachedTo = null
 var throwVect = Vector2(250,-250)
-
+	
+func _ready() -> void:
+	# required so it can be detected by the blue door
+	self.set_collision_layer_value(12, true)
+	
 func _physics_process(delta):
 	super._physics_process(delta)
    # Handle Jump.
