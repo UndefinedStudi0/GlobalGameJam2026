@@ -64,6 +64,7 @@ func jiggle():
 	var input = Input.get_vector("left", "right", "up", "down")
 	if input.length() == 0:
 		return
+	$AnimationPlayer.play("jiggle")
 	var npcs = $JiggleArea.get_overlapping_bodies()
 	for npc in npcs:
 		npc.getJigglyWith(self)

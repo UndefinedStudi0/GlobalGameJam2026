@@ -218,7 +218,6 @@ position = Vector2(304, 96)
 
 [node name="Npc" parent="Node2D2" unique_id=539361437 node_paths=PackedStringArray("waypoints") instance=ExtResource("5_fkoye")]
 position = Vector2(0, -16)
-collision_layer = 0
 waypoints = [NodePath("../patrol right"), NodePath("../patrol left")]
 speed = 20.0
 

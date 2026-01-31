@@ -7,7 +7,6 @@
 
 [node name="Npc" parent="." unique_id=440928820 instance=ExtResource("1_kicq3")]
 position = Vector2(0, -16)
-collision_layer = 0
 speed = 20.0
 
 [node name="patrol right" type="Marker2D" parent="." unique_id=1832337687]
