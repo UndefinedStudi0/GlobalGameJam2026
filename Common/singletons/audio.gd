@@ -3,11 +3,13 @@ extends Node
 var safe_music = AudioStreamPlayer2D.new()
 var danger_music = AudioStreamPlayer2D.new()
 var cutscene_music = AudioStreamPlayer2D.new()
+var tweenIn = null
+var tweenOut = null
 const fade_duration = 2.0  # Duration of the fade in seconds
 # here for reference but needs to be updated with new paths
-var levels = {"museum": ["res://Assets/MASK sombre v1.mp3",
-						"res://Assets/MASK puzzle v1.mp3",
-						"res://Assets/MASK sombre v1.mp3"],
+var levels = {"museum": ["res://Assets/MASK sombre v2.mp3",
+						"res://Assets/MASK puzzle v2.mp3",
+						"res://Assets/MASK sombre v2.mp3"],
 			  "monastery": ["res://levels/1_monastery/assets/audios/level_2_main.mp3", 
 							"res://levels/1_monastery/assets/audios/level_2_danger.mp3",
 							"res://common/audio/CUTSCENE 2.mp3"]}
@@ -52,12 +54,16 @@ func fade_audios(in_audio: AudioStreamPlayer2D, out_audio: AudioStreamPlayer2D):
 
 	# Start a fade-in from the current volume level
 	if in_audio:
-		var tweenIn = create_tween()
+		if tweenIn:
+			tweenIn.stop()
+		tweenIn = create_tween()
 		tweenIn.tween_property(in_audio, "volume_db", 0, fade_duration / 2)  # Fade to normal volume (0 dB)
 	
 	if out_audio:
 		# Start a fade-out to silent, stopping playback after the fade
-		var tweenOut = create_tween()
+		if tweenOut:
+			tweenOut.stop()
+		tweenOut = create_tween()
 		tweenOut.tween_property(out_audio, "volume_db", -100, fade_duration)  # Fade to silent (-80 dB)
 
 func fadein_danger() -> void:

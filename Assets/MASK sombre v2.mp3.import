@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://doqapvceqh0g8"
+path="res://.godot/imported/MASK sombre v2.mp3-b2da1f521ddb3d7df399ed2d933c67c3.mp3str"
+
+[deps]
+
+source_file="res://Assets/MASK sombre v2.mp3"
+dest_files=["res://.godot/imported/MASK sombre v2.mp3-b2da1f521ddb3d7df399ed2d933c67c3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
