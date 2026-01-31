@@ -9,10 +9,7 @@ var stop_distance = 10
 var throw_time = 0
 
 func _ready() -> void:
-	# only this npc can interact with the blue door because of this line
-	InteractionGroups.addInteractionGroup(self, "blue_door")
-	# required so it can be detected by the blue door
-	self.set_collision_layer_value(12, true)
+	add_to_group("npc")
 
 func _physics_process(delta):
 	super._physics_process(delta)

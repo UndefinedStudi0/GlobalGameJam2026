@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://c2dgx6nikowjn"]
 
+[ext_resource type="Script" uid="uid://d1aqrp83lpo1w" path="res://Levels/museum.gd" id="1_oxja0"]
 [ext_resource type="Texture2D" uid="uid://4xeyj3i3g34q" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels.png" id="2_2g8tf"]
 [ext_resource type="Texture2D" uid="uid://caiacfwxrw2mk" path="res://Art/UndefinedStudi0_art/Backgrounds/StarrySky.png" id="2_u5xas"]
 [ext_resource type="Texture2D" uid="uid://06jl46l2ms45" path="res://Art/UndefinedStudi0_art/Backgrounds/trees.png" id="3_oxja0"]
@@ -209,6 +210,7 @@ normal_texture = ExtResource("9_3pxxt")
 size = Vector2(20, 64)
 
 [node name="TestLevel2" type="Node2D" unique_id=1203591299]
+script = ExtResource("1_oxja0")
 
 [node name="ParallaxBG" type="Node2D" parent="." unique_id=1743909236]
 
