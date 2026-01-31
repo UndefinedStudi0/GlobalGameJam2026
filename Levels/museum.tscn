@@ -12,8 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://sohuspbrt6i7" path="res://Art/UndefinedStudi0_art/Assets/pedestal_diffuse.png" id="8_luyee"]
 [ext_resource type="Texture2D" uid="uid://h0jj7n4xfli1" path="res://Art/UndefinedStudi0_art/Assets/pedestal_normalmap.png" id="9_3pxxt"]
 [ext_resource type="Texture2D" uid="uid://dnikg4tme0nb2" path="res://Art/UndefinedStudi0_art/Lights/round_light.png" id="10_3pxxt"]
-[ext_resource type="PackedScene" uid="uid://c2hbnofwx8h0j" path="res://Common/scenes/secure_door.tscn" id="13_u5xas"]
-[ext_resource type="PackedScene" uid="uid://fqpe3ypcd1k8" path="res://Common/scenes/side_door.tscn" id="14_oxja0"]
+[ext_resource type="PackedScene" path="res://Common/scenes/secure_door.tscn" id="13_u5xas"]
+[ext_resource type="PackedScene" path="res://Common/scenes/side_door.tscn" id="14_oxja0"]
+[ext_resource type="PackedScene" uid="uid://by3b5by4m42qa" path="res://Common/scenes/HPbar.tscn" id="15_pvsyx"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_oxja0"]
 diffuse_texture = ExtResource("2_2g8tf")
@@ -256,8 +257,9 @@ collision_visibility_mode = 1
 position = Vector2(-128, 145)
 color_id = "red_door"
 
-[node name="Mask" parent="." unique_id=442016007 instance=ExtResource("7_qhoq0")]
+[node name="Mask" parent="." unique_id=442016007 node_paths=PackedStringArray("hp_bar") instance=ExtResource("7_qhoq0")]
 position = Vector2(49, 90)
+hp_bar = NodePath("../CanvasLayer/HPbar")
 
 [node name="Pedestal" type="Sprite2D" parent="." unique_id=712198421]
 position = Vector2(49, 185)
@@ -271,3 +273,7 @@ color = Color(0.37498158, 0.5515186, 0.9245815, 1)
 energy = 2.65
 texture = ExtResource("10_3pxxt")
 height = 5.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1293595161]
+
+[node name="HPbar" parent="CanvasLayer" unique_id=99945326 instance=ExtResource("15_pvsyx")]

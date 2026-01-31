@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c8o5ige73c8cm" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/Metal Torch(OFF).png" id="10_utqd4"]
 [ext_resource type="Texture2D" uid="uid://4xeyj3i3g34q" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels.png" id="12_1jijn"]
 [ext_resource type="Texture2D" uid="uid://5v6c4ktpt2lg" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels_normalmap.png" id="13_20gr8"]
+[ext_resource type="PackedScene" path="res://Common/scenes/HPbar.tscn" id="14_20gr8"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_oxja0"]
 diffuse_texture = ExtResource("12_1jijn")
@@ -306,3 +307,39 @@ speed = 20.0
 
 [node name="Mask" parent="." unique_id=442016007 instance=ExtResource("7_u2cfn")]
 position = Vector2(1, 72)
+
+[node name="Node2D8" type="Node2D" parent="." unique_id=2105502061]
+position = Vector2(452, 45)
+
+[node name="Npc" parent="Node2D8" unique_id=1433198513 node_paths=PackedStringArray("waypoints") instance=ExtResource("5_20gr8")]
+position = Vector2(305, -470)
+waypoints = [NodePath("../Marker2D"), NodePath("../Marker2D2")]
+speed = 20.0
+
+[node name="Marker2D" type="Marker2D" parent="Node2D8" unique_id=515431328]
+position = Vector2(236, -460)
+
+[node name="Marker2D2" type="Marker2D" parent="Node2D8" unique_id=1963021194]
+position = Vector2(312, -460)
+
+[node name="Node2D9" type="Node2D" parent="." unique_id=970373010]
+position = Vector2(453, 45)
+
+[node name="Npc" parent="Node2D9" unique_id=2014646071 node_paths=PackedStringArray("waypoints") instance=ExtResource("5_20gr8")]
+position = Vector2(276, -214)
+waypoints = [NodePath("../Marker2D"), NodePath("../Marker2D2")]
+speed = 20.0
+
+[node name="Marker2D" type="Marker2D" parent="Node2D9" unique_id=551363072]
+position = Vector2(228, -203)
+
+[node name="Marker2D2" type="Marker2D" parent="Node2D9" unique_id=1231900125]
+position = Vector2(313, -204)
+
+[node name="Mask2" parent="." unique_id=95508530 node_paths=PackedStringArray("hp_bar") instance=ExtResource("7_u2cfn")]
+position = Vector2(490, -78)
+hp_bar = NodePath("../CanvasLayer/HPbar")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=438258244]
+
+[node name="HPbar" parent="CanvasLayer" unique_id=99945326 instance=ExtResource("14_20gr8")]
