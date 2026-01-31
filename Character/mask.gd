@@ -3,6 +3,7 @@ class_name Mask extends NewtonPhysics
 var throwVect = Vector2(250,-250)
 var attachedTo = null
 var collisionShapeRef = null
+var was_thrown = false
 
 func _physics_process(delta):
 	super._physics_process(delta)
@@ -19,7 +20,10 @@ func _physics_process(delta):
    # As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("left", "right", "up", "down")
 
-	if is_on_floor():
+	#To ignore direction when the mask was just thrown 
+	if was_in_air && was_thrown:
+		was_thrown = false
+	if is_on_floor() && !was_thrown:
 		if direction.x != 0:
 			velocity.x = direction.x * speed
 		else:
@@ -48,13 +52,14 @@ func attach(entity, collisionShape):
 func selfThrow():
 	print("self throwing")
 	attachedTo = null
-	velocity = throwVect
+	was_thrown = true
 	# Remove NPC collision shape
 	collisionShapeRef.queue_free()
 	collisionShapeRef = null
 	# Allow collisions with NPCs
 	set_collision_layer_value(4, false)
 	set_collision_layer_value(2, true)
+	velocity = throwVect
 
 func jump():
 	velocity.y = jump_velocity
