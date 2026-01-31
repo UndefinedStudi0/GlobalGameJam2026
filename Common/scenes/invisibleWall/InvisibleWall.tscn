@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://blotcceytb6lh"]
+
+[ext_resource type="Script" uid="uid://b0calvucvj1sg" path="res://Common/scenes/invisibleWall/invisible_wall.gd" id="1_2g6qr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8748j"]
+size = Vector2(8, 52)
+
+[node name="InvisibleWall" type="Node2D" unique_id=221140158]
+script = ExtResource("1_2g6qr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=10055453]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1734657731]
+position = Vector2(4, -26)
+shape = SubResource("RectangleShape2D_8748j")

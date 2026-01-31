@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://4xeyj3i3g34q" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels.png" id="12_1jijn"]
 [ext_resource type="Texture2D" uid="uid://5v6c4ktpt2lg" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels_normalmap.png" id="13_20gr8"]
 [ext_resource type="PackedScene" uid="uid://by3b5by4m42qa" path="res://Common/scenes/HPbar.tscn" id="14_20gr8"]
+[ext_resource type="PackedScene" uid="uid://blotcceytb6lh" path="res://Common/scenes/invisibleWall/InvisibleWall.tscn" id="17_lr1ra"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_oxja0"]
 diffuse_texture = ExtResource("12_1jijn")
@@ -208,9 +209,6 @@ sources/1 = SubResource("TileSetAtlasSource_yobc2")
 diffuse_texture = ExtResource("8_lr1ra")
 normal_texture = ExtResource("9_r7a1c")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_20gr8"]
-size = Vector2(16, 62.5)
-
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_20gr8"]
 b = Vector2(1, 79)
 
@@ -359,27 +357,6 @@ position = Vector2(55, 3)
 
 [node name="HPbar" parent="CanvasLayer" unique_id=99945326 instance=ExtResource("14_20gr8")]
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=659546878]
-collision_layer = 2049
-
-[node name="InvisibleWall" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1004522576]
-position = Vector2(664, 0)
-shape = SubResource("RectangleShape2D_20gr8")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1880508982]
-collision_layer = 2049
-
-[node name="InvisibleWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=598397954]
-position = Vector2(248, 128.75)
-shape = SubResource("RectangleShape2D_20gr8")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=2070424394]
-collision_layer = 2049
-
-[node name="InvisibleWall" type="CollisionShape2D" parent="StaticBody2D2" unique_id=563121366]
-position = Vector2(376, 129)
-shape = SubResource("RectangleShape2D_20gr8")
-
 [node name="DoorOpenedArea2D" type="Area2D" parent="." unique_id=970505665]
 position = Vector2(202, 51)
 collision_layer = 0
@@ -388,3 +365,18 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorOpenedArea2D" unique_id=1374462874]
 shape = SubResource("SegmentShape2D_20gr8")
 debug_color = Color(0.995331, 0, 0.214997, 0.41960785)
+
+[node name="InvisibleWall" parent="." unique_id=221140158 instance=ExtResource("17_lr1ra")]
+position = Vector2(240, 132)
+
+[node name="InvisibleWall2" parent="." unique_id=179204432 instance=ExtResource("17_lr1ra")]
+position = Vector2(376, 133)
+
+[node name="InvisibleWall3" parent="." unique_id=526562885 instance=ExtResource("17_lr1ra")]
+position = Vector2(584, 8)
+
+[node name="InvisibleWall4" parent="." unique_id=1340328266 instance=ExtResource("17_lr1ra")]
+position = Vector2(656, 7)
+
+[node name="InvisibleWall5" parent="." unique_id=398191031 instance=ExtResource("17_lr1ra")]
+position = Vector2(920, 16)

@@ -14,11 +14,10 @@ enum THROW_STATE {
 func _ready() -> void:
 	# required so it can be detected by the blue door
 	self.set_collision_layer_value(12, true)
+	
 	#var hp = $HPbar
 	#hp.reparent(get_tree().root)
 	#hp.global_position = Vector2(50,50)
-
-
 
 var attachedTo = null
 var collisionShapeRef = null
@@ -82,6 +81,8 @@ func attach(entity, collisionShape):
 	#Avoid collisions with NPCs while mask is attached
 	set_collision_layer_value(4, true)
 	set_collision_layer_value(2, false)
+	# invisible wall
+	set_collision_mask_value(8, true)
 	#Move mask above NPC
 	global_position = entity.global_position + Vector2(0,-25)
 	#Keep reference to attached entity
@@ -107,6 +108,8 @@ func selfThrow():
 	# Allow collisions with NPCs
 	set_collision_layer_value(4, false)
 	set_collision_layer_value(2, true)
+	# invisible wall
+	set_collision_mask_value(8, false)
 	var throw_coeff = (1 if sprite.flip_h else -1)
 	var throw_vect = normal_throw_vect
 	if crouched:
