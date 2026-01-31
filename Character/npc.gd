@@ -2,6 +2,7 @@ extends NewtonPhysics
 
 @export var waypoints: Array[Marker2D] = []
 @export var color_id: String = "none"
+@export var has_flashlight : bool = false
 
 @onready var collisionShape = $CollisionShape2D
 
@@ -19,6 +20,7 @@ func _ready() -> void:
 		InteractionGroups.addInteractionGroup(self, "none")
 		
 	self.set_collision_layer_value(12, true)
+	$Torch.visible = has_flashlight
 
 func _physics_process(delta):
 	super._physics_process(delta)
@@ -71,6 +73,14 @@ func check_for_mask():
 				maskref = mask
 
 	update_facing_direction()
+
+func update_facing_direction():
+	super.update_facing_direction()
+	print(direction)
+	if direction.x > 0:
+		$Torch.rotation_degrees = -90
+	elif direction.x < 0:
+		$Torch.rotation_degrees = 90
 
 func reach_waypoint():
 	if jiggling:
