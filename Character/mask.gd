@@ -6,9 +6,9 @@ enum THROW_STATE {
 	NOT_THROWN
 }
 
-const crouched_throw_vect = Vector2(250, -50)
-const normal_throw_vect = Vector2(250, -150)
-const super_throw_vect = Vector2(250, -250)
+@export var crouched_throw_vect = Vector2(250, -50)
+@export var normal_throw_vect = Vector2(250, -150)
+@export var super_throw_vect = Vector2(250, -250)
 	
 func _ready() -> void:
 	# required so it can be detected by the blue door
@@ -22,18 +22,6 @@ var throwState : THROW_STATE = THROW_STATE.NOT_THROWN
 
 func _physics_process(delta):
 	super._physics_process(delta)
-   # Handle Jump.
-	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
-			# Normal jump from floor
-			jump()
-		elif not has_double_jumped:
-			double_jump()
-
-
-   # Get the input direction and handle the movement/deceleration.
-   # As good practice, you should replace UI actions with custom gameplay actions.
-	direction = Input.get_vector("left", "right", "up", "down")
 
 	#To ignore direction when the mask was just thrown 
 	if was_in_air && throwState == THROW_STATE.THROW_STARTED:
@@ -42,15 +30,43 @@ func _physics_process(delta):
 		throwState = THROW_STATE.NOT_THROWN
 		hit_floor()
 	if is_on_floor() && throwState == THROW_STATE.NOT_THROWN:
-		if direction.x != 0:
-			velocity.x = direction.x * speed
+		if attachedTo != null:
+			move()
 		else:
-			velocity.x = move_toward(velocity.x, 0, speed)
+			jiggle()
+		
 	elif !is_on_floor() && throwState == THROW_STATE.NOT_THROWN:
 		if direction.x != 0:
 			velocity.x = move_toward(velocity.x, direction.x * air_speed, speed)
 	move_and_slide()
 	update_facing_direction()
+
+func move():
+	# Handle Jump.
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			# Normal jump from floor
+			jump()
+		elif not has_double_jumped:
+			double_jump()
+	
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	direction = Input.get_vector("left", "right", "up", "down")
+	
+	if direction.x != 0:
+		velocity.x = direction.x * speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, speed)
+
+func jiggle():
+	velocity.x = move_toward(velocity.x, 0, speed)
+	var input = Input.get_vector("left", "right", "up", "down")
+	if input.length() == 0:
+		return
+	var npcs = $JiggleArea.get_overlapping_bodies()
+	if len(npcs) > 0:
+		npcs[0].getJigglyWith(self)
 
 func attach(entity, collisionShape):
 	if attachedTo:
