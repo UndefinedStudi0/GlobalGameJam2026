@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://by3b5by4m42qa"]
+
+[ext_resource type="Script" uid="uid://c4sb576tivls4" path="res://Common/scenes/hpbar.gd" id="1_8634b"]
+[ext_resource type="Texture2D" uid="uid://bcvwxlhuiny7d" path="res://Art/UndefinedStudi0_art/Assets/mask_bw.png" id="2_8nej5"]
+
+[node name="HPbar" type="HBoxContainer" unique_id=99945326]
+script = ExtResource("1_8634b")
+allHP = Array[Texture2D]([ExtResource("2_8nej5"), ExtResource("2_8nej5"), ExtResource("2_8nej5"), ExtResource("2_8nej5"), ExtResource("2_8nej5")])
