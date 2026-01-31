@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://c2hbnofwx8h0j"]
+
+[ext_resource type="Script" uid="uid://bi757yxe14xlu" path="res://Common/scenes/secure_door.gd" id="1_ayoip"]
+[ext_resource type="Texture2D" uid="uid://c74qyg2hto46f" path="res://Art/UndefinedStudi0_art/Assets/secureframe.png" id="1_srwf1"]
+[ext_resource type="Texture2D" uid="uid://dxo8rugl0dj7v" path="res://Art/UndefinedStudi0_art/Assets/secureframe_normalmap.png" id="2_fi4sd"]
+[ext_resource type="Texture2D" uid="uid://dxfbhpbpr7cdn" path="res://Art/UndefinedStudi0_art/Assets/securepanel.png" id="3_0kunf"]
+[ext_resource type="Texture2D" uid="uid://bej54t67kwl82" path="res://Art/UndefinedStudi0_art/Assets/securepanel_normalmap.png" id="4_ayoip"]
+[ext_resource type="Texture2D" uid="uid://c8jt8u4hnedip" path="res://Art/UndefinedStudi0_art/Assets/keypass_G.png" id="5_0kunf"]
+[ext_resource type="Texture2D" uid="uid://bvodgh16238wf" path="res://Art/UndefinedStudi0_art/Assets/keypass_Y.png" id="6_ayoip"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_adykm"]
+diffuse_texture = ExtResource("1_srwf1")
+normal_texture = ExtResource("2_fi4sd")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vhrkg"]
+diffuse_texture = ExtResource("3_0kunf")
+normal_texture = ExtResource("4_ayoip")
+
+[sub_resource type="Animation" id="Animation_srwf1"]
+resource_name = "DoorOpens"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pane:region_rect:size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [48.0, 24.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pane:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(12, 12), Vector2(36, 12), Vector2(60, 12)]
+}
+
+[sub_resource type="Animation" id="Animation_fi4sd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pane:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pane:region_rect:size:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [48.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0kunf"]
+_data = {
+&"DoorOpens": SubResource("Animation_srwf1"),
+&"RESET": SubResource("Animation_fi4sd")
+}
+
+[node name="SecureDoor" type="Node2D" unique_id=1541820274]
+script = ExtResource("1_ayoip")
+
+[node name="Frame" type="Sprite2D" parent="." unique_id=715861441]
+texture = SubResource("CanvasTexture_adykm")
+centered = false
+
+[node name="Pane" type="Sprite2D" parent="." unique_id=1842883783]
+position = Vector2(12, 12)
+texture = SubResource("CanvasTexture_vhrkg")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 96)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1969205718]
+libraries/ = SubResource("AnimationLibrary_0kunf")
+
+[node name="KeypassGreen" type="Sprite2D" parent="." unique_id=60510735]
+position = Vector2(63, 67)
+texture = ExtResource("5_0kunf")
+centered = false
+
+[node name="KeypassYellow" type="Sprite2D" parent="." unique_id=1519705180]
+position = Vector2(63, 67)
+texture = ExtResource("6_ayoip")
+centered = false

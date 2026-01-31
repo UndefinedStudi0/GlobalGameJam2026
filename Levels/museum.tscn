@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://sohuspbrt6i7" path="res://Art/UndefinedStudi0_art/Assets/pedestal_diffuse.png" id="8_luyee"]
 [ext_resource type="Texture2D" uid="uid://h0jj7n4xfli1" path="res://Art/UndefinedStudi0_art/Assets/pedestal_normalmap.png" id="9_3pxxt"]
 [ext_resource type="Texture2D" uid="uid://dnikg4tme0nb2" path="res://Art/UndefinedStudi0_art/Lights/round_light.png" id="10_3pxxt"]
+[ext_resource type="PackedScene" uid="uid://c2hbnofwx8h0j" path="res://Common/scenes/secure_door.tscn" id="13_u5xas"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_oxja0"]
 diffuse_texture = ExtResource("2_2g8tf")
@@ -234,6 +235,10 @@ position = Vector2(0, 25)
 tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAACAAAAAAACAAAAAAACAAAAAAADAAAAAAACAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAAAAAACAAAAAAAFAAAAAAACAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAADAP//AAAAAAAAAAAEAP//AAAAAAAAAAAFAP//AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_i534r")
 
+[node name="SecureDoor" parent="." unique_id=1541820274 instance=ExtResource("13_u5xas")]
+position = Vector2(-108, 77)
+door_colorid = 2
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=121137877]
 physics_interpolation_mode = 1
 position = Vector2(48, 89)
@@ -256,7 +261,7 @@ texture = SubResource("CanvasTexture_xo0mt")
 offset = Vector2(0, -24)
 
 [node name="APointGlow" type="PointLight2D" parent="." unique_id=30063435]
-position = Vector2(79.5, 70.5)
+position = Vector2(78, 106)
 scale = Vector2(1.21875, 1.23125)
 color = Color(0.37498158, 0.5515186, 0.9245815, 1)
 energy = 2.65
