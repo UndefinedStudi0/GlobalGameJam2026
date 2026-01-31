@@ -23,6 +23,7 @@ texture = SubResource("CanvasTexture_oxja0")
 texture_region_size = Vector2i(160, 160)
 0:0/0 = 0
 1:0/0 = 0
+2:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_i534r"]
 tile_size = Vector2i(160, 160)
@@ -215,7 +216,7 @@ stretch_mode = 1
 
 [node name="BackgroundTiles" type="TileMapLayer" parent="." unique_id=136828106]
 position = Vector2(-49, -65)
-tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAACAAAAAAAAAAAAAAADAAAAAAABAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAACAAAAAAACAAAAAAADAAAAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_i534r")
 
 [node name="Player" parent="." unique_id=693154731 instance=ExtResource("3_3s25j")]
