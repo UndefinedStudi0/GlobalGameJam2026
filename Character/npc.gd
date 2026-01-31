@@ -6,6 +6,7 @@ var maskref = null
 var collisionShapeRef = null
 var isAttached = false
 var stop_distance = 10
+var throw_time = 0
 
 func _physics_process(delta):
 	super._physics_process(delta)
@@ -37,7 +38,7 @@ func _physics_process(delta):
 	if !isAttached && move_and_slide():
 		var entity = get_last_slide_collision()
 		var m = entity.get_collider()
-		if m.get("name") == "Mask":	
+		if m.get("name") == "Mask" && !is_in_attach_grace_period():	
 			var currentPos = global_position + Vector2(0,-25)
 			print("current global pos ", currentPos)
 			m.global_position = currentPos
@@ -51,9 +52,13 @@ func _physics_process(delta):
 func reach_waypoint():
 	current_waypoint = (current_waypoint+1) % waypoints.size()
 	print("reached next waypoint")
+	
+func is_in_attach_grace_period():
+	return (Time.get_ticks_msec() - throw_time) < 500
 
 func throw():
 	isAttached = false
+	throw_time = Time.get_ticks_msec()
 	collisionShapeRef.queue_free()
 	collisionShapeRef = null
 	self.reparent(get_tree().current_scene)
