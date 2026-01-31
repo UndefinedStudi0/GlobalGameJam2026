@@ -5,8 +5,6 @@ func _ready() -> void:
 	# get npc
 	var npc = get_tree().get_first_node_in_group("npc")
 	
-	print("npc found?")
-	print(npc)
 	if npc != null && npc.name == "Npc":
 		# only this npc can interact with the blue door because of this line
 		InteractionGroups.addInteractionGroup(npc, "blue_door")
