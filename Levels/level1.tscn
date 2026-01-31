@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bdjges4nv4byu"]
 
-[ext_resource type="Script" uid="uid://c5awtjae3i6xy" path="res://Levels/level_1.gd" id="1_u55on"]
+[ext_resource type="Script" path="res://Levels/level_1.gd" id="1_u55on"]
 [ext_resource type="Texture2D" uid="uid://cqrqnlx2jpsop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_utqd4"]
 [ext_resource type="Texture2D" uid="uid://10vjb585fybe" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/[FREE] Industrial Tileset/FREE/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1.png" id="3_pdma0"]
 [ext_resource type="Texture2D" uid="uid://bote44rp44hb5" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/tileset_.png" id="4_1jijn"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c8o5ige73c8cm" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/Metal Torch(OFF).png" id="10_utqd4"]
 [ext_resource type="Texture2D" uid="uid://4xeyj3i3g34q" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels.png" id="12_1jijn"]
 [ext_resource type="Texture2D" uid="uid://5v6c4ktpt2lg" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels_normalmap.png" id="13_20gr8"]
+[ext_resource type="PackedScene" uid="uid://by3b5by4m42qa" path="res://Common/scenes/HPbar.tscn" id="14_20gr8"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_oxja0"]
 diffuse_texture = ExtResource("12_1jijn")
@@ -352,5 +353,10 @@ position = Vector2(228, -203)
 [node name="Marker2D2" type="Marker2D" parent="Node2D9" unique_id=1231900125]
 position = Vector2(313, -204)
 
-[node name="Mask" parent="." unique_id=442016007 instance=ExtResource("7_u2cfn")]
+[node name="Mask" parent="." unique_id=442016007 node_paths=PackedStringArray("hp_bar") instance=ExtResource("7_u2cfn")]
 position = Vector2(490, -78)
+hp_bar = NodePath("../CanvasLayer/HPbar")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=438258244]
+
+[node name="HPbar" parent="CanvasLayer" unique_id=99945326 instance=ExtResource("14_20gr8")]
