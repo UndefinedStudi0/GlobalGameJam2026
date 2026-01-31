@@ -76,7 +76,6 @@ func selfThrow():
 func detach():
 	print("hit floor")
 	attachedTo = null
-	lifePoints -= 1
 	Audio.fadein_safe()
 
 func jump():
@@ -84,3 +83,14 @@ func jump():
 
 func double_jump():
 	velocity.y = double_jump_velocity
+
+func updateHp(delta: int):
+	lifePoints += delta;
+	updateHpLabel()
+
+func setHp(value: int):
+	lifePoints = value;
+	updateHpLabel()
+
+func updateHpLabel():
+	$HP.text = "HP: %d" % lifePoints
