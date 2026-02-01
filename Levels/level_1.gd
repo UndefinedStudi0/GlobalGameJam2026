@@ -1,6 +1,6 @@
 extends Node2D
 
-var level = preload("res://levels/level1/level_data.gd").new()
+var level = preload("res://Levels/level1/level_data.gd").new()
 
 const DOOR_OPENED_CHAT_BOX_ID = "door-opened"
 
