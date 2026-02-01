@@ -19,12 +19,26 @@ var fall_sfx = AudioStreamPlayer2D.new()
 
 var jiggle_callback = null
 
+var glass1res = preload("res://Assets/glass audio/glass 1.mp3")
+var glass2res = preload("res://Assets/glass audio/glass 2.mp3")
+var glass3res = preload("res://Assets/glass audio/glass 3.mp3")
+var glass4res = preload("res://Assets/glass audio/glass 4.mp3")
+var glass5res = preload("res://Assets/glass audio/glass 5.mp3")
+
+# can be triggered while running animations etc
+var are_movements_disabled = false
 var positioncamerabase = Vector2(0,-11)
 
 func _ready() -> void:
 	# required so it can be detected by the blue door
 	self.set_collision_layer_value(12, true)
 	
+	self.add_to_group("player")
+	
+	# add this interaction group by default so other elements can just add the "player" key
+	# so we don't have to also add it to the player. (useful for EventTrigger as an example)
+	InteractionGroups.addInteractionGroup(self, "player")
+
 	print("camera position ", $Camera2D.position)	
 
 	detached_music.stream = load("res://Assets/MASK sombre v2.mp3")
@@ -61,8 +75,10 @@ func _physics_process(delta):
 	elif !is_on_floor() && throwState == THROW_STATE.NOT_THROWN:
 		if direction.x != 0:
 			velocity.x = move_toward(velocity.x, direction.x * air_speed, speed)
-	move_and_slide()
-	update_facing_direction()
+			
+	if !are_movements_disabled:
+		move_and_slide()
+		update_facing_direction()
 
 func move():
 	# Handle Jump.
@@ -186,7 +202,6 @@ func jump():
 func double_jump():
 	velocity.y = double_jump_velocity
 
-
 func showChatBox(message: String, message_id: String, auto_close_delay_in_s: int = 0):
 	if !message:
 		print("message missing")
@@ -202,3 +217,9 @@ func showChatBox(message: String, message_id: String, auto_close_delay_in_s: int
 		$ChatBox.write_message(message)
 	else:
 		$ChatBox.write_message_with_delay(message, auto_close_delay_in_s)
+
+func addInteractionGroup(group: String):
+	if group:
+		InteractionGroups.addInteractionGroup(self, group)
+	else:
+		print("group missing")
