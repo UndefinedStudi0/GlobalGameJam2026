@@ -14,9 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://cmi687gmk6d70" path="res://Levels/pedestal_room.tscn" id="11_sqs0x"]
 [ext_resource type="Texture2D" uid="uid://4xeyj3i3g34q" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels.png" id="12_1jijn"]
 [ext_resource type="Texture2D" uid="uid://5v6c4ktpt2lg" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels_normalmap.png" id="13_20gr8"]
-[ext_resource type="PackedScene" path="res://Common/scenes/HPbar.tscn" id="14_20gr8"]
+[ext_resource type="PackedScene" uid="uid://by3b5by4m42qa" path="res://Common/scenes/HPbar.tscn" id="14_20gr8"]
 [ext_resource type="PackedScene" uid="uid://blotcceytb6lh" path="res://Common/scenes/invisibleWall/InvisibleWall.tscn" id="17_lr1ra"]
-[ext_resource type="PackedScene" uid="uid://c2hbnofwx8h0j" path="res://Common/scenes/secure_door.tscn" id="18_r7a1c"]
+[ext_resource type="PackedScene" path="res://Common/scenes/secure_door.tscn" id="18_r7a1c"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_oxja0"]
 diffuse_texture = ExtResource("12_1jijn")
