@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://c6p1ql0bs7oa7" path="res://Character/mask.tscn" id="7_u2cfn"]
 [ext_resource type="Texture2D" uid="uid://dnikg4tme0nb2" path="res://Art/UndefinedStudi0_art/Lights/round_light.png" id="10_sqs0x"]
 [ext_resource type="PackedScene" uid="uid://fqpe3ypcd1k8" path="res://Common/scenes/side_door.tscn" id="10_u55on"]
-[ext_resource type="Texture2D" uid="uid://c8o5ige73c8cm" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/Metal Torch(OFF).png" id="10_utqd4"]
 [ext_resource type="PackedScene" path="res://Levels/pedestal_room.tscn" id="11_sqs0x"]
 [ext_resource type="Script" uid="uid://dq123pjsysuv0" path="res://Levels/level1/part_1.gd" id="11_vy400"]
 [ext_resource type="Texture2D" uid="uid://4xeyj3i3g34q" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels.png" id="12_1jijn"]
@@ -307,59 +306,6 @@ maskRef = NodePath("../Mask")
 [node name="Part1" type="Node2D" parent="." unique_id=1493043528]
 script = ExtResource("11_vy400")
 
-[node name="Node2D" type="Node2D" parent="Part1" unique_id=993866945]
-position = Vector2(-91, 95)
-
-[node name="Npc" parent="Part1/Node2D" unique_id=440928820 instance=ExtResource("5_20gr8")]
-position = Vector2(10, -1)
-color_id = ""
-speed = 20.0
-
-[node name="SideDoor2" parent="Part1" unique_id=704819394 instance=ExtResource("10_u55on")]
-position = Vector2(148, 48)
-
-[node name="Pedestal" type="Sprite2D" parent="Part1" unique_id=712198421]
-position = Vector2(0, 128)
-offset = Vector2(0, -24)
-
-[node name="Node2D2" type="Node2D" parent="Part1" unique_id=1612202733]
-position = Vector2(419, 121)
-
-[node name="Npc" parent="Part1/Node2D2" unique_id=1209755728 instance=ExtResource("5_20gr8")]
-position = Vector2(-3, -28)
-speed = 20.0
-
-[node name="NpcY1Node" type="Node2D" parent="Part1" unique_id=1215555570]
-position = Vector2(931, -13)
-
-[node name="NpcY1" parent="Part1/NpcY1Node" unique_id=568459852 instance=ExtResource("5_20gr8")]
-position = Vector2(45, -21)
-speed = 20.0
-
-[node name="PatrolRight" type="Marker2D" parent="Part1/NpcY1Node" unique_id=1754557599]
-position = Vector2(14, -3)
-
-[node name="Sprite2D" type="Sprite2D" parent="Part1/NpcY1Node/PatrolRight" unique_id=1711390473]
-position = Vector2(80, -1)
-texture = ExtResource("10_utqd4")
-
-[node name="PatrolLeft" type="Marker2D" parent="Part1/NpcY1Node" unique_id=1526908694]
-position = Vector2(152, -2)
-
-[node name="Node2D5" type="Node2D" parent="Part1" unique_id=1993280873]
-position = Vector2(602, -26)
-
-[node name="Npc" parent="Part1/Node2D5" unique_id=97866405 instance=ExtResource("5_20gr8")]
-position = Vector2(13, -8)
-speed = 20.0
-
-[node name="Node2D6" type="Node2D" parent="Part1" unique_id=139195400]
-position = Vector2(733, 102)
-
-[node name="Npc" parent="Part1/Node2D6" unique_id=2026151985 instance=ExtResource("5_20gr8")]
-position = Vector2(21, -11)
-speed = 20.0
-
 [node name="DoorOpenedArea2D" type="Area2D" parent="Part1" unique_id=970505665]
 position = Vector2(202, 51)
 collision_layer = 0
@@ -399,10 +345,10 @@ z_index = 0
 position = Vector2(45, -21)
 speed = 20.0
 
-[node name="patrol right" type="Marker2D" parent="Part1/NPCsFolder/NpcY1Node" unique_id=1208680718]
+[node name="PatrolRight" type="Marker2D" parent="Part1/NPCsFolder/NpcY1Node" unique_id=1208680718]
 position = Vector2(14, -3)
 
-[node name="patrol left" type="Marker2D" parent="Part1/NPCsFolder/NpcY1Node" unique_id=45647866]
+[node name="PatrolLeft" type="Marker2D" parent="Part1/NPCsFolder/NpcY1Node" unique_id=45647866]
 position = Vector2(152, -2)
 
 [node name="Node2D5" type="Node2D" parent="Part1/NPCsFolder" unique_id=449711459]
@@ -437,10 +383,6 @@ position = Vector2(656, 7)
 
 [node name="InvisibleWall5" parent="Part1/InvisibleWallsFolder" unique_id=398191031 instance=ExtResource("17_lr1ra")]
 position = Vector2(920, 16)
-
-[node name="Part1_NPCsFolder_NpcY1Node_PatrolRight#Sprite2D" type="Sprite2D" parent="." unique_id=1822407258]
-position = Vector2(80, -1)
-texture = ExtResource("10_utqd4")
 
 [node name="Part2" type="Node2D" parent="." unique_id=1270477397]
 
@@ -497,12 +439,6 @@ door_colorid = "yellow_door"
 
 [node name="Checkpoint2" parent="Part2" unique_id=1412628409 instance=ExtResource("18_eaymk")]
 position = Vector2(1480, 243)
-
-[node name="Part2_NPCsFolder_Node2D9#Npc" parent="." unique_id=1176621316 instance=ExtResource("5_20gr8")]
-z_index = 0
-position = Vector2(7, -1)
-color_id = "yellow_door"
-speed = 20.0
 
 [node name="Part3" type="Node2D" parent="." unique_id=679065258]
 

@@ -26,8 +26,8 @@ func _on_npc_trigger_alert_area_entered(body: Node2D) -> void:
 		# update the level progression
 		LevelProgress.mark_as_completed(level.name, level.interactions.npc_trigger_alert)
 		
-		var npcTriggeringTheAlert = $NpcY1Node/NpcY1 as Npc
-		var npcFinalPositionMarker = $NpcY1Node/PatrolLeft
+		var npcTriggeringTheAlert = $NPCsFolder/NpcY1Node/NpcY1 as Npc
+		var npcFinalPositionMarker = $NPCsFolder/NpcY1Node/PatrolLeft
 		var player = get_parent().get_tree().get_first_node_in_group("player")
 		
 		if !npcTriggeringTheAlert:
