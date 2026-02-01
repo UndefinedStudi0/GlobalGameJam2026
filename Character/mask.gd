@@ -100,6 +100,7 @@ func attach(entity, collisionShape):
 	if attachedTo:
 		#Cannot attach to multiple NPCs
 		return false
+	$AnimationPlayer.play("RESET")
 	#Avoid collisions with NPCs while mask is attached
 	set_collision_layer_value(4, true)
 	set_collision_layer_value(2, false)

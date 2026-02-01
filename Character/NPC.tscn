@@ -10,6 +10,7 @@ radius = 8.0
 height = 64.0
 
 [sub_resource type="Animation" id="Animation_s0bto"]
+resource_name = "RESET"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -80,6 +81,7 @@ _data = {
 }
 
 [node name="Npc" type="CharacterBody2D" unique_id=440928820]
+z_index = 1
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_aocaa")

@@ -11,6 +11,7 @@ var maskref = null
 var isAttached = false
 var stop_distance = 10
 var throw_time = 0
+var jiggle_time = 0
 var jiggling = false
 
 func _ready() -> void:
@@ -53,9 +54,13 @@ func _physics_process(delta):
 		reach_waypoint()
 		return
 
-	# Calculate target velocityada
+	# Calculate target velocity
 	direction = (target - global_position).normalized()
 	var target_velocity = direction.x * speed
+	
+	if (Time.get_ticks_msec() - jiggle_time) < 500:
+		update_facing_direction()
+		return
 
 	velocity.x = target_velocity
 	check_for_mask()
@@ -106,6 +111,7 @@ func getJigglyWith(mask):
 	if jiggling:
 		return
 	jiggling = true
+	jiggle_time = Time.get_ticks_msec()
 	$AnimationPlayer.play("jiggled")
 	maskref = mask
 	var maskWayPoint = Marker2D.new()
