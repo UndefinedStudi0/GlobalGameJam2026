@@ -94,8 +94,18 @@ func move():
 
 	if direction.x != 0:
 		velocity.x = direction.x * speed
+		move_camera()
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
+
+
+func move_camera():
+	var tween = get_tree().create_tween()
+	if direction.x > 0:
+		tween.tween_property($Camera2D, "offset", Vector2(112,-11),1).set_ease(Tween.EASE_IN)
+	elif direction.x < 0:
+		tween.tween_property($Camera2D, "offset", Vector2(-112,-11),1).set_ease(Tween.EASE_IN)
+	
 
 func jiggle():
 	velocity.x = move_toward(velocity.x, 0, speed)
