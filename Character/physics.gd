@@ -13,6 +13,11 @@ enum StandState {
 	CROUCH
 }
 
+enum FacingDirection {
+	LEFT,
+	RIGHT
+}
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var has_double_jumped : bool = false
@@ -20,7 +25,7 @@ var has_double_jumped : bool = false
 var direction : Vector2 = Vector2.ZERO
 var was_in_air : bool = false
 var stand_state : StandState = StandState.STANDING
-
+var facing: FacingDirection = FacingDirection.RIGHT
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -39,8 +44,11 @@ func _physics_process(delta):
 		stand_state = StandState.STANDING
 	if Input.is_action_just_released("up"):
 		stand_state = StandState.STANDING
+		
 func update_facing_direction():
 	if direction.x > 0:
 		sprite.flip_h = true
+		facing = FacingDirection.RIGHT
 	elif direction.x < 0:
 		sprite.flip_h = false
+		facing = FacingDirection.LEFT
