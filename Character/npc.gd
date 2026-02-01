@@ -13,7 +13,17 @@ var stop_distance = 10
 var throw_time = 0
 var jiggle_time = 0
 var jiggling = false
+var aim_up_texture = preload('res://Art/UndefinedStudi0_art/Characters/aim up.png')
+var stand_texture = preload("res://Art/UndefinedStudi0_art/Characters/NPC_stand.png")
+var crouch_texture = preload("res://Art/UndefinedStudi0_art/Characters/NPC_crouch.png")
 
+func _process(delta):
+	match stand_state:
+		StandState.STANDING: $Sprite2D.texture = stand_texture
+		StandState.LOOKUP: $Sprite2D.texture = aim_up_texture
+		StandState.CROUCH: $Sprite2D.texture = crouch_texture
+
+		
 func _ready() -> void:
 	add_to_group("npc")
 	InteractionGroups.addInteractionGroup(self, color_id)
