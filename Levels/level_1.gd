@@ -10,23 +10,57 @@ func _ready() -> void:
 	# required so it can be detected by the blue door
 	$Part1/NPCsFolder/NpcY1Node/NpcY1.set_collision_layer_value(12, true)
 	
-	# example chat box closed detection event
-	SignalBus.chat_box_closed.connect(_on_need_to_open_the_door_chat_box_close)
-	
 	# set detection layer 12 (Mask)
 	$Part1/DoorOpenedArea2D.set_collision_mask_value(12, true)
 	
 	# connect the body entered event
 	if not $Part1/DoorOpenedArea2D.body_entered.is_connected(_on_close_door_opened_area_2d_body_entered):
 		$Part1/DoorOpenedArea2D.body_entered.connect(_on_close_door_opened_area_2d_body_entered)
+		
+	# enable events for gameover areas	
+	SignalBus.gameover_area_triggered.connect(_on_gameover_area_body_enter)
 	
 	Audio._setup_level("museum")
 	Audio.fadein_safe()
+	$Part4/WinDoor.animation_end_callback = end_game_screen
+	
+func end_game_screen():
+	get_tree().change_scene_to_file("res://Levels/WinScene.tscn")
 
-func _on_need_to_open_the_door_chat_box_close(type: String):
-	if type == DOOR_OPENED_CHAT_BOX_ID:
-		print("door opened chatbox closed")
 		
+func _on_gameover_area_body_enter(previousCheckpoint: int) -> void:
+	# move the user to the checkpoint
+	LevelProgress.reset_progress()
+	
+	var checkpointPosition: Vector2 = Vector2(0,0)
+	
+	match previousCheckpoint:
+		0:
+			checkpointPosition = $Part1/Checkpoint0.position	
+		1:
+			checkpointPosition = $Part1/Checkpoint1.position
+		2:
+			checkpointPosition = $Part2/Checkpoint2.position
+		3:
+			checkpointPosition = $Part3/Checkpoint3.position
+			
+	var mask = $Mask
+	
+	mask.hp_bar.decrement()
+	
+	# reset mask position
+	mask.position = checkpointPosition
+
+	# reset npcs positions
+	var tree = get_tree()
+	
+	if tree:
+		var npcs = tree.get_nodes_in_group("npc")
+		
+		for npc in npcs:
+			npc.global_position = npc.initial_global_position
+		
+	
 		
 func _on_close_door_opened_area_2d_body_entered(body: Node2D) -> void:
 	if !LevelProgress.is_completed(level.name, level.interactions.have_opened_the_door.key):
