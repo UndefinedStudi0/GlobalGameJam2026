@@ -5,11 +5,24 @@ var completed_interactions: Dictionary = {}
 var last_check_point: Dictionary = {}
 
 # Mark an interaction as completed
-func mark_as_completed(level_name: String, interaction_id: String) -> void:
+func mark_as_completed(level_name: String, interaction: Dictionary) -> void:
+	var interaction_key = interaction.key
+	var is_checkpoint = interaction.is_checkpoint
+	
+	if !interaction_key:
+		print("ERROR: interaction key is missing")
+		return
+	
 	if not completed_interactions.has(level_name):
 		completed_interactions[level_name] = {}
-	completed_interactions[level_name][interaction_id] = true
-	print("Marked ", interaction_id, " as completed in level ", level_name)
+		
+	completed_interactions[level_name][interaction_key] = true
+	
+	print("Marked ", interaction_key, " as completed in level ", level_name)
+	
+	if is_checkpoint:
+		checkpoint()
+		
 
 # Check if an interaction is completed
 func is_completed(level_name: String, interaction_id: String) -> bool:
@@ -20,6 +33,7 @@ func is_completed(level_name: String, interaction_id: String) -> bool:
 func checkpoint():
 	last_check_point = completed_interactions
 
+# must be triggered on game over
 func reset_progress():
 	print("resetting state from:")
 	print(completed_interactions)
@@ -27,7 +41,6 @@ func reset_progress():
 	print("to state:")
 	print(last_check_point)
 	completed_interactions = last_check_point
-	last_check_point = {}
 
 func save_game():
 	var save_data = {

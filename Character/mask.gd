@@ -13,19 +13,43 @@ enum THROW_STATE {
 
 var detached_music = AudioStreamPlayer2D.new()
 var attached_music = AudioStreamPlayer2D.new()
+var throw_sfx = AudioStreamPlayer2D.new()
+var catch_sfx = AudioStreamPlayer2D.new()
+var fall_sfx = AudioStreamPlayer2D.new()
 
 var jiggle_callback = null
+
+var glass1res = preload("res://Assets/glass audio/glass 1.mp3")
+var glass2res = preload("res://Assets/glass audio/glass 2.mp3")
+var glass3res = preload("res://Assets/glass audio/glass 3.mp3")
+var glass4res = preload("res://Assets/glass audio/glass 4.mp3")
+var glass5res = preload("res://Assets/glass audio/glass 5.mp3")
+
+# can be triggered while running animations etc
+var are_movements_disabled = false
 
 func _ready() -> void:
 	# required so it can be detected by the blue door
 	self.set_collision_layer_value(12, true)
 	
+	self.add_to_group("player")
+	
+	# add this interaction group by default so other elements can just add the "player" key
+	# so we don't have to also add it to the player. (useful for EventTrigger as an example)
+	InteractionGroups.addInteractionGroup(self, "player")
+
 	print("camera position ", $Camera2D.position)	
 
 	detached_music.stream = load("res://Assets/MASK sombre v2.mp3")
 	attached_music.stream = load("res://Assets/MASK puzzle v2.mp3")
+	throw_sfx.stream = load("res://Assets/MASK_lance.mp3")
+	catch_sfx.stream = load("res://Assets/MASK_mis.mp3")
+	fall_sfx.stream = load("res://Assets/MASK_degats.mp3")
 	add_child(detached_music)
 	add_child(attached_music)
+	add_child(throw_sfx)
+	add_child(catch_sfx)
+	add_child(fall_sfx)
 	
 var attachedTo = null
 var collisionShapeRef = null
@@ -50,8 +74,10 @@ func _physics_process(delta):
 	elif !is_on_floor() && throwState == THROW_STATE.NOT_THROWN:
 		if direction.x != 0:
 			velocity.x = move_toward(velocity.x, direction.x * air_speed, speed)
-	move_and_slide()
-	update_facing_direction()
+			
+	if !are_movements_disabled:
+		move_and_slide()
+		update_facing_direction()
 
 func move():
 	# Handle Jump.
@@ -68,8 +94,18 @@ func move():
 
 	if direction.x != 0:
 		velocity.x = direction.x * speed
+		move_camera()
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
+
+
+func move_camera():
+	var tween = get_tree().create_tween()
+	if direction.x > 0:
+		tween.tween_property($Camera2D, "offset", Vector2(112,-11),1).set_ease(Tween.EASE_IN)
+	elif direction.x < 0:
+		tween.tween_property($Camera2D, "offset", Vector2(-112,-11),1).set_ease(Tween.EASE_IN)
+	
 
 func jiggle():
 	velocity.x = move_toward(velocity.x, 0, speed)
@@ -92,8 +128,10 @@ func attach(entity, collisionShape):
 		#Cannot attach to multiple NPCs
 		return false
 	detached_music.stop()
+	catch_sfx.play()
 	if throwState == THROW_STATE.NOT_THROWN:
 		attached_music.play()
+		detached_music.stop()
 	$AnimationPlayer.play("RESET")
 	#Avoid collisions with NPCs while mask is attached
 	set_collision_layer_value(4, true)
@@ -119,6 +157,7 @@ func selfThrow():
 	print("self throwing")
 	attachedTo = null
 	throwState = THROW_STATE.THROW_STARTED
+	throw_sfx.play()
 	# Remove NPC collision shape
 	collisionShapeRef.queue_free()
 	collisionShapeRef = null
@@ -141,13 +180,13 @@ func hit_floor():
 		hp_bar.decrement()
 		detached_music.play()
 		attached_music.stop()
+		fall_sfx.play()
 
 func jump():
 	velocity.y = jump_velocity
 
 func double_jump():
 	velocity.y = double_jump_velocity
-
 
 func showChatBox(message: String, message_id: String, auto_close_delay_in_s: int = 0):
 	if !message:
@@ -164,3 +203,9 @@ func showChatBox(message: String, message_id: String, auto_close_delay_in_s: int
 		$ChatBox.write_message(message)
 	else:
 		$ChatBox.write_message_with_delay(message, auto_close_delay_in_s)
+
+func addInteractionGroup(group: String):
+	if group:
+		InteractionGroups.addInteractionGroup(self, group)
+	else:
+		print("group missing")
