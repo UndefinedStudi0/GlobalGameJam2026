@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cw53aykueud4a" path="res://exit.png" id="4_fcw43"]
 [ext_resource type="Texture2D" uid="uid://vau62tgxq812" path="res://Art/UndefinedStudi0_art/retrytext.png" id="5_20ivj"]
 
-[node name="MainMenu" type="Control" unique_id=1691382321]
+[node name="GameOver" type="Control" unique_id=1691382321]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
