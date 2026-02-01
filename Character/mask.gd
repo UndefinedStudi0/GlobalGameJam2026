@@ -89,6 +89,11 @@ func move_camera():
 	elif direction.x < 0:
 		tween.tween_property($Camera2D, "offset", Vector2(-112,-11),1).set_ease(Tween.EASE_IN)
 	
+	match stand_state:
+		StandState.STANDING: tween.tween_property($Camera2D, "offset.y", -11,1).set_ease(Tween.EASE_IN)
+		StandState.LOOKUP: tween.tween_property($Camera2D, "offset.y", -11,1).set_ease(Tween.EASE_IN)
+		StandState.CROUCH: tween.tween_property($Camera2D, "offset.y", -11,1).set_ease(Tween.EASE_IN)
+	
 
 func jiggle():
 	velocity.x = move_toward(velocity.x, 0, speed)
