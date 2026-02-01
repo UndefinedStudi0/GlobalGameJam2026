@@ -20,9 +20,17 @@ var crouch_texture = preload("res://Art/UndefinedStudi0_art/Characters/NPC_crouc
 func _process(delta):
 	if isAttached:
 		match stand_state:
-			StandState.STANDING: $Sprite2D.texture = stand_texture
+			StandState.STANDING: set_stand_texture()
 			StandState.LOOKUP: $Sprite2D.texture = aim_up_texture
-			StandState.CROUCH: $Sprite2D.texture = crouch_texture
+			StandState.CROUCH: set_crouch_texture()
+
+func set_crouch_texture():
+	$Sprite2D.texture = crouch_texture
+	$Sprite2D.position = Vector2(0,8)
+	
+func set_stand_texture():
+	$Sprite2D.texture = stand_texture
+	$Sprite2D.position = Vector2.ZERO
 
 		
 func _ready() -> void:
