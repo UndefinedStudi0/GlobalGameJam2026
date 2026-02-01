@@ -13,6 +13,9 @@ enum THROW_STATE {
 
 var detached_music = AudioStreamPlayer2D.new()
 var attached_music = AudioStreamPlayer2D.new()
+var throw_sfx = AudioStreamPlayer2D.new()
+var catch_sfx = AudioStreamPlayer2D.new()
+var fall_sfx = AudioStreamPlayer2D.new()
 
 var jiggle_callback = null
 
@@ -24,8 +27,14 @@ func _ready() -> void:
 
 	detached_music.stream = load("res://Assets/MASK sombre v2.mp3")
 	attached_music.stream = load("res://Assets/MASK puzzle v2.mp3")
+	throw_sfx.stream = load("res://Assets/MASK_lance.mp3")
+	catch_sfx.stream = load("res://Assets/MASK_mis.mp3")
+	fall_sfx.stream = load("res://Assets/MASK_degats.mp3")
 	add_child(detached_music)
 	add_child(attached_music)
+	add_child(throw_sfx)
+	add_child(catch_sfx)
+	add_child(fall_sfx)
 	
 var attachedTo = null
 var collisionShapeRef = null
@@ -92,8 +101,10 @@ func attach(entity, collisionShape):
 		#Cannot attach to multiple NPCs
 		return false
 	detached_music.stop()
+	catch_sfx.play()
 	if throwState == THROW_STATE.NOT_THROWN:
 		attached_music.play()
+		detached_music.stop()
 	$AnimationPlayer.play("RESET")
 	#Avoid collisions with NPCs while mask is attached
 	set_collision_layer_value(4, true)
@@ -119,6 +130,7 @@ func selfThrow():
 	print("self throwing")
 	attachedTo = null
 	throwState = THROW_STATE.THROW_STARTED
+	throw_sfx.play()
 	# Remove NPC collision shape
 	collisionShapeRef.queue_free()
 	collisionShapeRef = null
@@ -141,6 +153,7 @@ func hit_floor():
 		hp_bar.decrement()
 		detached_music.play()
 		attached_music.stop()
+		fall_sfx.play()
 
 func jump():
 	velocity.y = jump_velocity
