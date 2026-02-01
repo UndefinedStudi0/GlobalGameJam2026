@@ -38,7 +38,7 @@ func _physics_process(delta):
 		if isAttached:
 			direction = maskref.direction
 		else:
-			velocity.x = move_toward(velocity.x, 0.0, delta)
+			velocity.x = 0
 		check_for_mask()
 		return
 	
