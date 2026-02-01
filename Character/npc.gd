@@ -7,7 +7,7 @@ extends NewtonPhysics
 @onready var collisionShape = $CollisionShape2D
 
 var current_waypoint = 0
-var maskref = null
+var maskref: Mask = null
 var isAttached = false
 var stop_distance = 10
 var throw_time = 0
@@ -27,10 +27,12 @@ func _process(delta):
 func set_crouch_texture():
 	$Sprite2D.texture = crouch_texture
 	$Sprite2D.position = Vector2(0,8)
-	
+	maskref.get_node("Sprite2D").global_position = self.global_position + Vector2(0,-9)
+
 func set_stand_texture():
 	$Sprite2D.texture = stand_texture
 	$Sprite2D.position = Vector2.ZERO
+	maskref.get_node("Sprite2D").global_position = self.global_position + Vector2(0,-25)
 
 		
 func _ready() -> void:
