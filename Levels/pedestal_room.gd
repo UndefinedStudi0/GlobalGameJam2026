@@ -4,7 +4,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	maskRef.position = Vector2(0,-40)
+	maskRef.global_position = Vector2(0,-40)
 	
 	maskRef.get_node("Camera2D").zoom = Vector2(4,4)
 	maskRef.get_node("Camera2D").position = Vector2.ZERO
@@ -23,7 +23,7 @@ func enable_NPC():
 	
 func dezoom():
 	maskRef.jiggle_callback = null
-	await get_tree().create_timer(4).timeout
+	#await get_tree().create_timer(4).timeout
 	var tween = get_tree().create_tween()
 
 	tween.tween_property(maskRef.get_node("Camera2D"), "zoom", Vector2(0.8,0.8),3).set_ease(Tween.EASE_OUT) 
