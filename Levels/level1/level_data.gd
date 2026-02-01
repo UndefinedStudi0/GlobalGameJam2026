@@ -7,4 +7,12 @@
 		"is_checkpoint": false,
 		# "items_equired": ["item-key"]
 	},
+	"npc_trigger_alert": {
+		"key": "npc_trigger_alert",
+		"is_checkpoint": false,
+	},
+	"first_checkpoint": {
+		"key": "first_checkpoint",
+		"is_checkpoint": true,
+	}
 }

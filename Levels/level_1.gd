@@ -6,9 +6,9 @@ const DOOR_OPENED_CHAT_BOX_ID = "door-opened"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	InteractionGroups.addInteractionGroup($Part1/Node2D3/NpcY1, "yellow_door")
+	InteractionGroups.addInteractionGroup($Part1/NpcY1Node/NpcY1, "yellow_door")
 	# required so it can be detected by the blue door
-	$Part1/Node2D3/NpcY1.set_collision_layer_value(12, true)
+	$Part1/NpcY1Node/NpcY1.set_collision_layer_value(12, true)
 	
 	# example chat box closed detection event
 	SignalBus.chat_box_closed.connect(_on_need_to_open_the_door_chat_box_close)
@@ -34,7 +34,7 @@ func _on_close_door_opened_area_2d_body_entered(body: Node2D) -> void:
 			player.showChatBox("The door is now opened!", DOOR_OPENED_CHAT_BOX_ID)
 			
 			# update the level progression
-			LevelProgress.mark_as_completed(level.name, level.interactions.have_opened_the_door.key)
+			LevelProgress.mark_as_completed(level.name, level.interactions.have_opened_the_door)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

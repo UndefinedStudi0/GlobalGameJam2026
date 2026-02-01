@@ -11,12 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://sohuspbrt6i7" path="res://Art/UndefinedStudi0_art/Assets/pedestal_diffuse.png" id="8_lr1ra"]
 [ext_resource type="Texture2D" uid="uid://h0jj7n4xfli1" path="res://Art/UndefinedStudi0_art/Assets/pedestal_normalmap.png" id="9_r7a1c"]
 [ext_resource type="Texture2D" uid="uid://dnikg4tme0nb2" path="res://Art/UndefinedStudi0_art/Lights/round_light.png" id="10_sqs0x"]
-[ext_resource type="PackedScene" path="res://Common/scenes/side_door.tscn" id="10_u55on"]
+[ext_resource type="PackedScene" uid="uid://fqpe3ypcd1k8" path="res://Common/scenes/side_door.tscn" id="10_u55on"]
 [ext_resource type="Texture2D" uid="uid://c8o5ige73c8cm" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/Metal Torch(OFF).png" id="10_utqd4"]
+[ext_resource type="Script" uid="uid://dq123pjsysuv0" path="res://Levels/level1/part_1.gd" id="11_vy400"]
 [ext_resource type="Texture2D" uid="uid://4xeyj3i3g34q" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels.png" id="12_1jijn"]
 [ext_resource type="Texture2D" uid="uid://5v6c4ktpt2lg" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels_normalmap.png" id="13_20gr8"]
-[ext_resource type="PackedScene" path="res://Common/scenes/HPbar.tscn" id="14_20gr8"]
+[ext_resource type="PackedScene" uid="uid://by3b5by4m42qa" path="res://Common/scenes/HPbar.tscn" id="14_20gr8"]
 [ext_resource type="PackedScene" uid="uid://blotcceytb6lh" path="res://Common/scenes/invisibleWall/InvisibleWall.tscn" id="17_lr1ra"]
+[ext_resource type="PackedScene" uid="uid://25v0ins84fxv" path="res://Common/scenes/eventTrigger/EventTrigger.tscn" id="18_eaymk"]
 [ext_resource type="PackedScene" uid="uid://c2hbnofwx8h0j" path="res://Common/scenes/secure_door.tscn" id="18_r7a1c"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_oxja0"]
@@ -277,6 +279,7 @@ height = 33.0
 [node name="HPbar" parent="CanvasLayer" unique_id=99945326 instance=ExtResource("14_20gr8")]
 
 [node name="Part1" type="Node2D" parent="." unique_id=1493043528]
+script = ExtResource("11_vy400")
 
 [node name="Node2D" type="Node2D" parent="Part1" unique_id=993866945]
 position = Vector2(-91, 95)
@@ -301,21 +304,21 @@ position = Vector2(419, 121)
 position = Vector2(-3, -28)
 speed = 20.0
 
-[node name="Node2D3" type="Node2D" parent="Part1" unique_id=1215555570]
+[node name="NpcY1Node" type="Node2D" parent="Part1" unique_id=1215555570]
 position = Vector2(931, -13)
 
-[node name="NpcY1" parent="Part1/Node2D3" unique_id=568459852 instance=ExtResource("5_20gr8")]
+[node name="NpcY1" parent="Part1/NpcY1Node" unique_id=568459852 instance=ExtResource("5_20gr8")]
 position = Vector2(45, -21)
 speed = 20.0
 
-[node name="patrol right" type="Marker2D" parent="Part1/Node2D3" unique_id=1754557599]
+[node name="PatrolRight" type="Marker2D" parent="Part1/NpcY1Node" unique_id=1754557599]
 position = Vector2(14, -3)
 
-[node name="Sprite2D" type="Sprite2D" parent="Part1/Node2D3/patrol right" unique_id=1711390473]
+[node name="Sprite2D" type="Sprite2D" parent="Part1/NpcY1Node/PatrolRight" unique_id=1711390473]
 position = Vector2(80, -1)
 texture = ExtResource("10_utqd4")
 
-[node name="patrol left" type="Marker2D" parent="Part1/Node2D3" unique_id=1526908694]
+[node name="PatrolLeft" type="Marker2D" parent="Part1/NpcY1Node" unique_id=1526908694]
 position = Vector2(152, -2)
 
 [node name="Node2D5" type="Node2D" parent="Part1" unique_id=1993280873]
@@ -358,6 +361,12 @@ position = Vector2(920, 16)
 
 [node name="SideDoor3" parent="Part1" unique_id=738823046 instance=ExtResource("10_u55on")]
 position = Vector2(468, 48)
+
+[node name="NpcAlertTrigger" parent="Part1" unique_id=542180414 instance=ExtResource("18_eaymk")]
+position = Vector2(880, 132)
+
+[node name="Checkpoint1" parent="Part1" unique_id=1916608905 instance=ExtResource("18_eaymk")]
+position = Vector2(1147, 132)
 
 [node name="Part2" type="Node2D" parent="." unique_id=1270477397]
 
@@ -472,6 +481,9 @@ position = Vector2(1073, 295)
 
 [node name="InvisibleWall10" parent="Part2" unique_id=2134999026 instance=ExtResource("17_lr1ra")]
 position = Vector2(951, 299)
+
+[node name="Checkpoint2" parent="Part2" unique_id=1412628409 instance=ExtResource("18_eaymk")]
+position = Vector2(1480, 243)
 
 [node name="Mask" parent="." unique_id=442016007 node_paths=PackedStringArray("hp_bar") instance=ExtResource("7_u2cfn")]
 position = Vector2(-81, 46)

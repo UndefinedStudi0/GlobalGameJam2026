@@ -1,4 +1,5 @@
 extends NewtonPhysics
+class_name Npc
 
 @export var waypoints: Array[Marker2D] = []
 @export var color_id: String = "none"
@@ -17,8 +18,7 @@ var jiggling = false
 func _ready() -> void:
 	add_to_group("npc")
 	InteractionGroups.addInteractionGroup(self, color_id)
-	if color_id != "none":
-		InteractionGroups.addInteractionGroup(self, "none")
+	InteractionGroups.addInteractionGroup(self, "door-color-none")
 		
 	match color_id:
 		"green_door":
@@ -133,3 +133,27 @@ func clear_jiggle():
 	waypoints.remove_at(0)
 	$AnimationPlayer.play("RESET")
 	jiggling = false
+
+func showChatBox(message: String, message_id: String, auto_close_delay_in_s: int = 0):
+	print("trigger chatbox")
+	print(message)
+	print(message_id)
+	if !message:
+		print("message missing")
+		return
+
+	if (!message_id):
+		print("message_id missing")
+		return;
+		
+
+	#$ChatBox.visible = true
+	
+	$ChatBox.chat_box_id = message_id
+
+	if auto_close_delay_in_s == 0:
+		$ChatBox.write_message(message)
+	else:
+		await $ChatBox.write_message_with_delay(message, auto_close_delay_in_s)
+	
+	#$ChatBox.visible = false
