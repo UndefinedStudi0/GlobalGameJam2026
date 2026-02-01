@@ -4,9 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://b1njd4ecgcr6c" path="res://Art/UndefinedStudi0_art/creditscreen.png" id="2_fj3aq"]
 [ext_resource type="Texture2D" uid="uid://cw53aykueud4a" path="res://exit.png" id="3_42ta1"]
 [ext_resource type="Texture2D" uid="uid://cefaeulcf7kjp" path="res://Character/luchador.png" id="4_kcjf3"]
+[ext_resource type="Script" uid="uid://cvsvo0vx0dwld" path="res://Levels/luchador.gd" id="5_bwqbd"]
 [ext_resource type="Texture2D" uid="uid://ogn16nlbk8xm" path="res://Character/doctor.png" id="5_kxcnv"]
 [ext_resource type="Texture2D" uid="uid://dfnv4ve2oxl0s" path="res://Character/quirrel.png" id="6_bwqbd"]
 [ext_resource type="Texture2D" uid="uid://c4nd0fkdg126k" path="res://Character/daruma.png" id="7_axprc"]
+[ext_resource type="Script" uid="uid://q4xinxy568d0" path="res://Levels/doctor.gd" id="7_bwqbd"]
 [ext_resource type="Texture2D" uid="uid://c1ywydwj8ot4e" path="res://Character/chicken.png" id="8_j61tw"]
 [ext_resource type="Texture2D" uid="uid://tned0afdcu7d" path="res://Character/kaonashi.png" id="9_djnah"]
 
@@ -53,6 +55,7 @@ offset_right = 175.0
 offset_bottom = 73.0
 tooltip_text = "gab"
 texture = ExtResource("4_kcjf3")
+script = ExtResource("5_bwqbd")
 
 [node name="doctor" type="TextureRect" parent="MainForm" unique_id=1304565431]
 layout_mode = 0
@@ -62,6 +65,7 @@ offset_right = 159.0
 offset_bottom = 243.0
 tooltip_text = "Anom"
 texture = ExtResource("5_kxcnv")
+script = ExtResource("7_bwqbd")
 
 [node name="quirrel" type="TextureRect" parent="MainForm" unique_id=779650289]
 layout_mode = 0
@@ -71,6 +75,7 @@ offset_right = 334.0
 offset_bottom = 73.0
 tooltip_text = "namlin"
 texture = ExtResource("6_bwqbd")
+script = ExtResource("7_bwqbd")
 
 [node name="daruma" type="TextureRect" parent="MainForm" unique_id=2091993041]
 layout_mode = 0
@@ -80,6 +85,7 @@ offset_right = 373.0
 offset_bottom = 150.0
 tooltip_text = "swiiny"
 texture = ExtResource("7_axprc")
+script = ExtResource("7_bwqbd")
 
 [node name="chicken" type="TextureRect" parent="MainForm" unique_id=1739840631]
 layout_mode = 0
@@ -89,6 +95,7 @@ offset_right = 359.0
 offset_bottom = 239.0
 tooltip_text = "zephyz"
 texture = ExtResource("8_j61tw")
+script = ExtResource("7_bwqbd")
 
 [node name="kaonashi" type="TextureRect" parent="MainForm" unique_id=373978171]
 layout_mode = 0
@@ -98,5 +105,6 @@ offset_right = 140.0
 offset_bottom = 157.0
 tooltip_text = "michaloe"
 texture = ExtResource("9_djnah")
+script = ExtResource("7_bwqbd")
 
 [connection signal="pressed" from="MainForm/ExitButton" to="." method="on_exit_button_pressed"]
