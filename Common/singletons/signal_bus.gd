@@ -9,3 +9,6 @@ signal level_ending_sequence()
 
 # chat box action pressed
 signal chat_box_closed(chat_box_id: String)
+
+# gameover area body enter
+signal gameover_area_triggered(previousCheckpoint: int)

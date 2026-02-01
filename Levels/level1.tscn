@@ -10,16 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://c6p1ql0bs7oa7" path="res://Character/mask.tscn" id="7_u2cfn"]
 [ext_resource type="Texture2D" uid="uid://dnikg4tme0nb2" path="res://Art/UndefinedStudi0_art/Lights/round_light.png" id="10_sqs0x"]
 [ext_resource type="PackedScene" uid="uid://fqpe3ypcd1k8" path="res://Common/scenes/side_door.tscn" id="10_u55on"]
-[ext_resource type="PackedScene" path="res://Levels/pedestal_room.tscn" id="11_sqs0x"]
+[ext_resource type="PackedScene" uid="uid://dr3trkf5s1316" path="res://Levels/pedestal_room.tscn" id="11_sqs0x"]
 [ext_resource type="Script" uid="uid://dq123pjsysuv0" path="res://Levels/level1/part_1.gd" id="11_vy400"]
 [ext_resource type="Texture2D" uid="uid://4xeyj3i3g34q" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels.png" id="12_1jijn"]
 [ext_resource type="Texture2D" uid="uid://5v6c4ktpt2lg" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels_normalmap.png" id="13_20gr8"]
 [ext_resource type="PackedScene" uid="uid://by3b5by4m42qa" path="res://Common/scenes/HPbar.tscn" id="14_20gr8"]
 [ext_resource type="PackedScene" uid="uid://blotcceytb6lh" path="res://Common/scenes/invisibleWall/InvisibleWall.tscn" id="17_lr1ra"]
-
 [ext_resource type="PackedScene" uid="uid://25v0ins84fxv" path="res://Common/scenes/eventTrigger/EventTrigger.tscn" id="18_eaymk"]
 [ext_resource type="PackedScene" uid="uid://c2hbnofwx8h0j" path="res://Common/scenes/secure_door.tscn" id="18_r7a1c"]
-[ext_resource type="PackedScene" path="res://Common/scenes/secure_door.tscn" id="18_r7a1c"]
+[ext_resource type="PackedScene" uid="uid://cp57rjyctwuw0" path="res://Common/scenes/gameoverTrigger/GameOverTrigger.tscn" id="18_sqs0x"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_oxja0"]
 diffuse_texture = ExtResource("12_1jijn")
@@ -322,9 +321,11 @@ position = Vector2(468, 48)
 
 [node name="NpcAlertTrigger" parent="Part1" unique_id=542180414 instance=ExtResource("18_eaymk")]
 position = Vector2(880, 132)
+trigger_id = null
 
 [node name="Checkpoint1" parent="Part1" unique_id=1916608905 instance=ExtResource("18_eaymk")]
 position = Vector2(1147, 132)
+trigger_id = null
 
 [node name="SideDoor" parent="Part1" unique_id=1541820274 instance=ExtResource("10_u55on")]
 position = Vector2(1008, -80)
@@ -385,6 +386,14 @@ position = Vector2(656, 7)
 
 [node name="InvisibleWall5" parent="Part1/InvisibleWallsFolder" unique_id=398191031 instance=ExtResource("17_lr1ra")]
 position = Vector2(920, 16)
+
+[node name="GameOverTrigger" parent="Part1" unique_id=1137431518 instance=ExtResource("18_sqs0x")]
+position = Vector2(186, 201)
+previousCheckpoint = 0
+
+[node name="Checkpoint0" parent="Part1" unique_id=1242237881 instance=ExtResource("18_eaymk")]
+position = Vector2(96, 55)
+trigger_id = null
 
 [node name="Part2" type="Node2D" parent="." unique_id=1270477397]
 
@@ -449,7 +458,8 @@ position = Vector2(1200, 21)
 door_colorid = "yellow_door"
 
 [node name="Checkpoint2" parent="Part2" unique_id=1412628409 instance=ExtResource("18_eaymk")]
-position = Vector2(1480, 243)
+position = Vector2(2031, 212)
+trigger_id = null
 
 [node name="Part3" type="Node2D" parent="." unique_id=679065258]
 
@@ -534,7 +544,12 @@ scale = Vector2(1, -1)
 door_colorid = "yellow_door"
 
 [node name="Checkpoint3" parent="Part3" unique_id=1216501335 instance=ExtResource("18_eaymk")]
-position = Vector2(971, 585)
+position = Vector2(1144, 505)
+trigger_id = null
+
+[node name="GameOverTrigger" parent="Part3" unique_id=991451872 instance=ExtResource("18_sqs0x")]
+position = Vector2(864, 345)
+previousCheckpoint = 2
 
 [node name="Part4" type="Node2D" parent="." unique_id=1859743131]
 
@@ -641,3 +656,15 @@ position = Vector2(800, 441)
 [node name="SecureDoor" parent="Part4" unique_id=1687446891 instance=ExtResource("18_r7a1c")]
 position = Vector2(1193, 820)
 door_colorid = "green_door"
+
+[node name="GameOverTrigger" parent="Part4" unique_id=616278222 instance=ExtResource("18_sqs0x")]
+position = Vector2(335, 883)
+previousCheckpoint = 3
+
+[node name="GameOverTrigger2" parent="Part4" unique_id=470198875 instance=ExtResource("18_sqs0x")]
+position = Vector2(583, 883)
+previousCheckpoint = 3
+
+[node name="GameOverTrigger3" parent="Part4" unique_id=1942491426 instance=ExtResource("18_sqs0x")]
+position = Vector2(735, 883)
+previousCheckpoint = 3

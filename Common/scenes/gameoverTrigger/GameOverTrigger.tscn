@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cp57rjyctwuw0"]
+
+[ext_resource type="Script" uid="uid://bake0w0ylmb1w" path="res://Common/scenes/gameoverTrigger/gameover_trigger.gd" id="1_u6pu1"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mfhja"]
+b = Vector2(253, 0)
+
+[node name="GameOverTrigger" type="Node2D" unique_id=542180414]
+script = ExtResource("1_u6pu1")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1536228064]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1941333171]
+shape = SubResource("SegmentShape2D_mfhja")
+debug_color = Color(1, 0, 0, 0.41960785)
