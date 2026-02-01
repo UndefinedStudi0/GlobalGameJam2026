@@ -136,11 +136,11 @@ func selfThrow():
 	# invisible wall
 	set_collision_mask_value(8, false)
 	var throw_coeff = (1 if sprite.flip_h else -1)
-	var throw_vect = normal_throw_vect
-	if crouched:
-		throw_vect = crouched_throw_vect
-	elif looking_up:
-		throw_vect = super_throw_vect
+	var throw_vect
+	match stand_state:
+		StandState.STANDING: throw_vect = normal_throw_vect
+		StandState.LOOKUP: throw_vect = super_throw_vect
+		StandState.CROUCH: throw_vect = crouched_throw_vect
 	velocity = throw_vect * Vector2(throw_coeff, 1)
 
 func hit_floor():
