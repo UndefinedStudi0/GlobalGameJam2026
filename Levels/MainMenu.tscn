@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dntqwb18fg4ap"]
 
-[ext_resource type="Script" path="res://Levels/main_menu.gd" id="1_2k6u6"]
+[ext_resource type="Script" uid="uid://cby4aupywn4q0" path="res://Levels/main_menu.gd" id="1_2k6u6"]
 [ext_resource type="Texture2D" uid="uid://caiacfwxrw2mk" path="res://Art/UndefinedStudi0_art/Backgrounds/StarrySky.png" id="1_yw2i3"]
 [ext_resource type="Texture2D" uid="uid://p63swxwa40pq" path="res://start.png" id="3_2ld8x"]
 [ext_resource type="Texture2D" uid="uid://cw53aykueud4a" path="res://exit.png" id="4_ooo5j"]
@@ -22,6 +22,7 @@ clip_contents = true
 layout_mode = 0
 offset_right = 480.0
 offset_bottom = 270.0
+scale = Vector2(4, 4)
 
 [node name="TextureRect" type="TextureRect" parent="MainForm" unique_id=1314243822]
 layout_mode = 0
