@@ -5,9 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://10vjb585fybe" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/[FREE] Industrial Tileset/FREE/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1.png" id="2_65mgj"]
 [ext_resource type="Texture2D" uid="uid://bote44rp44hb5" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/tileset_.png" id="3_cplda"]
 [ext_resource type="PackedScene" uid="uid://b30qrm3j76hmh" path="res://Character/NPC.tscn" id="4_kpe2j"]
-[ext_resource type="PackedScene" uid="uid://c6p1ql0bs7oa7" path="res://Character/mask.tscn" id="5_uu6ff"]
 [ext_resource type="PackedScene" uid="uid://pmt7denghdof" path="res://Common/scenes/pedestal.tscn" id="6_hul12"]
-[ext_resource type="PackedScene" uid="uid://fqpe3ypcd1k8" path="res://Common/scenes/side_door.tscn" id="8_cplda"]
+[ext_resource type="PackedScene" path="res://Common/scenes/side_door.tscn" id="8_cplda"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kpe2j"]
 texture = ExtResource("2_65mgj")
@@ -188,7 +187,7 @@ visible = false
 position = Vector2(-119, 75)
 
 [node name="LampSide" parent="." unique_id=957547221 instance=ExtResource("1_21kns")]
-position = Vector2(-160, 77)
+position = Vector2(-160, 79.99999)
 rotation = -0.62144125
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=346536886]
@@ -207,8 +206,8 @@ position = Vector2(88, 153)
 color_id = "red_door"
 has_flashlight = true
 
-[node name="Mask" parent="." unique_id=442016007 instance=ExtResource("5_uu6ff")]
-position = Vector2(-114, 126)
-
 [node name="Pedestal" parent="." unique_id=489333592 instance=ExtResource("6_hul12")]
-position = Vector2(-114, 185)
+position = Vector2(-112, 185)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1475429130]
+position = Vector2(-112, 128)

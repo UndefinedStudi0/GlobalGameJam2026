@@ -10,10 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://bote44rp44hb5" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/tileset_.png" id="5_ite67"]
 [ext_resource type="PackedScene" uid="uid://c6p1ql0bs7oa7" path="res://Character/mask.tscn" id="7_qhoq0"]
 [ext_resource type="Texture2D" uid="uid://dnikg4tme0nb2" path="res://Art/UndefinedStudi0_art/Lights/round_light.png" id="10_3pxxt"]
-[ext_resource type="PackedScene" uid="uid://c2hbnofwx8h0j" path="res://Common/scenes/secure_door.tscn" id="13_u5xas"]
-[ext_resource type="PackedScene" uid="uid://fqpe3ypcd1k8" path="res://Common/scenes/side_door.tscn" id="14_oxja0"]
+[ext_resource type="PackedScene" path="res://Common/scenes/secure_door.tscn" id="13_u5xas"]
+[ext_resource type="PackedScene" path="res://Common/scenes/side_door.tscn" id="14_oxja0"]
 [ext_resource type="PackedScene" uid="uid://pmt7denghdof" path="res://Common/scenes/pedestal.tscn" id="15_i534r"]
-[ext_resource type="PackedScene" path="res://Common/scenes/HPbar.tscn" id="15_pvsyx"]
+[ext_resource type="PackedScene" uid="uid://by3b5by4m42qa" path="res://Common/scenes/HPbar.tscn" id="15_pvsyx"]
 [ext_resource type="PackedScene" uid="uid://ba4mbp7cybnsx" path="res://Common/scenes/lamp.tscn" id="16_i534r"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_oxja0"]
@@ -256,13 +256,13 @@ tile_set = SubResource("TileSet_luyee")
 use_kinematic_bodies = true
 collision_visibility_mode = 1
 
-[node name="Npc" parent="." unique_id=440928820 instance=ExtResource("5_3s25j")]
-position = Vector2(-128, 145)
-color_id = "red_door"
-
 [node name="Mask" parent="." unique_id=442016007 node_paths=PackedStringArray("hp_bar") instance=ExtResource("7_qhoq0")]
 position = Vector2(-107, 116)
 hp_bar = NodePath("../CanvasLayer/HPbar")
+
+[node name="Npc" parent="." unique_id=440928820 instance=ExtResource("5_3s25j")]
+position = Vector2(-128, 145)
+color_id = "red_door"
 
 [node name="APointGlow" type="PointLight2D" parent="." unique_id=30063435]
 position = Vector2(241, 42)
