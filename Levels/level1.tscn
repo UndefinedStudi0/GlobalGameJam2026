@@ -639,7 +639,7 @@ position = Vector2(760, 440)
 [node name="InvisibleWall14" parent="Part4/InvisibleWallsFolder" unique_id=2147086611 instance=ExtResource("17_lr1ra")]
 position = Vector2(800, 441)
 
-[node name="SecureDoor" parent="Part4" unique_id=1687446891 instance=ExtResource("18_r7a1c")]
+[node name="WinDoor" parent="Part4" unique_id=1687446891 instance=ExtResource("18_r7a1c")]
 position = Vector2(1193, 820)
 door_colorid = "green_door"
 

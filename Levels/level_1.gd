@@ -22,6 +22,11 @@ func _ready() -> void:
 	
 	Audio._setup_level("museum")
 	Audio.fadein_safe()
+	$Part4/WinDoor.animation_end_callback = end_game_screen
+	
+func end_game_screen():
+	get_tree().change_scene_to_file("res://Levels/WinScene.tscn")
+
 		
 func _on_gameover_area_body_enter(previousCheckpoint: int) -> void:
 	# move the user to the checkpoint
