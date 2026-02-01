@@ -368,9 +368,12 @@ position = Vector2(880, 132)
 [node name="Checkpoint1" parent="Part1" unique_id=1916608905 instance=ExtResource("18_eaymk")]
 position = Vector2(1147, 132)
 
+[node name="SideDoor" parent="Part1" unique_id=1541820274 instance=ExtResource("10_u55on")]
+position = Vector2(1008, -80)
+
 [node name="Part2" type="Node2D" parent="." unique_id=1270477397]
 
-[node name="SecureDoor" parent="Part2" unique_id=1541820274 instance=ExtResource("18_r7a1c")]
+[node name="SecureDoor" parent="Part2" unique_id=2005340115 instance=ExtResource("18_r7a1c")]
 position = Vector2(1185, 20)
 door_colorid = "yellow_door"
 

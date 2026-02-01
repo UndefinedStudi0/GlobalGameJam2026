@@ -45,7 +45,7 @@ func _on_npc_trigger_alert_area_entered(body: Node2D) -> void:
 		await npcTriggeringTheAlert.showChatBox("Someone is stealing the mask!", "npc-trigger-alarm", 2)
 		
 		# 3. npc move behing the door			
-		npcTriggeringTheAlert.speed = 400
+		npcTriggeringTheAlert.speed = 300
 		npcTriggeringTheAlert.waypoints.append(npcFinalPositionMarker)
 		
 		# 4. back to normal state
