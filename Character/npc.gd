@@ -7,13 +7,51 @@ extends NewtonPhysics
 @onready var collisionShape = $CollisionShape2D
 
 var current_waypoint = 0
-var maskref = null
+var maskref: Mask = null
 var isAttached = false
 var stop_distance = 10
 var throw_time = 0
 var jiggle_time = 0
 var jiggling = false
+var aim_up_texture = preload('res://Art/UndefinedStudi0_art/Characters/aim up.png')
+var stand_texture = preload("res://Art/UndefinedStudi0_art/Characters/NPC_stand.png")
+var crouch_texture = preload("res://Art/UndefinedStudi0_art/Characters/NPC_crouch.png")
 
+func _process(delta):
+	if isAttached:
+		match stand_state:
+			StandState.STANDING: set_stand_texture()
+			StandState.LOOKUP: set_aim_texture()
+			StandState.CROUCH: set_crouch_texture()
+
+func set_crouch_texture():
+	$Sprite2D.texture = crouch_texture
+	$Sprite2D.position = Vector2(0,8)
+	maskref.get_node("Sprite2D").global_position = self.global_position + Vector2(0,-9)
+	maskref.get_node("Sprite2D").rotation_degrees = 0
+
+func set_stand_texture():
+	$Sprite2D.texture = stand_texture
+	$Sprite2D.position = Vector2.ZERO
+	maskref.get_node("Sprite2D").global_position = self.global_position + Vector2(0,-25)
+	maskref.get_node("Sprite2D").rotation_degrees = 0
+
+func set_aim_texture():
+	$Sprite2D.texture = aim_up_texture
+	$Sprite2D.position = Vector2.ZERO
+	var new_position
+	var new_angle
+	match facing:
+		FacingDirection.LEFT:
+			new_position = self.global_position + Vector2(9,-25)
+			new_angle = 30
+		FacingDirection.RIGHT:
+			new_position = self.global_position + Vector2(-9,-25)
+			new_angle = -30
+	maskref.get_node("Sprite2D").global_position = new_position
+	maskref.get_node("Sprite2D").rotation_degrees = new_angle
+
+		
 func _ready() -> void:
 	add_to_group("npc")
 	InteractionGroups.addInteractionGroup(self, color_id)
@@ -106,6 +144,8 @@ func is_in_attach_grace_period():
 	return (Time.get_ticks_msec() - throw_time) < 500
 
 func throw():
+	stand_state = StandState.STANDING
+	_process(0)
 	isAttached = false
 	throw_time = Time.get_ticks_msec()
 	set_collision_mask_value(2, false)
@@ -114,6 +154,7 @@ func throw():
 	reparent(get_tree().current_scene)
 	maskref.selfThrow()
 	maskref = null
+
 	
 func getJigglyWith(mask):
 	if jiggling:
