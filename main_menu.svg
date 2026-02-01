@@ -24,9 +24,9 @@
      inkscape:pagecheckerboard="false"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="262.33662"
-     inkscape:cy="30.405592"
+     inkscape:zoom="1"
+     inkscape:cx="429.5"
+     inkscape:cy="113.5"
      inkscape:window-width="1280"
      inkscape:window-height="731"
      inkscape:window-x="0"
@@ -841,7 +841,10 @@
        width="126.99999"
        height="71.4375"
        x="51.883034"
-       y="3.4409208" />
+       y="3.4409208"
+       inkscape:export-filename="Art/UndefinedStudi0_art/creditscreen.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <g
        inkscape:groupmode="layer"
        id="layer26"
@@ -855,7 +858,10 @@
            style="fill:#c8b7b7;fill-opacity:1;stroke:none;stroke-width:0.264999"
            d="m 70.813059,23.807032 c 2.619241,0 4.770758,3.274052 4.770758,5.519115 0,2.245064 -1.840283,7.939652 -5.378798,7.904497 -2.946943,-0.02928 -4.536901,-4.349812 -4.723988,-7.530318 -0.187089,-3.180508 2.712787,-5.893294 5.332028,-5.893294 z"
            id="path218"
-           sodipodi:nodetypes="zsssz" />
+           sodipodi:nodetypes="zsssz"
+           inkscape:export-filename="Character/kaonashi.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
         <path
            style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.308165"
            d="m 68.148383,28.20929 c 1.537773,-0.06133 1.344516,0.492531 1.340239,0.767728 -0.0074,0.477973 -0.879721,0.687398 -1.908269,0.406765 C 66.56719,29.107347 67.11794,28.250387 67.11794,28.250387 Z"
@@ -891,7 +897,10 @@
          inkscape:groupmode="layer"
          id="layer28"
          inkscape:label="Daruma"
-         transform="translate(56.313688,-9.9156991)">
+         transform="translate(56.313688,-9.9156991)"
+         inkscape:export-filename="Character/daruma.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96">
         <path
            style="fill:#aa0000;fill-opacity:1;stroke:none;stroke-width:0.310688"
            d="m 98.128004,41.814318 -3.18051,7.677084 1.919273,4.112723 6.909373,0.109679 2.30313,-5.264286 -3.29018,-6.580362 z"
@@ -942,7 +951,10 @@
            style="fill:#800000;fill-opacity:1;stroke:none;stroke-width:0.264999"
            d="m 69.447281,9.8427667 c 3.241145,-0.231508 4.762499,1.8520833 4.696353,3.5718753 -0.06615,1.719792 0.727604,7.14375 -0.529167,7.672916 -1.25677,0.529167 -7.143749,0.595313 -7.937499,0 -0.79375,-0.595312 -0.661458,-5.820833 -0.529167,-7.077603 0.132292,-1.256771 1.058334,-3.93568 4.29948,-4.1671883 z"
            id="path232"
-           sodipodi:nodetypes="zssssz" />
+           sodipodi:nodetypes="zssssz"
+           inkscape:export-filename="Character/luchador.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
         <path
            style="fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:0.264999"
            d="m 66.801447,11.69485 c 0,0 1.190625,-0.661458 1.5875,-0.330729 0.396875,0.330729 1.322916,3.638021 1.322916,4.7625 0,1.124479 -0.992187,1.256771 -0.992187,1.256771 0,0 0.198438,-0.79375 -0.06615,-1.322917 -0.264583,-0.529166 -2.050521,-0.396875 -2.050521,-0.396875 0,0 -0.859895,-0.06615 -1.058333,-0.926041 -0.198437,-0.859896 0.06615,-2.248959 0.06615,-2.248959 l 0.529167,0.992188 -0.06615,-1.918229 0.396875,1.124479 z"
@@ -972,7 +984,10 @@
       <g
          inkscape:groupmode="layer"
          id="layer30"
-         inkscape:label="Chicken">
+         inkscape:label="Chicken"
+         inkscape:export-filename="Character/chicken.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96">
         <path
            style="fill:#fff6d5;fill-opacity:1;stroke:none;stroke-width:0.197666"
            d="m 70.178493,57.237497 c -2.680492,0.05813 -4.523329,2.441161 -4.942156,4.068602 -0.418827,1.627442 -0.753888,4.184849 -0.753888,4.184849 l 0.837653,-0.232491 0.921419,2.092424 1.759073,-1.278704 0.502591,1.627441 1.424012,-1.627441 2.177899,1.627441 -0.08377,-1.511195 1.675306,1.162458 0.586358,-2.557408 1.591541,1.162458 c 0,0 -0.418826,-3.254882 -1.005183,-4.882323 -0.586358,-1.627441 -2.010369,-3.894235 -4.69086,-3.836111 z"
@@ -1008,7 +1023,10 @@
          inkscape:groupmode="layer"
          id="layer31"
          inkscape:label="Doctor"
-         transform="translate(42.656215,-1.3096206)">
+         transform="translate(42.656215,-1.3096206)"
+         inkscape:export-filename="Character/doctor.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96">
         <path
            style="fill:#222b00;fill-opacity:1;stroke:none;stroke-width:0.264999"
            d="m 113.04832,68.427677 c 0,0 0.28064,-3.133733 -0.70158,-4.209495 -0.98222,-1.075758 -0.93544,-3.835317 -0.79513,-4.77076 0.14032,-0.935442 1.21608,-3.320824 3.3676,-3.320824 2.15152,0 3.46114,2.15152 3.41437,2.853102 -0.0468,0.701582 -0.25656,4.277019 -0.53719,4.651195 -0.28064,0.374179 -1.61433,1.709819 -1.61433,3.112984 0,1.403165 -0.0468,2.15152 -0.0468,2.15152 z"
@@ -1144,7 +1162,10 @@
          inkscape:groupmode="layer"
          id="layer33"
          inkscape:label="Quirrel"
-         transform="translate(42.656215,-16.089625)">
+         transform="translate(42.656215,-16.089625)"
+         inkscape:export-filename="Character/quirrel.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96">
         <path
            style="fill:#c8b7b7;fill-opacity:1;stroke:none;stroke-width:0.264999"
            d="m 112.97816,38.025772 c -0.5235,-0.215217 -2.03459,-3.133737 -2.03459,-5.098168 0,-1.964431 0,-3.133736 0.88868,-4.209494 0.88867,-1.075759 4.20949,-2.759557 5.3788,-1.637025 1.1693,1.122532 2.8531,2.432151 2.15152,4.77076 -0.70159,2.338607 -3.60146,4.630444 -3.60146,4.630444 0,0 -2.25944,1.758701 -2.78295,1.543483 z"
