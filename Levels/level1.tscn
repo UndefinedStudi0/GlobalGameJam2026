@@ -284,6 +284,7 @@ maskRef = NodePath("../Mask")
 position = Vector2(419, 121)
 
 [node name="Npc" parent="Part1/Node2D2" unique_id=1209755728 instance=ExtResource("5_20gr8")]
+z_index = 0
 position = Vector2(-3, -28)
 speed = 20.0
 
@@ -291,6 +292,7 @@ speed = 20.0
 position = Vector2(931, -13)
 
 [node name="NpcY1" parent="Part1/Node2D3" unique_id=568459852 instance=ExtResource("5_20gr8")]
+z_index = 0
 position = Vector2(45, -21)
 speed = 20.0
 
@@ -308,6 +310,7 @@ position = Vector2(152, -2)
 position = Vector2(602, -26)
 
 [node name="Npc" parent="Part1/Node2D5" unique_id=97866405 instance=ExtResource("5_20gr8")]
+z_index = 0
 position = Vector2(13, -8)
 speed = 20.0
 
@@ -315,6 +318,7 @@ speed = 20.0
 position = Vector2(733, 102)
 
 [node name="Npc" parent="Part1/Node2D6" unique_id=2026151985 instance=ExtResource("5_20gr8")]
+z_index = 0
 position = Vector2(21, -11)
 speed = 20.0
 
@@ -359,6 +363,7 @@ door_colorid = "green_door"
 position = Vector2(1816, 108)
 
 [node name="Npc" parent="Part2/Node2D8" unique_id=1433198513 node_paths=PackedStringArray("waypoints") instance=ExtResource("5_20gr8")]
+z_index = 0
 position = Vector2(70, 2)
 waypoints = [NodePath("../Marker2D"), NodePath("../Marker2D2")]
 speed = 20.0
@@ -373,6 +378,7 @@ position = Vector2(88, 3)
 position = Vector2(1662, 207)
 
 [node name="Npc" parent="Part2/Node2D7" unique_id=521522674 instance=ExtResource("5_20gr8")]
+z_index = 0
 position = Vector2(5, -1)
 speed = 20.0
 
@@ -391,6 +397,7 @@ door_colorid = "yellow_door"
 position = Vector2(2034, 254)
 
 [node name="Npc" parent="Part2/Node2D9" unique_id=1176621316 instance=ExtResource("5_20gr8")]
+z_index = 0
 position = Vector2(7, -1)
 color_id = "yellow_door"
 speed = 20.0
@@ -404,6 +411,7 @@ door_colorid = "yellow_door"
 position = Vector2(1375, 269)
 
 [node name="Npc" parent="Part2/Node2D10" unique_id=315314522 instance=ExtResource("5_20gr8")]
+z_index = 0
 position = Vector2(7, 31)
 speed = 20.0
 
@@ -411,6 +419,7 @@ speed = 20.0
 position = Vector2(1272, 332)
 
 [node name="Npc" parent="Part2/Node2D11" unique_id=1958360841 instance=ExtResource("5_20gr8")]
+z_index = 0
 position = Vector2(-6, 66)
 speed = 20.0
 
@@ -418,6 +427,7 @@ speed = 20.0
 position = Vector2(1224, 189)
 
 [node name="Npc" parent="Part2/Node2D12" unique_id=1530084815 instance=ExtResource("5_20gr8")]
+z_index = 0
 position = Vector2(-40, 47)
 speed = 20.0
 
@@ -443,6 +453,7 @@ position = Vector2(1223, 440)
 position = Vector2(1034, 252)
 
 [node name="Npc" parent="Part2/Node2D13" unique_id=1536702406 instance=ExtResource("5_20gr8")]
+z_index = 0
 position = Vector2(-4, -3)
 speed = 20.0
 
@@ -450,6 +461,7 @@ speed = 20.0
 position = Vector2(1150, 412)
 
 [node name="Npc" parent="Part2/Node2D14" unique_id=751776684 instance=ExtResource("5_20gr8")]
+z_index = 0
 position = Vector2(0, 128)
 speed = 20.0
 

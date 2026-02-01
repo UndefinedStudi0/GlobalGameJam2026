@@ -16,7 +16,8 @@ func _ready() -> void:
 	maskRef.get_node("Camera2D").zoom = Vector2(4,4)
 	maskRef.get_node("Camera2D").position = Vector2.ZERO
 	maskRef.get_node("Camera2D").offset = Vector2.ZERO
-	
+	move_child(maskRef, -1)
+	move_child(self, 0)
 	var callable = Callable(self,"dezoom")
 	
 	maskRef.jiggle_callback = callable
