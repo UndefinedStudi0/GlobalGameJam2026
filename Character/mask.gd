@@ -21,6 +21,7 @@ var glass3res = preload("res://Assets/glass audio/glass 3.mp3")
 var glass4res = preload("res://Assets/glass audio/glass 4.mp3")
 var glass5res = preload("res://Assets/glass audio/glass 5.mp3")
 
+
 func _ready() -> void:
 	# required so it can be detected by the blue door
 	self.set_collision_layer_value(12, true)

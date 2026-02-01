@@ -4,7 +4,14 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	maskRef.global_position = Vector2(0,-40)
+	if maskRef == null:
+		maskRef = load("res://Character/mask.tscn").instantiate()
+		add_child(maskRef)
+		print("instanciating mask manually ")
+		print("mask position ", maskRef.global_position)
+	
+	print("current parent ", maskRef.get_parent())
+	maskRef.global_position = $Pedestal.global_position + Vector2(0, -50)
 	
 	maskRef.get_node("Camera2D").zoom = Vector2(4,4)
 	maskRef.get_node("Camera2D").position = Vector2.ZERO
