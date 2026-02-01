@@ -132,6 +132,7 @@ func jiggle():
 		npc.getJigglyWith(self)
 
 	detached_music.play()
+	attached_music.stop()
 	#sfx_player.play()
 	
 	if jiggle_callback != null :
