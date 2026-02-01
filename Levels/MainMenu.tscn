@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cby4aupywn4q0" path="res://Levels/main_menu.gd" id="1_2k6u6"]
 [ext_resource type="Texture2D" uid="uid://caiacfwxrw2mk" path="res://Art/UndefinedStudi0_art/Backgrounds/StarrySky.png" id="1_yw2i3"]
 [ext_resource type="Texture2D" uid="uid://6jjs7inbwvhf" path="res://Art/UndefinedStudi0_art/Assets/mask.png" id="2_hr4vk"]
+[ext_resource type="Texture2D" uid="uid://ctd3fswpd6sbl" path="res://Assets/key-x-outline.png" id="4_65ows"]
 
 [node name="MainMenu" type="Control" unique_id=1691382321]
 layout_mode = 3
@@ -21,7 +22,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_yw2i3")
 
-[node name="Button" type="Button" parent="." unique_id=22942554]
+[node name="PlayButton" type="Button" parent="." unique_id=22942554]
 layout_mode = 0
 offset_left = 213.0
 offset_top = 103.0
@@ -29,4 +30,13 @@ offset_right = 239.0
 offset_bottom = 134.0
 icon = ExtResource("2_hr4vk")
 
-[connection signal="pressed" from="Button" to="." method="on_play_button_pressed"]
+[node name="ExitButton" type="Button" parent="." unique_id=2136909729]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 95.0
+offset_right = 297.0
+offset_bottom = 143.0
+icon = ExtResource("4_65ows")
+
+[connection signal="pressed" from="PlayButton" to="." method="on_play_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="on_exit_button_pressed"]
