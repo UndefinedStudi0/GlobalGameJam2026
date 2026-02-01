@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://b30qrm3j76hmh" path="res://Character/NPC.tscn" id="5_20gr8"]
 [ext_resource type="PackedScene" uid="uid://c6p1ql0bs7oa7" path="res://Character/mask.tscn" id="7_u2cfn"]
 [ext_resource type="Texture2D" uid="uid://dnikg4tme0nb2" path="res://Art/UndefinedStudi0_art/Lights/round_light.png" id="10_sqs0x"]
-[ext_resource type="PackedScene" path="res://Common/scenes/side_door.tscn" id="10_u55on"]
+[ext_resource type="PackedScene" uid="uid://fqpe3ypcd1k8" path="res://Common/scenes/side_door.tscn" id="10_u55on"]
 [ext_resource type="PackedScene" uid="uid://cmi687gmk6d70" path="res://Levels/pedestal_room.tscn" id="11_sqs0x"]
-[ext_resource type="Script" path="res://Levels/level1/part_1.gd" id="11_vy400"]
+[ext_resource type="Script" uid="uid://dq123pjsysuv0" path="res://Levels/level1/part_1.gd" id="11_vy400"]
 [ext_resource type="Texture2D" uid="uid://4xeyj3i3g34q" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels.png" id="12_1jijn"]
 [ext_resource type="Texture2D" uid="uid://5v6c4ktpt2lg" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels_normalmap.png" id="13_20gr8"]
 [ext_resource type="PackedScene" path="res://Common/scenes/HPbar.tscn" id="14_20gr8"]
@@ -298,6 +298,7 @@ height = 33.0
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=438258244]
 
 [node name="HPbar" parent="CanvasLayer" unique_id=99945326 instance=ExtResource("14_20gr8")]
+scale = Vector2(4, 4)
 
 [node name="Pedestal_room" parent="." unique_id=1156579436 node_paths=PackedStringArray("maskRef") instance=ExtResource("11_sqs0x")]
 position = Vector2(16, -57)
