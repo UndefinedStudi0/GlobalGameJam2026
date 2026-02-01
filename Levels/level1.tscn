@@ -8,16 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://bote44rp44hb5" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/tileset_.png" id="4_1jijn"]
 [ext_resource type="PackedScene" uid="uid://b30qrm3j76hmh" path="res://Character/NPC.tscn" id="5_20gr8"]
 [ext_resource type="PackedScene" uid="uid://c6p1ql0bs7oa7" path="res://Character/mask.tscn" id="7_u2cfn"]
-[ext_resource type="Texture2D" uid="uid://sohuspbrt6i7" path="res://Art/UndefinedStudi0_art/Assets/pedestal_diffuse.png" id="8_lr1ra"]
-[ext_resource type="Texture2D" uid="uid://h0jj7n4xfli1" path="res://Art/UndefinedStudi0_art/Assets/pedestal_normalmap.png" id="9_r7a1c"]
 [ext_resource type="Texture2D" uid="uid://dnikg4tme0nb2" path="res://Art/UndefinedStudi0_art/Lights/round_light.png" id="10_sqs0x"]
 [ext_resource type="PackedScene" path="res://Common/scenes/side_door.tscn" id="10_u55on"]
 [ext_resource type="Texture2D" uid="uid://c8o5ige73c8cm" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/Metal Torch(OFF).png" id="10_utqd4"]
+[ext_resource type="PackedScene" uid="uid://cmi687gmk6d70" path="res://Levels/pedestal_room.tscn" id="11_sqs0x"]
 [ext_resource type="Texture2D" uid="uid://4xeyj3i3g34q" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels.png" id="12_1jijn"]
 [ext_resource type="Texture2D" uid="uid://5v6c4ktpt2lg" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels_normalmap.png" id="13_20gr8"]
-[ext_resource type="PackedScene" path="res://Common/scenes/HPbar.tscn" id="14_20gr8"]
+[ext_resource type="PackedScene" uid="uid://by3b5by4m42qa" path="res://Common/scenes/HPbar.tscn" id="14_20gr8"]
 [ext_resource type="PackedScene" uid="uid://blotcceytb6lh" path="res://Common/scenes/invisibleWall/InvisibleWall.tscn" id="17_lr1ra"]
-[ext_resource type="PackedScene" uid="uid://c2hbnofwx8h0j" path="res://Common/scenes/secure_door.tscn" id="18_r7a1c"]
+[ext_resource type="PackedScene" path="res://Common/scenes/secure_door.tscn" id="18_r7a1c"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_oxja0"]
 diffuse_texture = ExtResource("12_1jijn")
@@ -206,15 +205,14 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_qhoq0")
 sources/1 = SubResource("TileSetAtlasSource_yobc2")
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_xo0mt"]
-diffuse_texture = ExtResource("8_lr1ra")
-normal_texture = ExtResource("9_r7a1c")
-
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_20gr8"]
 b = Vector2(1, 79)
 
 [node name="TestLevel" type="Node2D" unique_id=1203591299]
 script = ExtResource("1_u55on")
+
+[node name="Mask" parent="." unique_id=442016007 node_paths=PackedStringArray("hp_bar") instance=ExtResource("7_u2cfn")]
+hp_bar = NodePath("../CanvasLayer/HPbar")
 
 [node name="BackgroundMuseum" type="Sprite2D" parent="." unique_id=2077970134]
 position = Vector2(-45, 26)
@@ -276,24 +274,11 @@ height = 33.0
 
 [node name="HPbar" parent="CanvasLayer" unique_id=99945326 instance=ExtResource("14_20gr8")]
 
+[node name="Pedestal_room" parent="." unique_id=1156579436 node_paths=PackedStringArray("maskRef") instance=ExtResource("11_sqs0x")]
+position = Vector2(16, -57)
+maskRef = NodePath("../Mask")
+
 [node name="Part1" type="Node2D" parent="." unique_id=1493043528]
-
-[node name="Node2D" type="Node2D" parent="Part1" unique_id=993866945]
-position = Vector2(-91, 95)
-
-[node name="Npc" parent="Part1/Node2D" unique_id=440928820 instance=ExtResource("5_20gr8")]
-z_index = 0
-position = Vector2(10, -1)
-color_id = ""
-speed = 20.0
-
-[node name="SideDoor2" parent="Part1" unique_id=704819394 instance=ExtResource("10_u55on")]
-position = Vector2(148, 48)
-
-[node name="Pedestal" type="Sprite2D" parent="Part1" unique_id=712198421]
-position = Vector2(0, 128)
-texture = SubResource("CanvasTexture_xo0mt")
-offset = Vector2(0, -24)
 
 [node name="Node2D2" type="Node2D" parent="Part1" unique_id=1612202733]
 position = Vector2(419, 121)
@@ -475,7 +460,7 @@ position = Vector2(1034, 252)
 
 [node name="Npc" parent="Part2/Node2D13" unique_id=1536702406 instance=ExtResource("5_20gr8")]
 z_index = 0
-position = Vector2(-194, 2)
+position = Vector2(-4, -3)
 speed = 20.0
 
 [node name="Node2D14" type="Node2D" parent="Part2" unique_id=766589755]
@@ -489,12 +474,12 @@ speed = 20.0
 [node name="InvisibleWall9" parent="Part2" unique_id=1145534108 instance=ExtResource("17_lr1ra")]
 position = Vector2(880, 300)
 
+
 [node name="SideDoor6" parent="Part2" unique_id=1581084308 instance=ExtResource("10_u55on")]
 position = Vector2(653, 528)
 scale = Vector2(-1, 1)
 door_colorid = "yellow_door"
 
-[node name="Mask" parent="." unique_id=442016007 node_paths=PackedStringArray("hp_bar") instance=ExtResource("7_u2cfn")]
-position = Vector2(-81, 46)
-crouched_throw_vect = Vector2(110, -80)
-hp_bar = NodePath("../CanvasLayer/HPbar")
+[node name="InvisibleWall10" parent="Part2" unique_id=2134999026 instance=ExtResource("17_lr1ra")]
+position = Vector2(951, 299)
+

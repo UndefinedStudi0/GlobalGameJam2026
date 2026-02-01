@@ -21,11 +21,12 @@ var glass3res = preload("res://Assets/glass audio/glass 3.mp3")
 var glass4res = preload("res://Assets/glass audio/glass 4.mp3")
 var glass5res = preload("res://Assets/glass audio/glass 5.mp3")
 
+
 func _ready() -> void:
 	# required so it can be detected by the blue door
 	self.set_collision_layer_value(12, true)
 	
-
+	print("camera position ", $Camera2D.position)	
 	var randomizer = AudioStreamRandomizer.new()
 	randomizer.add_stream(0, glass1res)
 	randomizer.add_stream(1, glass2res)
@@ -140,7 +141,6 @@ func selfThrow():
 		throw_vect = crouched_throw_vect
 	elif looking_up:
 		throw_vect = super_throw_vect
-	print(throw_vect)
 	velocity = throw_vect * Vector2(throw_coeff, 1)
 
 func hit_floor():
