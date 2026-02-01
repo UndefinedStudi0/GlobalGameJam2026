@@ -81,7 +81,6 @@ func check_for_mask():
 
 func update_facing_direction():
 	super.update_facing_direction()
-	print(direction)
 	if direction.x > 0:
 		$Torch.rotation_degrees = -90
 	elif direction.x < 0:
@@ -92,7 +91,6 @@ func reach_waypoint():
 		clear_jiggle()
 	else:
 		current_waypoint = (current_waypoint+1) % waypoints.size()
-	print("reached next waypoint")
 
 func is_in_attach_grace_period():
 	return (Time.get_ticks_msec() - throw_time) < 500
