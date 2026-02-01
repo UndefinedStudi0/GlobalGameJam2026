@@ -18,10 +18,11 @@ var stand_texture = preload("res://Art/UndefinedStudi0_art/Characters/NPC_stand.
 var crouch_texture = preload("res://Art/UndefinedStudi0_art/Characters/NPC_crouch.png")
 
 func _process(delta):
-	match stand_state:
-		StandState.STANDING: $Sprite2D.texture = stand_texture
-		StandState.LOOKUP: $Sprite2D.texture = aim_up_texture
-		StandState.CROUCH: $Sprite2D.texture = crouch_texture
+	if isAttached:
+		match stand_state:
+			StandState.STANDING: $Sprite2D.texture = stand_texture
+			StandState.LOOKUP: $Sprite2D.texture = aim_up_texture
+			StandState.CROUCH: $Sprite2D.texture = crouch_texture
 
 		
 func _ready() -> void:
@@ -116,6 +117,8 @@ func is_in_attach_grace_period():
 	return (Time.get_ticks_msec() - throw_time) < 500
 
 func throw():
+	stand_state = StandState.STANDING
+	_process(0)
 	isAttached = false
 	throw_time = Time.get_ticks_msec()
 	set_collision_mask_value(2, false)
@@ -124,6 +127,7 @@ func throw():
 	reparent(get_tree().current_scene)
 	maskref.selfThrow()
 	maskref = null
+
 	
 func getJigglyWith(mask):
 	if jiggling:
