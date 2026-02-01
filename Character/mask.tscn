@@ -194,7 +194,6 @@ offset_left = 4.0
 offset_top = -80.0
 offset_right = 254.0
 offset_bottom = -16.0
-scale = Vector2(0.5, 0.5)
 
 [node name="Aura" type="Sprite2D" parent="." unique_id=2018037535]
 visible = false

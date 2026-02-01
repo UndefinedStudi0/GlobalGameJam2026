@@ -19,7 +19,12 @@ func _ready() -> void:
 			$KeyLight.visible = false
 	
 	$Area2D.set_collision_mask_value(12, true)		
-	InteractionGroups.addInteractionGroup(self, door_colorid)
+	
+	if door_colorid != "none":
+		InteractionGroups.addInteractionGroup(self, door_colorid)
+		
+	# door that can be opened by any npcs
+	InteractionGroups.addInteractionGroup(self, "door-color-none")
 	# Ensure the signal is connected; it's not wired in the scene.
 	
 	if not $Area2D.body_entered.is_connected(_on_body_entered):
