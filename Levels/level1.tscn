@@ -9,13 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://b30qrm3j76hmh" path="res://Character/NPC.tscn" id="5_20gr8"]
 [ext_resource type="PackedScene" uid="uid://c6p1ql0bs7oa7" path="res://Character/mask.tscn" id="7_u2cfn"]
 [ext_resource type="Texture2D" uid="uid://dnikg4tme0nb2" path="res://Art/UndefinedStudi0_art/Lights/round_light.png" id="10_sqs0x"]
-[ext_resource type="PackedScene" path="res://Common/scenes/side_door.tscn" id="10_u55on"]
-[ext_resource type="Texture2D" uid="uid://c8o5ige73c8cm" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/Metal Torch(OFF).png" id="10_utqd4"]
-[ext_resource type="PackedScene" uid="uid://cmi687gmk6d70" path="res://Levels/pedestal_room.tscn" id="11_sqs0x"]
+[ext_resource type="PackedScene" uid="uid://fqpe3ypcd1k8" path="res://Common/scenes/side_door.tscn" id="10_u55on"]
+[ext_resource type="PackedScene" path="res://Levels/pedestal_room.tscn" id="11_sqs0x"]
+[ext_resource type="Script" uid="uid://dq123pjsysuv0" path="res://Levels/level1/part_1.gd" id="11_vy400"]
 [ext_resource type="Texture2D" uid="uid://4xeyj3i3g34q" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels.png" id="12_1jijn"]
 [ext_resource type="Texture2D" uid="uid://5v6c4ktpt2lg" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels_normalmap.png" id="13_20gr8"]
 [ext_resource type="PackedScene" uid="uid://by3b5by4m42qa" path="res://Common/scenes/HPbar.tscn" id="14_20gr8"]
 [ext_resource type="PackedScene" uid="uid://blotcceytb6lh" path="res://Common/scenes/invisibleWall/InvisibleWall.tscn" id="17_lr1ra"]
+[ext_resource type="PackedScene" uid="uid://25v0ins84fxv" path="res://Common/scenes/eventTrigger/EventTrigger.tscn" id="18_eaymk"]
+[ext_resource type="PackedScene" uid="uid://c2hbnofwx8h0j" path="res://Common/scenes/secure_door.tscn" id="18_r7a1c"]
 [ext_resource type="PackedScene" path="res://Common/scenes/secure_door.tscn" id="18_r7a1c"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_oxja0"]
@@ -303,6 +305,7 @@ position = Vector2(16, -57)
 maskRef = NodePath("../Mask")
 
 [node name="Part1" type="Node2D" parent="." unique_id=1493043528]
+script = ExtResource("11_vy400")
 
 [node name="DoorOpenedArea2D" type="Area2D" parent="Part1" unique_id=970505665]
 position = Vector2(202, 51)
@@ -316,46 +319,51 @@ debug_color = Color(0.995331, 0, 0.214997, 0.41960785)
 [node name="SideDoor3" parent="Part1" unique_id=738823046 instance=ExtResource("10_u55on")]
 position = Vector2(468, 48)
 
+[node name="NpcAlertTrigger" parent="Part1" unique_id=542180414 instance=ExtResource("18_eaymk")]
+position = Vector2(880, 132)
+
+[node name="Checkpoint1" parent="Part1" unique_id=1916608905 instance=ExtResource("18_eaymk")]
+position = Vector2(1147, 132)
+
+[node name="SideDoor" parent="Part1" unique_id=1541820274 instance=ExtResource("10_u55on")]
+position = Vector2(1008, -80)
+
 [node name="NPCsFolder" type="Node2D" parent="Part1" unique_id=462297300]
 
-[node name="Node2D2" type="Node2D" parent="Part1/NPCsFolder" unique_id=1612202733]
+[node name="Node2D2" type="Node2D" parent="Part1/NPCsFolder" unique_id=1613265638]
 position = Vector2(419, 121)
 
-[node name="Npc" parent="Part1/NPCsFolder/Node2D2" unique_id=1209755728 instance=ExtResource("5_20gr8")]
+[node name="Npc" parent="Part1/NPCsFolder/Node2D2" unique_id=640673176 instance=ExtResource("5_20gr8")]
 z_index = 0
 position = Vector2(-3, -28)
 speed = 20.0
 
-[node name="Node2D3" type="Node2D" parent="Part1/NPCsFolder" unique_id=1215555570]
+[node name="NpcY1Node" type="Node2D" parent="Part1/NPCsFolder" unique_id=2012753737]
 position = Vector2(931, -13)
 
-[node name="NpcY1" parent="Part1/NPCsFolder/Node2D3" unique_id=568459852 instance=ExtResource("5_20gr8")]
+[node name="NpcY1" parent="Part1/NPCsFolder/NpcY1Node" unique_id=1279601662 instance=ExtResource("5_20gr8")]
 z_index = 0
 position = Vector2(45, -21)
 speed = 20.0
 
-[node name="patrol right" type="Marker2D" parent="Part1/NPCsFolder/Node2D3" unique_id=1754557599]
+[node name="PatrolRight" type="Marker2D" parent="Part1/NPCsFolder/NpcY1Node" unique_id=1208680718]
 position = Vector2(14, -3)
 
-[node name="Sprite2D" type="Sprite2D" parent="Part1/NPCsFolder/Node2D3/patrol right" unique_id=1711390473]
-position = Vector2(80, -1)
-texture = ExtResource("10_utqd4")
-
-[node name="patrol left" type="Marker2D" parent="Part1/NPCsFolder/Node2D3" unique_id=1526908694]
+[node name="PatrolLeft" type="Marker2D" parent="Part1/NPCsFolder/NpcY1Node" unique_id=45647866]
 position = Vector2(152, -2)
 
-[node name="Node2D5" type="Node2D" parent="Part1/NPCsFolder" unique_id=1993280873]
+[node name="Node2D5" type="Node2D" parent="Part1/NPCsFolder" unique_id=449711459]
 position = Vector2(602, -26)
 
-[node name="Npc" parent="Part1/NPCsFolder/Node2D5" unique_id=97866405 instance=ExtResource("5_20gr8")]
+[node name="Npc" parent="Part1/NPCsFolder/Node2D5" unique_id=853134476 instance=ExtResource("5_20gr8")]
 z_index = 0
 position = Vector2(13, -8)
 speed = 20.0
 
-[node name="Node2D6" type="Node2D" parent="Part1/NPCsFolder" unique_id=139195400]
+[node name="Node2D6" type="Node2D" parent="Part1/NPCsFolder" unique_id=2089083368]
 position = Vector2(733, 102)
 
-[node name="Npc" parent="Part1/NPCsFolder/Node2D6" unique_id=2026151985 instance=ExtResource("5_20gr8")]
+[node name="Npc" parent="Part1/NPCsFolder/Node2D6" unique_id=321083609 instance=ExtResource("5_20gr8")]
 z_index = 0
 position = Vector2(21, -11)
 speed = 20.0
@@ -381,15 +389,6 @@ position = Vector2(920, 16)
 
 [node name="NPCsFolder" type="Node2D" parent="Part2" unique_id=854019055]
 
-[node name="Node2D9" type="Node2D" parent="Part2/NPCsFolder" unique_id=1929786691]
-position = Vector2(2034, 254)
-
-[node name="Npc" parent="Part2/NPCsFolder/Node2D9" unique_id=1176621316 instance=ExtResource("5_20gr8")]
-z_index = 0
-position = Vector2(7, -1)
-color_id = "yellow_door"
-speed = 20.0
-
 [node name="Node2D8" type="Node2D" parent="Part2/NPCsFolder" unique_id=2105502061]
 position = Vector2(1816, 108)
 
@@ -413,6 +412,15 @@ z_index = 0
 position = Vector2(5, -1)
 speed = 20.0
 
+[node name="Node2D9" type="Node2D" parent="Part2/NPCsFolder" unique_id=570596165]
+position = Vector2(1662, 207)
+
+[node name="Npc" parent="Part2/NPCsFolder/Node2D9" unique_id=440928820 instance=ExtResource("5_20gr8")]
+z_index = 0
+position = Vector2(380, 47)
+color_id = "yellow_door"
+speed = 20.0
+
 [node name="InvisibleWallsFolder" type="Node2D" parent="Part2" unique_id=1170871670]
 
 [node name="InvisibleWall" parent="Part2/InvisibleWallsFolder" unique_id=17006385 instance=ExtResource("17_lr1ra")]
@@ -423,7 +431,7 @@ position = Vector2(1752, 142)
 
 [node name="DoorsFolder" type="Node2D" parent="Part2" unique_id=886470027]
 
-[node name="SideDoor5" parent="Part2/DoorsFolder" unique_id=1541820274 instance=ExtResource("10_u55on")]
+[node name="SideDoor5" parent="Part2/DoorsFolder" unique_id=448344019 instance=ExtResource("10_u55on")]
 position = Vector2(1544, 160)
 rotation = 3.1415925
 scale = Vector2(1, -1)
@@ -438,6 +446,9 @@ door_colorid = "yellow_door"
 [node name="SecureDoor" parent="Part2/DoorsFolder" unique_id=2026836613 instance=ExtResource("18_r7a1c")]
 position = Vector2(1200, 21)
 door_colorid = "yellow_door"
+
+[node name="Checkpoint2" parent="Part2" unique_id=1412628409 instance=ExtResource("18_eaymk")]
+position = Vector2(1480, 243)
 
 [node name="Part3" type="Node2D" parent="." unique_id=679065258]
 
@@ -521,6 +532,9 @@ rotation = 3.1415925
 scale = Vector2(1, -1)
 door_colorid = "yellow_door"
 
+[node name="Checkpoint3" parent="Part3" unique_id=1216501335 instance=ExtResource("18_eaymk")]
+position = Vector2(971, 585)
+
 [node name="Part4" type="Node2D" parent="." unique_id=1859743131]
 
 [node name="NPCsFolder" type="Node2D" parent="Part4" unique_id=533180487]
@@ -553,7 +567,7 @@ speed = 20.0
 [node name="Node2D10" type="Node2D" parent="Part4/NPCsFolder" unique_id=1955771447]
 position = Vector2(385, 638)
 
-[node name="Npc" parent="Part4/NPCsFolder/Node2D10" unique_id=440928820 instance=ExtResource("5_20gr8")]
+[node name="Npc" parent="Part4/NPCsFolder/Node2D10" unique_id=564377045 instance=ExtResource("5_20gr8")]
 z_index = 0
 position = Vector2(-11, 30)
 speed = 20.0
