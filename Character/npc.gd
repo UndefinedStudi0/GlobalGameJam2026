@@ -48,7 +48,7 @@ func _physics_process(delta):
 		if isAttached:
 			direction = maskref.direction
 		else:
-			velocity.x = move_toward(velocity.x, 0.0, delta)
+			velocity.x = 0
 		check_for_mask()
 		return
 	
@@ -101,7 +101,6 @@ func reach_waypoint():
 		clear_jiggle()
 	else:
 		current_waypoint = (current_waypoint+1) % waypoints.size()
-	print("reached next waypoint")
 
 func is_in_attach_grace_period():
 	return (Time.get_ticks_msec() - throw_time) < 500
