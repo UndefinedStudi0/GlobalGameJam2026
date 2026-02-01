@@ -86,6 +86,11 @@ collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_aocaa")
 
+[node name="Torch" parent="." unique_id=652923232 instance=ExtResource("4_3yf8j")]
+position = Vector2(3, -11)
+rotation = 1.5741903
+scale = Vector2(0.99999994, 0.99999994)
+
 [node name="Area2D" type="Area2D" parent="." unique_id=1986385420]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1998644416]
@@ -104,7 +109,3 @@ texture = ExtResource("3_s0bto")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=749815976]
 root_node = NodePath("../Jiggled_sprite")
 libraries/ = SubResource("AnimationLibrary_541ff")
-
-[node name="Torch" parent="." unique_id=652923232 instance=ExtResource("4_3yf8j")]
-position = Vector2(3, -11)
-rotation = 1.5741903

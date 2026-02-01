@@ -20,6 +20,16 @@ func _ready() -> void:
 	if color_id != "none":
 		InteractionGroups.addInteractionGroup(self, "none")
 		
+	match color_id:
+		"green_door":
+			$Sprite2D.modulate = Color(0.0, 1.0, 0.0, 1.0)
+		"yellow_door":
+			$Sprite2D.modulate = Color(1.0, 1.0, 0.0, 1.0)
+		"red_door":
+			$Sprite2D.modulate = Color(1.0, 0.0, 0.0, 1.0)
+		_:
+			$Sprite2D.modulate = Color(0.0, 0.0, 0.0, 1.0)
+		
 	self.set_collision_layer_value(12, true)
 	$Torch.visible = has_flashlight
 
@@ -81,7 +91,6 @@ func check_for_mask():
 
 func update_facing_direction():
 	super.update_facing_direction()
-	print(direction)
 	if direction.x > 0:
 		$Torch.rotation_degrees = -90
 	elif direction.x < 0:
