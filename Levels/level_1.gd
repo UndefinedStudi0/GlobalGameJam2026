@@ -6,9 +6,10 @@ const DOOR_OPENED_CHAT_BOX_ID = "door-opened"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	InteractionGroups.addInteractionGroup($Part1/Node2D3/NpcY1, "yellow_door")
+	print("adding npcy1", $Part1/NPCsFolder/Node2D3/NpcY1)
+	InteractionGroups.addInteractionGroup($Part1/NPCsFolder/Node2D3/NpcY1, "yellow_door")
 	# required so it can be detected by the blue door
-	$Part1/Node2D3/NpcY1.set_collision_layer_value(12, true)
+	$Part1/NPCsFolder/Node2D3/NpcY1.set_collision_layer_value(12, true)
 	
 	# example chat box closed detection event
 	SignalBus.chat_box_closed.connect(_on_need_to_open_the_door_chat_box_close)
