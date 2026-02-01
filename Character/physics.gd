@@ -7,15 +7,25 @@ class_name NewtonPhysics extends CharacterBody2D
 
 @onready var sprite = $Sprite2D
 
+enum StandState {
+	LOOKUP,
+	STANDING,
+	CROUCH
+}
+
+enum FacingDirection {
+	LEFT,
+	RIGHT
+}
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var has_double_jumped : bool = false
 @export var animation_locked : bool = false
 var direction : Vector2 = Vector2.ZERO
 var was_in_air : bool = false
-var crouched : bool = false
-var looking_up : bool = false
-
+var stand_state : StandState = StandState.STANDING
+var facing: FacingDirection = FacingDirection.RIGHT
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -25,19 +35,20 @@ func _physics_process(delta):
 	else:
 		has_double_jumped = false
 		was_in_air = false
-		
+
 	if Input.is_action_just_pressed("down"):
-		crouched = true
-		looking_up = false
+		stand_state = StandState.CROUCH
 	if Input.is_action_just_pressed("up"):
-		looking_up = true
-		crouched = false
+		stand_state = StandState.LOOKUP
 	if Input.is_action_just_released("down"):
-		crouched = false
+		stand_state = StandState.STANDING
 	if Input.is_action_just_released("up"):
-		looking_up = false
+		stand_state = StandState.STANDING
+		
 func update_facing_direction():
 	if direction.x > 0:
 		sprite.flip_h = true
+		facing = FacingDirection.RIGHT
 	elif direction.x < 0:
 		sprite.flip_h = false
+		facing = FacingDirection.LEFT

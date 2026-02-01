@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cby4aupywn4q0" path="res://Levels/main_menu.gd" id="1_2k6u6"]
 [ext_resource type="Texture2D" uid="uid://caiacfwxrw2mk" path="res://Art/UndefinedStudi0_art/Backgrounds/StarrySky.png" id="1_yw2i3"]
-[ext_resource type="Texture2D" uid="uid://6jjs7inbwvhf" path="res://Art/UndefinedStudi0_art/Assets/mask.png" id="2_hr4vk"]
-[ext_resource type="Texture2D" uid="uid://ctd3fswpd6sbl" path="res://Assets/key-x-outline.png" id="4_65ows"]
+[ext_resource type="Texture2D" uid="uid://p63swxwa40pq" path="res://start.png" id="3_2ld8x"]
+[ext_resource type="Texture2D" uid="uid://cw53aykueud4a" path="res://exit.png" id="4_ooo5j"]
+[ext_resource type="Texture2D" uid="uid://x3vl354tbrms" path="res://title.png" id="5_gerv3"]
 
 [node name="MainMenu" type="Control" unique_id=1691382321]
 layout_mode = 3
@@ -16,27 +17,44 @@ script = ExtResource("1_2k6u6")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1867743983]
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1314243822]
+[node name="MainForm" type="ReferenceRect" parent="." unique_id=696065374]
+clip_contents = true
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 480.0
+offset_bottom = 270.0
+
+[node name="TextureRect" type="TextureRect" parent="MainForm" unique_id=1314243822]
+layout_mode = 0
+offset_right = 745.0
+offset_bottom = 300.0
 texture = ExtResource("1_yw2i3")
+stretch_mode = 1
 
-[node name="PlayButton" type="Button" parent="." unique_id=22942554]
+[node name="PlayButton" type="Button" parent="MainForm" unique_id=22942554]
 layout_mode = 0
-offset_left = 213.0
-offset_top = 103.0
-offset_right = 239.0
-offset_bottom = 134.0
-icon = ExtResource("2_hr4vk")
+offset_left = 47.0
+offset_top = 171.0
+offset_right = 236.0
+offset_bottom = 242.0
+tooltip_text = "Start game"
+icon = ExtResource("3_2ld8x")
 
-[node name="ExitButton" type="Button" parent="." unique_id=2136909729]
+[node name="ExitButton" type="Button" parent="MainForm" unique_id=2136909729]
 layout_mode = 0
-offset_left = 249.0
-offset_top = 95.0
-offset_right = 297.0
-offset_bottom = 143.0
-icon = ExtResource("4_65ows")
+offset_left = 294.0
+offset_top = 171.0
+offset_right = 422.0
+offset_bottom = 242.0
+tooltip_text = "Exit"
+icon = ExtResource("4_ooo5j")
 
-[connection signal="pressed" from="PlayButton" to="." method="on_play_button_pressed"]
-[connection signal="pressed" from="ExitButton" to="." method="on_exit_button_pressed"]
+[node name="Title" type="TextureRect" parent="MainForm" unique_id=2067144354]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 18.0
+offset_right = 436.0
+offset_bottom = 131.0
+texture = ExtResource("5_gerv3")
+
+[connection signal="pressed" from="MainForm/PlayButton" to="." method="on_play_button_pressed"]
+[connection signal="pressed" from="MainForm/ExitButton" to="." method="on_exit_button_pressed"]

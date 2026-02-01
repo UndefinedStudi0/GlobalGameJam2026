@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dreoqvauuiucs"]
+
+[ext_resource type="Script" uid="uid://bes88t0dam3sx" path="res://Levels/game_over.gd" id="1_r1hvp"]
+[ext_resource type="Texture2D" uid="uid://c6k4g0dgnjf6k" path="res://Art/UndefinedStudi0_art/gameoverscreen.png" id="2_r1hvp"]
+[ext_resource type="Texture2D" uid="uid://cd7y8x6v65cfq" path="res://Art/UndefinedStudi0_art/gameovertext.png" id="4_ei71l"]
+[ext_resource type="Texture2D" uid="uid://cw53aykueud4a" path="res://exit.png" id="4_fcw43"]
+[ext_resource type="Texture2D" uid="uid://vau62tgxq812" path="res://Art/UndefinedStudi0_art/retrytext.png" id="5_20ivj"]
+
+[node name="GameOver" type="Control" unique_id=1691382321]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r1hvp")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1867743983]
+
+[node name="MainForm" type="ReferenceRect" parent="." unique_id=696065374]
+clip_contents = true
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 270.0
+
+[node name="TextureRect" type="TextureRect" parent="MainForm" unique_id=1314243822]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 270.0
+texture = ExtResource("2_r1hvp")
+stretch_mode = 1
+
+[node name="ExitButton" type="Button" parent="MainForm" unique_id=2136909729]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 203.0
+offset_right = 503.0
+offset_bottom = 274.0
+scale = Vector2(0.7, 0.7)
+tooltip_text = "Exit"
+icon = ExtResource("4_fcw43")
+
+[node name="Title" type="TextureRect" parent="MainForm" unique_id=2067144354]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 29.0
+offset_right = 399.0
+offset_bottom = 124.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_ei71l")
+
+[node name="RetryButton" type="Button" parent="MainForm" unique_id=483924915]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 146.0
+offset_right = 476.0
+offset_bottom = 241.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("5_20ivj")
+
+[connection signal="pressed" from="MainForm/ExitButton" to="." method="on_exit_button_pressed"]
+[connection signal="pressed" from="MainForm/RetryButton" to="." method="on_play_button_pressed"]

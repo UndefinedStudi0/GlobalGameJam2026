@@ -49,3 +49,5 @@ func decrement():
 	print("decrementing HP")
 	currentHP-=1
 	update_simple()
+	if currentHP == 0:
+		get_tree().change_scene_to_file("res://Levels/GameOver.tscn")
