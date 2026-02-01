@@ -1,6 +1,7 @@
 extends Node2D
 
 var level = preload("res://Levels/level1/level_data.gd").new()
+var victory = AudioStreamPlayer2D.new()
 
 const DOOR_OPENED_CHAT_BOX_ID = "door-opened"
 
@@ -22,6 +23,7 @@ func _ready() -> void:
 	
 	Audio._setup_level("museum")
 	Audio.fadein_safe()
+
 	$Part4/WinDoor.animation_end_callback = end_game_screen
 	
 func end_game_screen():

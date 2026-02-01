@@ -21,8 +21,6 @@ func _ready():
 	add_child(danger_music)
 	add_child(cutscene_music)
 
-	safe_music.volume_db = -20
-
 func _setup_level(levelName: String) -> void:
 	print("setting up audio for level " + levelName)
 	if current_level == levelName:
