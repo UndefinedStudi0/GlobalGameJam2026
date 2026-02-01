@@ -19,6 +19,9 @@ func _ready() -> void:
 	# connect the body entered event
 	if not $Part1/DoorOpenedArea2D.body_entered.is_connected(_on_close_door_opened_area_2d_body_entered):
 		$Part1/DoorOpenedArea2D.body_entered.connect(_on_close_door_opened_area_2d_body_entered)
+	
+	Audio._setup_level("museum")
+	Audio.fadein_safe()
 
 func _on_need_to_open_the_door_chat_box_close(type: String):
 	if type == DOOR_OPENED_CHAT_BOX_ID:
