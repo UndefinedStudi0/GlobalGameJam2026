@@ -19,6 +19,8 @@ var fall_sfx = AudioStreamPlayer2D.new()
 
 var jiggle_callback = null
 
+var positioncamerabase = Vector2(0,-11)
+
 func _ready() -> void:
 	# required so it can be detected by the blue door
 	self.set_collision_layer_value(12, true)
@@ -78,21 +80,29 @@ func move():
 	if direction.x != 0:
 		velocity.x = direction.x * speed
 		move_camera()
+		
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
-
-
-func move_camera():
-	var tween = get_tree().create_tween()
-	if direction.x > 0:
-		tween.tween_property($Camera2D, "offset", Vector2(112,-11),1).set_ease(Tween.EASE_IN)
-	elif direction.x < 0:
-		tween.tween_property($Camera2D, "offset", Vector2(-112,-11),1).set_ease(Tween.EASE_IN)
+		move_camera(true)
 	
-	match stand_state:
-		StandState.STANDING: tween.tween_property($Camera2D, "offset.y", -11,1).set_ease(Tween.EASE_IN)
-		StandState.LOOKUP: tween.tween_property($Camera2D, "offset.y", -11,1).set_ease(Tween.EASE_IN)
-		StandState.CROUCH: tween.tween_property($Camera2D, "offset.y", -11,1).set_ease(Tween.EASE_IN)
+
+
+func move_camera(vertical = false):
+	var tween = get_tree().create_tween()
+	
+	if !vertical:
+		if direction.x > 0:
+			positioncamerabase = Vector2(112,-11)
+			tween.tween_property($Camera2D, "offset", positioncamerabase,1).set_ease(Tween.EASE_IN)
+		elif direction.x < 0:
+			positioncamerabase = Vector2(-112,-11)
+			tween.tween_property($Camera2D, "offset", positioncamerabase,1).set_ease(Tween.EASE_IN)
+		
+	if vertical:
+		match stand_state:
+			StandState.STANDING: tween.tween_property($Camera2D, "offset", positioncamerabase+Vector2(0,0),1).set_ease(Tween.EASE_IN)
+			StandState.LOOKUP: tween.tween_property($Camera2D, "offset", positioncamerabase+Vector2(0,-50),1).set_ease(Tween.EASE_IN)
+			StandState.CROUCH: tween.tween_property($Camera2D, "offset", positioncamerabase+Vector2(0,50),1).set_ease(Tween.EASE_IN)
 	
 
 func jiggle():

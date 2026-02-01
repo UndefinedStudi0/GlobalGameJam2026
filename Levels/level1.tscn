@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b30qrm3j76hmh" path="res://Character/NPC.tscn" id="5_20gr8"]
 [ext_resource type="PackedScene" uid="uid://c6p1ql0bs7oa7" path="res://Character/mask.tscn" id="7_u2cfn"]
 [ext_resource type="Texture2D" uid="uid://dnikg4tme0nb2" path="res://Art/UndefinedStudi0_art/Lights/round_light.png" id="10_sqs0x"]
-[ext_resource type="PackedScene" path="res://Common/scenes/side_door.tscn" id="10_u55on"]
+[ext_resource type="PackedScene" uid="uid://fqpe3ypcd1k8" path="res://Common/scenes/side_door.tscn" id="10_u55on"]
 [ext_resource type="Texture2D" uid="uid://c8o5ige73c8cm" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/Metal Torch(OFF).png" id="10_utqd4"]
 [ext_resource type="PackedScene" uid="uid://cmi687gmk6d70" path="res://Levels/pedestal_room.tscn" id="11_sqs0x"]
 [ext_resource type="Texture2D" uid="uid://4xeyj3i3g34q" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels.png" id="12_1jijn"]
