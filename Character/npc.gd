@@ -21,18 +21,35 @@ func _process(delta):
 	if isAttached:
 		match stand_state:
 			StandState.STANDING: set_stand_texture()
-			StandState.LOOKUP: $Sprite2D.texture = aim_up_texture
+			StandState.LOOKUP: set_aim_texture()
 			StandState.CROUCH: set_crouch_texture()
 
 func set_crouch_texture():
 	$Sprite2D.texture = crouch_texture
 	$Sprite2D.position = Vector2(0,8)
 	maskref.get_node("Sprite2D").global_position = self.global_position + Vector2(0,-9)
+	maskref.get_node("Sprite2D").rotation_degrees = 0
 
 func set_stand_texture():
 	$Sprite2D.texture = stand_texture
 	$Sprite2D.position = Vector2.ZERO
 	maskref.get_node("Sprite2D").global_position = self.global_position + Vector2(0,-25)
+	maskref.get_node("Sprite2D").rotation_degrees = 0
+
+func set_aim_texture():
+	$Sprite2D.texture = aim_up_texture
+	$Sprite2D.position = Vector2.ZERO
+	var new_position
+	var new_angle
+	match facing:
+		FacingDirection.LEFT:
+			new_position = self.global_position + Vector2(9,-25)
+			new_angle = 30
+		FacingDirection.RIGHT:
+			new_position = self.global_position + Vector2(-9,-25)
+			new_angle = -30
+	maskref.get_node("Sprite2D").global_position = new_position
+	maskref.get_node("Sprite2D").rotation_degrees = new_angle
 
 		
 func _ready() -> void:
