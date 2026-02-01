@@ -27,6 +27,7 @@ func _ready() -> void:
 	$Part4/WinDoor.animation_end_callback = end_game_screen
 	
 func end_game_screen():
+	LevelProgress.restart()
 	get_tree().change_scene_to_file("res://Levels/WinScene.tscn")
 
 		
