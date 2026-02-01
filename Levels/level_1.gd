@@ -30,7 +30,7 @@ func _on_need_to_open_the_door_chat_box_close(type: String):
 		
 func _on_close_door_opened_area_2d_body_entered(body: Node2D) -> void:
 	if !LevelProgress.is_completed(level.name, level.interactions.have_opened_the_door.key):
-		var player = $Mask
+		var player = $Pedestal_room/Mask
 			
 		if player:
 			# show the chatbox

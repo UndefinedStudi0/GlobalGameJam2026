@@ -26,6 +26,7 @@ func _ready() -> void:
 	self.set_collision_layer_value(12, true)
 	
 
+	
 	var randomizer = AudioStreamRandomizer.new()
 	randomizer.add_stream(0, glass1res)
 	randomizer.add_stream(1, glass2res)
