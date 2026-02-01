@@ -11,4 +11,4 @@ func _process(delta: float) -> void:
 	pass
 
 func on_exit_button_pressed() -> void:
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://Levels/MainMenu.tscn")
