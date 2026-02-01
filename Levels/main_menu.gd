@@ -14,4 +14,4 @@ func on_play_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Levels/level1.tscn")
 	
 func on_exit_button_pressed() -> void:
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://Levels/Credits.tscn")
