@@ -411,6 +411,15 @@ z_index = 0
 position = Vector2(5, -1)
 speed = 20.0
 
+[node name="Node2D9" type="Node2D" parent="Part2/NPCsFolder" unique_id=570596165]
+position = Vector2(1662, 207)
+
+[node name="Npc" parent="Part2/NPCsFolder/Node2D9" unique_id=440928820 instance=ExtResource("5_20gr8")]
+z_index = 0
+position = Vector2(380, 47)
+color_id = "yellow_door"
+speed = 20.0
+
 [node name="InvisibleWallsFolder" type="Node2D" parent="Part2" unique_id=1170871670]
 
 [node name="InvisibleWall" parent="Part2/InvisibleWallsFolder" unique_id=17006385 instance=ExtResource("17_lr1ra")]
@@ -521,6 +530,9 @@ position = Vector2(1051, 496)
 rotation = 3.1415925
 scale = Vector2(1, -1)
 door_colorid = "yellow_door"
+
+[node name="Checkpoint3" parent="Part3" unique_id=1216501335 instance=ExtResource("18_eaymk")]
+position = Vector2(971, 585)
 
 [node name="Part4" type="Node2D" parent="." unique_id=1859743131]
 
