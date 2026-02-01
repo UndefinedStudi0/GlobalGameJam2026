@@ -7,6 +7,8 @@ class_name Npc
 
 @onready var collisionShape = $CollisionShape2D
 
+var initial_global_position: Vector2 = Vector2(0,0)
+
 var current_waypoint = 0
 var maskref: Mask = null
 var isAttached = false
@@ -70,6 +72,8 @@ func _ready() -> void:
 		
 	self.set_collision_layer_value(12, true)
 	$Torch.visible = has_flashlight
+	
+	initial_global_position = self.global_position
 
 func _physics_process(delta):
 	super._physics_process(delta)
