@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b4k3eiy51st6h"]
+
+[ext_resource type="Texture2D" uid="uid://d3if56j4lg8vv" path="res://Art/UndefinedStudi0_art/winscreen.png" id="1_jg2fe"]
+[ext_resource type="Script" uid="uid://d1dvm2q2twbxl" path="res://Levels/win_scene.gd" id="1_liuor"]
+[ext_resource type="Texture2D" uid="uid://cw53aykueud4a" path="res://exit.png" id="2_liuor"]
+
+[node name="WinScene" type="Control" unique_id=1675443661]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_liuor")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1635188305]
+
+[node name="MainForm" type="ReferenceRect" parent="." unique_id=288879040]
+clip_contents = true
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 270.0
+scale = Vector2(4, 4)
+
+[node name="TextureRect" type="TextureRect" parent="MainForm" unique_id=928893117]
+layout_mode = 0
+offset_left = -15.0
+offset_right = 730.0
+offset_bottom = 323.0
+texture = ExtResource("1_jg2fe")
+stretch_mode = 1
+
+[node name="ExitButton" type="Button" parent="MainForm" unique_id=1573769231]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 203.0
+offset_right = 503.0
+offset_bottom = 274.0
+scale = Vector2(0.7, 0.7)
+tooltip_text = "Exit"
+icon = ExtResource("2_liuor")
+
+[connection signal="pressed" from="MainForm/ExitButton" to="." method="_on_exit_button_pressed"]
