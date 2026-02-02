@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var door_colorid: String = "none"
+@export var door_leverID: int = 0
 @export var door_opensonce: bool = true
 
 var door_opened: bool = false
@@ -26,6 +27,9 @@ func _ready() -> void:
 	# Ensure the signal is connected; it's not wired in the scene.
 	if not $Area2D.body_entered.is_connected(_on_body_entered):
 		$Area2D.body_entered.connect(_on_body_entered)
+	
+	if door_leverID > 0:
+		InteractionGroups.addInteractionGroup(self, str("lever-group-",door_leverID))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,13 +42,22 @@ func animation_ended():
 		animation_end_callback.call()
 
 func _on_body_entered(body: Node) -> void:
-	if !door_opened or !door_opensonce:
+	if (!door_opened or !door_opensonce) and !haslever():
 		if InteractionGroups.canInteractWith(self, body):
 			print("Can interact with2:", body.name)
-			$AnimationPlayer.play("DoorOpens")
-			door_opened = true
+			opendoor()
 
 			await get_tree().create_timer(2.0).timeout
 			animation_ended()
 		
-		# run interaction logic
+func opendoor():
+	$AnimationPlayer.play("DoorOpens")
+	print("a door opens")
+	door_opened = true
+	
+func haslever() -> bool:
+	return door_leverID > 0
+	
+func lever_action():
+	if door_leverID > 0:
+		opendoor()

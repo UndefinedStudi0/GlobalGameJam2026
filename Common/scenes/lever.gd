@@ -16,14 +16,19 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-	
 
 func _on_body_entered(body: Node) -> void:
-	# check if there are nodes with id. action
 	if (!triggered):
 		trigger()
-		
+
 func trigger():
 	print("lever_triggered")
 	$AnimationPlayer.play("Triggered")
 	triggered = true
+	
+	# check if there are nodes with id for action
+	if leverID > 0:
+		var impactednodes = get_tree().get_nodes_in_group(str("can_interact_with_","lever-group-",leverID))
+		for impactednode in impactednodes:
+			if impactednode.has_method("lever_action"):
+				impactednode.lever_action()

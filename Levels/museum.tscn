@@ -260,3 +260,4 @@ position = Vector2(-105, 185)
 
 [node name="Lever" parent="." unique_id=1416459769 instance=ExtResource("16_r34fw")]
 position = Vector2(83, 161.5)
+leverID = 1

@@ -33,9 +33,7 @@ func _ready() -> void:
 		$Area2D.body_entered.connect(_on_body_entered)
 		
 	if door_leverID > 0:
-		var callable = Callable(self,"opendoor")
-	
-		#maskRef.jiggle_callback = callable
+		InteractionGroups.addInteractionGroup(self, str("lever-group-",door_leverID))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -51,9 +49,17 @@ func _on_body_entered(body: Node) -> void:
 		# run interaction logic
 		
 func opendoor():
+	print("a door opens")
 	$AnimationPlayer.play("DoorOpens")
-	$RigidBody2D.set_collision_layer_value(1,false)
 	door_opened = true
+	await get_tree().create_timer(1).timeout
+	$RigidBody2D.set_collision_layer_value(1,false)
+	
 	
 func haslever() -> bool:
 	return door_leverID > 0
+	
+func lever_action():
+	if door_leverID > 0:
+		opendoor()
+		
