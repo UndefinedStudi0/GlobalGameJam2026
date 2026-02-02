@@ -33,14 +33,15 @@ stretch_mode = 1
 
 [node name="PlayButton" type="Button" parent="MainForm" unique_id=22942554]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 171.0
-offset_right = 236.0
-offset_bottom = 242.0
+offset_left = 150.75
+offset_top = 174.25
+offset_right = 339.75
+offset_bottom = 245.25
 tooltip_text = "Start game"
 icon = ExtResource("3_2ld8x")
 
 [node name="ExitButton" type="Button" parent="MainForm" unique_id=2136909729]
+visible = false
 layout_mode = 0
 offset_left = 294.0
 offset_top = 171.0
