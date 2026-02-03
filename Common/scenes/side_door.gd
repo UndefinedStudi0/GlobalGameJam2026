@@ -3,7 +3,6 @@ class_name SideDoor
 
 @export var door_colorid: String = "none"
 @export var door_opensonce: bool = true
-@export var door_leverID: int = 0
 
 var door_opened: bool = false
 
@@ -24,7 +23,7 @@ func _ready() -> void:
 	
 	if door_colorid != "none":
 		InteractionGroups.addInteractionGroup(self, door_colorid)
-	else	:
+	else:
 		# door that can be opened by any npcs
 		InteractionGroups.addInteractionGroup(self, "door-color-none")
 		
@@ -32,9 +31,6 @@ func _ready() -> void:
 	
 	if not $Area2D.body_entered.is_connected(_on_body_entered):
 		$Area2D.body_entered.connect(_on_body_entered)
-		
-	if door_leverID > 0:
-		InteractionGroups.addInteractionGroup(self, str("lever-group-",door_leverID))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,7 +38,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_body_entered(body: Node) -> void:
-	if (!door_opened or !door_opensonce) and !has_lever():
+	if (!door_opened or !door_opensonce):
 		if InteractionGroups.canInteractWith(self, body) :
 			print("Can interact with:", body.name)
 			open_door()
@@ -56,9 +52,6 @@ func open_door():
 	await get_tree().create_timer(1).timeout
 	$RigidBody2D.set_collision_layer_value(1,false)
 	
-	
-func has_lever() -> bool:
-	return door_leverID > 0
 	
 func lever_action():
 	open_door()
