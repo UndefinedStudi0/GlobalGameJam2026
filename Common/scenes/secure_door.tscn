@@ -80,8 +80,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhrkg"]
 size = Vector2(20, 64)
 
-[node name="SecureDoor" type="Node2D" unique_id=1541820274]
+[node name="SecureDoor" type="Node2D" unique_id=1637743458]
 script = ExtResource("1_ayoip")
+metadata/_custom_type_script = "uid://drt1y0adgurrt"
 
 [node name="Frame" type="Sprite2D" parent="." unique_id=715861441]
 texture = SubResource("CanvasTexture_adykm")

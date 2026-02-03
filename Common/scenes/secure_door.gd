@@ -38,13 +38,18 @@ func animation_ended():
 		animation_end_callback.call()
 
 func _on_body_entered(body: Node) -> void:
-	if !door_opened or !door_opensonce:
+	if (!door_opened or !door_opensonce):
 		if InteractionGroups.canInteractWith(self, body):
 			print("Can interact with2:", body.name)
-			$AnimationPlayer.play("DoorOpens")
-			door_opened = true
+			open_door()
 
 			await get_tree().create_timer(2.0).timeout
 			animation_ended()
 		
-		# run interaction logic
+func open_door():
+	$AnimationPlayer.play("DoorOpens")
+	print("a door opens")
+	door_opened = true
+	
+func lever_action():
+	open_door()

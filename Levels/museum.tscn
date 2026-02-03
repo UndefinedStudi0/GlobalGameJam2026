@@ -2,19 +2,18 @@
 
 [ext_resource type="Script" uid="uid://d1aqrp83lpo1w" path="res://Levels/museum.gd" id="1_oxja0"]
 [ext_resource type="Texture2D" uid="uid://4xeyj3i3g34q" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels.png" id="2_2g8tf"]
-[ext_resource type="Texture2D" uid="uid://caiacfwxrw2mk" path="res://Art/UndefinedStudi0_art/Backgrounds/StarrySky.png" id="2_u5xas"]
-[ext_resource type="Texture2D" uid="uid://06jl46l2ms45" path="res://Art/UndefinedStudi0_art/Backgrounds/trees.png" id="3_oxja0"]
 [ext_resource type="Texture2D" uid="uid://5v6c4ktpt2lg" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels_normalmap.png" id="3_u5xas"]
 [ext_resource type="Texture2D" uid="uid://10vjb585fybe" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/[FREE] Industrial Tileset/FREE/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1.png" id="4_3s25j"]
 [ext_resource type="PackedScene" uid="uid://b30qrm3j76hmh" path="res://Character/NPC.tscn" id="5_3s25j"]
 [ext_resource type="Texture2D" uid="uid://bote44rp44hb5" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Dungeon_Asset_pack/tileset_.png" id="5_ite67"]
 [ext_resource type="PackedScene" uid="uid://c6p1ql0bs7oa7" path="res://Character/mask.tscn" id="7_qhoq0"]
 [ext_resource type="Texture2D" uid="uid://dnikg4tme0nb2" path="res://Art/UndefinedStudi0_art/Lights/round_light.png" id="10_3pxxt"]
-[ext_resource type="PackedScene" path="res://Common/scenes/secure_door.tscn" id="13_u5xas"]
-[ext_resource type="PackedScene" path="res://Common/scenes/side_door.tscn" id="14_oxja0"]
+[ext_resource type="PackedScene" uid="uid://c2hbnofwx8h0j" path="res://Common/scenes/secure_door.tscn" id="13_u5xas"]
+[ext_resource type="PackedScene" uid="uid://fqpe3ypcd1k8" path="res://Common/scenes/side_door.tscn" id="14_oxja0"]
 [ext_resource type="PackedScene" uid="uid://pmt7denghdof" path="res://Common/scenes/pedestal.tscn" id="15_i534r"]
-[ext_resource type="PackedScene" uid="uid://by3b5by4m42qa" path="res://Common/scenes/HPbar.tscn" id="15_pvsyx"]
+[ext_resource type="PackedScene" path="res://Common/scenes/HPbar.tscn" id="15_pvsyx"]
 [ext_resource type="PackedScene" uid="uid://ba4mbp7cybnsx" path="res://Common/scenes/lamp.tscn" id="16_i534r"]
+[ext_resource type="PackedScene" uid="uid://dvwdk6rc7jyiu" path="res://Common/scenes/lever.tscn" id="16_r34fw"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_oxja0"]
 diffuse_texture = ExtResource("2_2g8tf")
@@ -204,30 +203,8 @@ sources/0 = SubResource("TileSetAtlasSource_qhoq0")
 sources/1 = SubResource("TileSetAtlasSource_yobc2")
 
 [node name="TestLevel2" type="Node2D" unique_id=1203591299]
+scale = Vector2(4, 4)
 script = ExtResource("1_oxja0")
-
-[node name="ParallaxBG" type="Node2D" parent="." unique_id=1743909236]
-
-[node name="StarrySky" type="Parallax2D" parent="ParallaxBG" unique_id=1489723142]
-scroll_scale = Vector2(0.05, 0)
-repeat_size = Vector2(740, 0)
-repeat_times = 2
-
-[node name="StarrySky" type="TextureRect" parent="ParallaxBG/StarrySky" unique_id=248035592]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_u5xas")
-
-[node name="Trees" type="Parallax2D" parent="ParallaxBG" unique_id=1320302394]
-scroll_scale = Vector2(0.5, 1)
-repeat_size = Vector2(740, 0)
-repeat_times = 2
-
-[node name="TextureRect" type="TextureRect" parent="ParallaxBG/Trees" unique_id=2048877660]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("3_oxja0")
-stretch_mode = 1
 
 [node name="BackgroundTiles" type="TileMapLayer" parent="." unique_id=136828106]
 position = Vector2(0, 25)
@@ -235,33 +212,32 @@ tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAACAAA
 tile_set = SubResource("TileSet_i534r")
 
 [node name="SecureDoor" parent="." unique_id=1541820274 instance=ExtResource("13_u5xas")]
-position = Vector2(-93, 77)
+position = Vector2(-80, 77)
 door_colorid = "yellow_door"
 
-[node name="SideDoor" parent="." unique_id=1865003005 instance=ExtResource("14_oxja0")]
-position = Vector2(147, 105)
-
 [node name="LampTop" parent="." unique_id=652923232 instance=ExtResource("16_i534r")]
-position = Vector2(45, 73)
+position = Vector2(81.75, 71.25)
 
 [node name="LampSide" parent="." unique_id=845392695 instance=ExtResource("16_i534r")]
-position = Vector2(-12.000004, 75)
+position = Vector2(-11.999998, 75)
 rotation = -0.4660029
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=121137877]
 physics_interpolation_mode = 1
 position = Vector2(48, 89)
-tile_map_data = PackedByteArray("AADz/wYAAQAAAAAAAADz/wcAAQAAAAEAAAD0/wYAAQABAAAAAAD0/wcAAQABAAEAAAD1/wYAAQABAAAAAAD1/wcAAQABAAEAAAD7/wcAAQABAAEAAAD8/wcAAQABAAEAAAD2/wYAAQABAAAAAAD2/wcAAQABAAEAAAD3/wYAAQABAAAAAAD3/wcAAQABAAEAAAD4/wcAAQABAAEAAAD5/wcAAQABAAEAAAD6/wcAAQABAAEAAAD9/wYAAQABAAAAAAD9/wcAAQABAAEAAAD+/wYAAQABAAAAAAD+/wcAAQABAAEAAAD//wYAAQABAAAAAAD//wcAAQABAAEAAAAAAAYAAQABAAAAAAAAAAcAAQABAAEAAAABAAYAAQABAAAAAAABAAcAAQABAAEAAAACAAYAAQABAAAAAAACAAcAAQABAAEAAAADAAYAAQABAAAAAAADAAcAAQABAAEAAAAEAAYAAQABAAAAAAAEAAcAAQABAAEAAAAFAAYAAQABAAAAAAAFAAcAAQABAAEAAAAGAAYAAQABAAAAAAAGAAcAAQABAAEAAAAHAAYAAQABAAAAAAAHAAcAAQABAAEAAAAFAAEAAQACAAAAADAFAAAAAQACAAEAADAGAAEAAQABAAAAADAGAAAAAQABAAEAADAHAAEAAQAAAAAAADAHAAAAAQAAAAEAADAFAP//AQAAAAEAAAAEAP7/AQAAAAEAAGADAP7/AQAAAAEAAGACAP7/AQAAAAEAAGABAP7/AQAAAAEAAGAAAP7/AQAAAAEAAGD///7/AQAAAAEAAGD+//7/AQAAAAEAAGD9//7/AQAAAAEAAGD8//7/AQAAAAEAAGD7//7/AQAAAAEAAGD1//7/AQAAAAEAAGD0//7/AQAAAAEAAGD2//7/AQAAAAEAAGD6//7/AQAAAAEAAGD5//7/AQAAAAEAAGD4//7/AQAAAAEAAGD3//7/AQAAAAEAAGAGAP//AQABAAEAAAAGAP7/AQABAAEAAAAGAP3/AQABAAEAAAAFAP3/AQABAAEAAAAEAP3/AQAAAAEAAGADAP3/AQABAAEAAAACAP3/AQABAAEAAAABAP3/AQABAAEAAAAAAP3/AQABAAEAAAD///3/AQABAAEAAAD+//3/AQABAAEAAAD9//3/AQABAAEAAAD8//3/AQABAAEAAAD7//3/AQABAAEAAAD6//3/AQABAAEAAAD5//3/AQABAAEAAAD4//3/AQABAAEAAAD3//3/AQABAAEAAAD2//3/AQABAAEAAAD1//3/AQABAAEAAAD0//3/AQABAAEAAAAFAP7/AQAFAAAAAADy/wUAAQACAAEAAADy/wQAAQACAAEAAADy/wMAAQACAAEAAADy/wIAAQACAAEAAADy/wEAAQACAAEAAADy/wAAAQACAAEAAADy//7/AQAEAAAAAADy////AQACAAEAAADz//7/AQAAAAEAAGD4/wYAAQABAAAAAAD5/wYAAQABAAAAAAD6/wYAAQABAAAAAAD7/wYAAQABAAAAAAD8/wYAAQABAAAAAAAIAAYAAQABAAMAAAAJAAYAAQABAAMAAAAKAAYAAQABAAMAAAALAAYAAQABAAMAAAAMAAYAAQABAAMAAAANAAYAAQABAAMAAAAOAAYAAQABAAMAAAAPAAYAAQABAAMAAAAQAAYAAQABAAMAAAARAAYAAQABAAMAAAASAAYAAQABAAMAAAATAAYAAQABAAMAAAAUAAYAAQABAAMAAAAVAAYAAQABAAMAAAAWAAYAAQABAAMAAAAXAAYAAQABAAMAAAAYAAYAAQABAAMAAAAZAAYAAQABAAMAAAAaAAYAAQABAAMAAAAbAAYAAQABAAMAAAAcAAYAAQABAAMAAAAdAAYAAQABAAMAAAAeAAYAAQABAAMAAAAfAAYAAQABAAMAAAAgAAYAAQABAAMAAAAhAAYAAQABAAMAAAAiAAYAAQABAAMAAAAjAAYAAQABAAMAAAAkAAYAAQABAAMAAAAlAAYAAQABAAMAAAAmAAYAAQABAAMAAAAnAAYAAQABAAMAAAAoAAYAAQABAAMAAAApAAYAAQABAAMAAAAqAAYAAQABAAMAAAArAAYAAQABAAMAAAAsAAYAAQABAAMAAAAtAAYAAQABAAMAAAAuAAYAAQABAAMAAAAvAAYAAQABAAMAAAAwAAYAAQABAAMAAAAxAAYAAQABAAMAAAAyAAYAAQABAAMAAAAzAAYAAQABAAMAAAA0AAYAAQABAAMAAAA1AAYAAQABAAMAAAA2AAYAAQABAAMAAAA=")
+tile_map_data = PackedByteArray("AADz/wYAAQAAAAAAAADz/wcAAQAAAAEAAAD0/wYAAQABAAAAAAD0/wcAAQABAAEAAAD1/wYAAQABAAAAAAD1/wcAAQABAAEAAAD7/wcAAQABAAEAAAD8/wcAAQABAAEAAAD2/wYAAQABAAAAAAD2/wcAAQABAAEAAAD3/wYAAQABAAAAAAD3/wcAAQABAAEAAAD4/wcAAQABAAEAAAD5/wcAAQABAAEAAAD6/wcAAQABAAEAAAD9/wYAAQABAAAAAAD9/wcAAQABAAEAAAD+/wYAAQABAAAAAAD+/wcAAQABAAEAAAD//wYAAQABAAAAAAD//wcAAQABAAEAAAAAAAYAAQABAAAAAAAAAAcAAQABAAEAAAABAAYAAQABAAAAAAABAAcAAQABAAEAAAACAAYAAQABAAAAAAACAAcAAQABAAEAAAADAAYAAQABAAAAAAADAAcAAQABAAEAAAAEAAYAAQABAAAAAAAEAAcAAQABAAEAAAAFAAYAAQABAAAAAAAFAAcAAQABAAEAAAAGAAYAAQABAAAAAAAGAAcAAQABAAEAAAAHAAYAAQABAAAAAAAHAAcAAQABAAEAAAAFAP//AQAAAAEAAAAEAP7/AQAAAAEAAGADAP7/AQAAAAEAAGACAP7/AQAAAAEAAGABAP7/AQAAAAEAAGAAAP7/AQAAAAEAAGD///7/AQAAAAEAAGD+//7/AQAAAAEAAGD9//7/AQAAAAEAAGD8//7/AQAAAAEAAGD7//7/AQAAAAEAAGD1//7/AQAAAAEAAGD0//7/AQAAAAEAAGD2//7/AQAAAAEAAGD6//7/AQAAAAEAAGD5//7/AQAAAAEAAGD4//7/AQAAAAEAAGD3//7/AQAAAAEAAGAGAP//AQABAAEAAAAGAP7/AQABAAEAAAAGAP3/AQABAAEAAAAFAP3/AQABAAEAAAAEAP3/AQAAAAEAAGADAP3/AQABAAEAAAACAP3/AQABAAEAAAABAP3/AQABAAEAAAAAAP3/AQABAAEAAAD///3/AQABAAEAAAD+//3/AQABAAEAAAD9//3/AQABAAEAAAD8//3/AQABAAEAAAD7//3/AQABAAEAAAD6//3/AQABAAEAAAD5//3/AQABAAEAAAD4//3/AQABAAEAAAD3//3/AQABAAEAAAD2//3/AQABAAEAAAD1//3/AQABAAEAAAD0//3/AQABAAEAAAAFAP7/AQAFAAAAAADy/wUAAQACAAEAAADy/wQAAQACAAEAAADy/wMAAQACAAEAAADy/wIAAQACAAEAAADy/wEAAQACAAEAAADy/wAAAQACAAEAAADy//7/AQAEAAAAAADy////AQACAAEAAADz//7/AQAAAAEAAGD4/wYAAQABAAAAAAD5/wYAAQABAAAAAAD6/wYAAQABAAAAAAD7/wYAAQABAAAAAAD8/wYAAQABAAAAAAAIAAYAAQABAAMAAAAJAAYAAQABAAMAAAAKAAYAAQABAAMAAAALAAYAAQABAAMAAAAMAAYAAQABAAMAAAANAAYAAQABAAMAAAAOAAYAAQABAAMAAAAPAAYAAQABAAMAAAAQAAYAAQABAAMAAAARAAYAAQABAAMAAAASAAYAAQABAAMAAAATAAYAAQABAAMAAAAUAAYAAQABAAMAAAAVAAYAAQABAAMAAAAWAAYAAQABAAMAAAAXAAYAAQABAAMAAAAYAAYAAQABAAMAAAAZAAYAAQABAAMAAAAaAAYAAQABAAMAAAAbAAYAAQABAAMAAAAcAAYAAQABAAMAAAAdAAYAAQABAAMAAAAeAAYAAQABAAMAAAAfAAYAAQABAAMAAAAgAAYAAQABAAMAAAAhAAYAAQABAAMAAAAiAAYAAQABAAMAAAAjAAYAAQABAAMAAAAkAAYAAQABAAMAAAAlAAYAAQABAAMAAAAmAAYAAQABAAMAAAAnAAYAAQABAAMAAAAoAAYAAQABAAMAAAApAAYAAQABAAMAAAAqAAYAAQABAAMAAAArAAYAAQABAAMAAAAsAAYAAQABAAMAAAAtAAYAAQABAAMAAAAuAAYAAQABAAMAAAAvAAYAAQABAAMAAAAwAAYAAQABAAMAAAAxAAYAAQABAAMAAAAyAAYAAQABAAMAAAAzAAYAAQABAAMAAAA0AAYAAQABAAMAAAA1AAYAAQABAAMAAAA2AAYAAQABAAMAAAAFAAAAAQAAAAIAAAAGAAAAAQACAAIAAAA=")
 tile_set = SubResource("TileSet_luyee")
 use_kinematic_bodies = true
 collision_visibility_mode = 1
 
 [node name="Mask" parent="." unique_id=442016007 node_paths=PackedStringArray("hp_bar") instance=ExtResource("7_qhoq0")]
+visible = false
 position = Vector2(-107, 116)
 hp_bar = NodePath("../CanvasLayer/HPbar")
 
 [node name="Npc" parent="." unique_id=440928820 instance=ExtResource("5_3s25j")]
-position = Vector2(-128, 145)
+visible = false
+position = Vector2(-3.5, 152.75)
 color_id = "red_door"
 
 [node name="APointGlow" type="PointLight2D" parent="." unique_id=30063435]
@@ -278,3 +254,14 @@ height = 5.0
 
 [node name="Node2D" parent="." unique_id=489333592 instance=ExtResource("15_i534r")]
 position = Vector2(-105, 185)
+
+[node name="Node2D2" type="Node2D" parent="." unique_id=1807420162]
+
+[node name="Lever" parent="Node2D2" unique_id=1416459769 node_paths=PackedStringArray("actionables") instance=ExtResource("16_r34fw")]
+position = Vector2(83, 161.5)
+actionables = [NodePath("../SideDoor")]
+
+[node name="SideDoor" parent="Node2D2" unique_id=1865003005 instance=ExtResource("14_oxja0")]
+position = Vector2(140, 105)
+door_colorid = "yellow_door"
+door_leverID = 1
