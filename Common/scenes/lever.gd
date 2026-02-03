@@ -1,8 +1,10 @@
 extends Node2D
+class_name lever
 
 @export var leverID : int = 0
 
 var triggered: bool = false
+@export var actionables: Array[Node2D] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,9 +28,12 @@ func trigger():
 	$AnimationPlayer.play("Triggered")
 	triggered = true
 	
+	for element in actionables:
+		element.lever_action()
+	
 	# check if there are nodes with id for action
-	if leverID > 0:
-		var impactednodes = get_tree().get_nodes_in_group(str("can_interact_with_","lever-group-",leverID))
-		for impactednode in impactednodes:
-			if impactednode.has_method("lever_action"):
-				impactednode.lever_action()
+	#if leverID > 0:
+		#var impactednodes = get_tree().get_nodes_in_group(str("can_interact_with_","lever-group-",leverID))
+		#for impactednode in impactednodes:
+			#if impactednode.has_method("lever_action"):
+				#impactednode.lever_action()

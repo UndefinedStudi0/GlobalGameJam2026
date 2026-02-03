@@ -1,4 +1,5 @@
 extends Node2D
+class_name SideDoor
 
 @export var door_colorid: String = "none"
 @export var door_opensonce: bool = true
@@ -41,14 +42,14 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_body_entered(body: Node) -> void:
-	if (!door_opened or !door_opensonce) and !haslever():
+	if (!door_opened or !door_opensonce) and !has_lever():
 		if InteractionGroups.canInteractWith(self, body) :
 			print("Can interact with:", body.name)
-			opendoor()
+			open_door()
 		
 		# run interaction logic
 		
-func opendoor():
+func open_door():
 	print("a door opens")
 	$AnimationPlayer.play("DoorOpens")
 	door_opened = true
@@ -56,10 +57,8 @@ func opendoor():
 	$RigidBody2D.set_collision_layer_value(1,false)
 	
 	
-func haslever() -> bool:
+func has_lever() -> bool:
 	return door_leverID > 0
 	
 func lever_action():
-	if door_leverID > 0:
-		opendoor()
-		
+	open_door()

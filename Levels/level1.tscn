@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://dq123pjsysuv0" path="res://Levels/level1/part_1.gd" id="11_vy400"]
 [ext_resource type="Texture2D" uid="uid://4xeyj3i3g34q" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels.png" id="12_1jijn"]
 [ext_resource type="Texture2D" uid="uid://5v6c4ktpt2lg" path="res://Art/UndefinedStudi0_art/Tilesets/wallpanels_normalmap.png" id="13_20gr8"]
-[ext_resource type="PackedScene" uid="uid://by3b5by4m42qa" path="res://Common/scenes/HPbar.tscn" id="14_20gr8"]
+[ext_resource type="PackedScene" path="res://Common/scenes/HPbar.tscn" id="14_20gr8"]
 [ext_resource type="PackedScene" uid="uid://blotcceytb6lh" path="res://Common/scenes/invisibleWall/InvisibleWall.tscn" id="17_lr1ra"]
 [ext_resource type="PackedScene" uid="uid://25v0ins84fxv" path="res://Common/scenes/eventTrigger/EventTrigger.tscn" id="18_eaymk"]
 [ext_resource type="PackedScene" uid="uid://c2hbnofwx8h0j" path="res://Common/scenes/secure_door.tscn" id="18_r7a1c"]
@@ -303,7 +303,6 @@ shape = SubResource("SegmentShape2D_20gr8")
 debug_color = Color(0.995331, 0, 0.214997, 0.41960785)
 
 [node name="SideDoor3" parent="Part1" unique_id=738823046 instance=ExtResource("10_u55on")]
-position = Vector2(468, 48)
 
 [node name="NpcAlertTrigger" parent="Part1" unique_id=542180414 instance=ExtResource("18_eaymk")]
 position = Vector2(880, 132)
@@ -314,7 +313,6 @@ position = Vector2(1147, 132)
 trigger_id = null
 
 [node name="SideDoor" parent="Part1" unique_id=1541820274 instance=ExtResource("10_u55on")]
-position = Vector2(1008, -80)
 
 [node name="NPCsFolder" type="Node2D" parent="Part1" unique_id=462297300]
 
@@ -428,19 +426,12 @@ position = Vector2(1752, 142)
 [node name="DoorsFolder" type="Node2D" parent="Part2" unique_id=886470027]
 
 [node name="SideDoor5" parent="Part2/DoorsFolder" unique_id=448344019 instance=ExtResource("10_u55on")]
-position = Vector2(1544, 160)
-rotation = 3.1415925
-scale = Vector2(1, -1)
 door_colorid = "yellow_door"
 
 [node name="SideDoor3" parent="Part2/DoorsFolder" unique_id=1920094573 instance=ExtResource("10_u55on")]
-position = Vector2(2005, 208)
-rotation = 3.1415925
-scale = Vector2(1, -1)
 door_colorid = "yellow_door"
 
 [node name="SecureDoor" parent="Part2/DoorsFolder" unique_id=2026836613 instance=ExtResource("18_r7a1c")]
-position = Vector2(1200, 21)
 door_colorid = "yellow_door"
 
 [node name="Checkpoint2" parent="Part2" unique_id=1412628409 instance=ExtResource("18_eaymk")]
@@ -518,15 +509,9 @@ position = Vector2(880, 300)
 [node name="DoorsFolder" type="Node2D" parent="Part3" unique_id=1302384173]
 
 [node name="SideDoor4" parent="Part3/DoorsFolder" unique_id=69961307 instance=ExtResource("10_u55on")]
-position = Vector2(648, 208)
-rotation = 3.1415925
-scale = Vector2(1, -1)
 door_colorid = "yellow_door"
 
 [node name="SideDoor6" parent="Part3/DoorsFolder" unique_id=1581084308 instance=ExtResource("10_u55on")]
-position = Vector2(1051, 496)
-rotation = 3.1415925
-scale = Vector2(1, -1)
 door_colorid = "yellow_door"
 
 [node name="Checkpoint3" parent="Part3" unique_id=1216501335 instance=ExtResource("18_eaymk")]
@@ -640,7 +625,6 @@ position = Vector2(760, 440)
 position = Vector2(800, 441)
 
 [node name="WinDoor" parent="Part4" unique_id=1687446891 instance=ExtResource("18_r7a1c")]
-position = Vector2(1193, 820)
 door_colorid = "green_door"
 
 [node name="GameOverTrigger" parent="Part4" unique_id=616278222 instance=ExtResource("18_sqs0x")]

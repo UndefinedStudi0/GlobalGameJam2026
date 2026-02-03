@@ -212,13 +212,8 @@ tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAACAAA
 tile_set = SubResource("TileSet_i534r")
 
 [node name="SecureDoor" parent="." unique_id=1541820274 instance=ExtResource("13_u5xas")]
-position = Vector2(-93, 77)
+position = Vector2(-80, 77)
 door_colorid = "yellow_door"
-
-[node name="SideDoor" parent="." unique_id=1865003005 instance=ExtResource("14_oxja0")]
-position = Vector2(147, 105)
-door_colorid = "yellow_door"
-door_leverID = 1
 
 [node name="LampTop" parent="." unique_id=652923232 instance=ExtResource("16_i534r")]
 position = Vector2(45, 73)
@@ -258,6 +253,14 @@ height = 5.0
 [node name="Node2D" parent="." unique_id=489333592 instance=ExtResource("15_i534r")]
 position = Vector2(-105, 185)
 
-[node name="Lever" parent="." unique_id=1416459769 instance=ExtResource("16_r34fw")]
+[node name="Node2D2" type="Node2D" parent="." unique_id=1807420162]
+
+[node name="Lever" parent="Node2D2" unique_id=1416459769 node_paths=PackedStringArray("actionables") instance=ExtResource("16_r34fw")]
 position = Vector2(83, 161.5)
 leverID = 1
+actionables = [NodePath("../SideDoor")]
+
+[node name="SideDoor" parent="Node2D2" unique_id=1865003005 instance=ExtResource("14_oxja0")]
+position = Vector2(140, 105)
+door_colorid = "yellow_door"
+door_leverID = 1

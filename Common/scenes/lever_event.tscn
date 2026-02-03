@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c23lj7ei7fsrp"]
+
+[ext_resource type="PackedScene" uid="uid://dvwdk6rc7jyiu" path="res://Common/scenes/lever.tscn" id="2_gc6l7"]
+[ext_resource type="PackedScene" uid="uid://fqpe3ypcd1k8" path="res://Common/scenes/side_door.tscn" id="3_0r8aj"]
+
+[sub_resource type="GDScript" id="GDScript_q46rd"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	var lever_effect = Callable($SideDoor,\"open_door\")
+	$lever.lever_action = lever_effect
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="LeverEvent" type="Node2D" unique_id=289666738]
+script = SubResource("GDScript_q46rd")
+
+[node name="Lever" parent="." unique_id=1416459769 instance=ExtResource("2_gc6l7")]
+leverID = 0
+
+[node name="SideDoor" parent="." unique_id=1541820274 instance=ExtResource("3_0r8aj")]

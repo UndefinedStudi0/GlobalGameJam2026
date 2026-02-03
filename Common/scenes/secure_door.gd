@@ -59,5 +59,4 @@ func haslever() -> bool:
 	return door_leverID > 0
 	
 func lever_action():
-	if door_leverID > 0:
-		opendoor()
+	opendoor()

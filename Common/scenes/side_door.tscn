@@ -99,7 +99,7 @@ diffuse_texture = ExtResource("4_yopul")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yopul"]
 size = Vector2(8, 80)
 
-[node name="SideDoor" type="Node2D" unique_id=1541820274]
+[node name="SideDoor" type="Node2D" unique_id=1135752741]
 script = ExtResource("1_ipguo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1969205718]
