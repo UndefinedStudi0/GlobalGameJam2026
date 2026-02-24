@@ -137,7 +137,7 @@ func attach(entity, collisionShape):
 		return false
 	catch_sfx.play()
 	if throwState == THROW_STATE.NOT_THROWN:
-		Audio.cross_fade(0, 0.8, "attached", "detached")
+		Audio.play("attached", 0.8)
 
 	$AnimationPlayer.play("RESET")
 	#Avoid collisions with NPCs while mask is attached

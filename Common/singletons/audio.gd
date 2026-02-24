@@ -5,18 +5,20 @@ var audio_streams: Dictionary[String, AudioStreamPlayer2D] = {}
 var tweenIn = null
 var tweenOut = null
 
-func _ready():
-	for key in audio_streams:
-		add_child(audio_streams[key])
-
 func play(stream_name: String, volume: float = 1.0):
 	set_volume(volume)
+	print("playing track " + stream_name)
 	for key in audio_streams:
 		if key != stream_name:
+			print("stopping track " + key)
 			audio_streams[key].stop()
 	var target_stream = audio_streams[stream_name]
 	if !target_stream.playing:
+		print("target stream start playing")
 		target_stream.play()
+	else:
+		print("target stream already playing")
+
 
 func _setup_tracks(tracks: Dictionary[String, String]) -> void:
 	print("removing old tracks, setting up new tracks")
@@ -28,17 +30,23 @@ func _setup_tracks(tracks: Dictionary[String, String]) -> void:
 		player.volume_db = -100
 		player.stream = load(tracks[track_name])
 		player.stream.loop = true
+		player.stop()
 		audio[track_name] = player
+		add_child(player)
 	audio_streams = audio
 
 func percent_to_db(percent: float): 
-	return percent * -100
+	return (1 - percent) * -100
 	
 # Fade out the specified audio
 func cross_fade(fade_duration: float, target_volume: float, in_audio_id: String, out_audio_id: String):
 	print("audio cross fade")
+	print("in audio: " + in_audio_id)
+	print("outgoing audio " + out_audio_id)
 	var in_audio = audio_streams[in_audio_id]
 	var out_audio = audio_streams[out_audio_id]
+	in_audio.play()
+	in_audio.volume_db = -100
 	# Start a fade-in from the current volume level
 	if in_audio:
 		if tweenIn:
