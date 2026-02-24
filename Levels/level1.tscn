@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://25v0ins84fxv" path="res://Common/scenes/eventTrigger/EventTrigger.tscn" id="18_eaymk"]
 [ext_resource type="PackedScene" uid="uid://c2hbnofwx8h0j" path="res://Common/scenes/secure_door.tscn" id="18_r7a1c"]
 [ext_resource type="PackedScene" uid="uid://cp57rjyctwuw0" path="res://Common/scenes/gameoverTrigger/GameOverTrigger.tscn" id="18_sqs0x"]
+[ext_resource type="PackedScene" uid="uid://dvwdk6rc7jyiu" path="res://Common/scenes/lever.tscn" id="20_vy400"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_oxja0"]
 diffuse_texture = ExtResource("12_1jijn")
@@ -536,6 +537,10 @@ trigger_id = null
 [node name="GameOverTrigger" parent="Part3" unique_id=991451872 instance=ExtResource("18_sqs0x")]
 position = Vector2(864, 345)
 previousCheckpoint = 2
+
+[node name="Lever" parent="Part3" unique_id=1416459769 node_paths=PackedStringArray("actionables") instance=ExtResource("20_vy400")]
+position = Vector2(721, 255)
+actionables = [NodePath("../DoorsFolder/SideDoor4")]
 
 [node name="Part4" type="Node2D" parent="." unique_id=1859743131]
 
