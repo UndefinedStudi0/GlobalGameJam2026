@@ -11,8 +11,6 @@ enum THROW_STATE {
 @export var super_throw_vect = Vector2(80, -350)
 @export var hp_bar: HPBar = null
 
-var detached_music = AudioStreamPlayer2D.new()
-var attached_music = AudioStreamPlayer2D.new()
 var throw_sfx = AudioStreamPlayer2D.new()
 var catch_sfx = AudioStreamPlayer2D.new()
 var fall_sfx = AudioStreamPlayer2D.new()
@@ -41,13 +39,9 @@ func _ready() -> void:
 
 	print("camera position ", $Camera2D.position)	
 
-	detached_music.stream = load("res://Assets/MASK sombre v2.mp3")
-	attached_music.stream = load("res://Assets/MASK puzzle v2.mp3")
 	throw_sfx.stream = load("res://Assets/MASK_lance.mp3")
 	catch_sfx.stream = load("res://Assets/MASK_mis.mp3")
 	fall_sfx.stream = load("res://Assets/MASK_degats.mp3")
-	add_child(detached_music)
-	add_child(attached_music)
 	add_child(throw_sfx)
 	add_child(catch_sfx)
 	add_child(fall_sfx)
@@ -131,8 +125,7 @@ func jiggle():
 	for npc in npcs:
 		npc.getJigglyWith(self)
 
-	detached_music.play()
-	attached_music.stop()
+	Audio.play("detached")
 	#sfx_player.play()
 	
 	if jiggle_callback != null :
@@ -142,11 +135,10 @@ func attach(entity, collisionShape):
 	if attachedTo:
 		#Cannot attach to multiple NPCs
 		return false
-	detached_music.stop()
 	catch_sfx.play()
 	if throwState == THROW_STATE.NOT_THROWN:
-		attached_music.play()
-		detached_music.stop()
+		Audio.cross_fade(0, 0.8, "attached", "detached")
+
 	$AnimationPlayer.play("RESET")
 	#Avoid collisions with NPCs while mask is attached
 	set_collision_layer_value(4, true)
@@ -193,8 +185,7 @@ func hit_floor():
 	print("hit floor")
 	if !attachedTo:
 		hp_bar.decrement()
-		detached_music.play()
-		attached_music.stop()
+		Audio.cross_fade(0, 0.8, "attached", "detached")
 		fall_sfx.play()
 
 func jump():

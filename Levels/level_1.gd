@@ -21,11 +21,13 @@ func _ready() -> void:
 	# enable events for gameover areas	
 	SignalBus.gameover_area_triggered.connect(_on_gameover_area_body_enter)
 	
-	Audio._setup_level("museum")
-	Audio.fadein_safe()
-
 	$Part4/WinDoor.animation_end_callback = end_game_screen
-	
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("mute"):
+		print("stop all")
+		Audio.stop_all()
+		
 func end_game_screen():
 	LevelProgress.restart()
 	get_tree().change_scene_to_file("res://Levels/WinScene.tscn")
